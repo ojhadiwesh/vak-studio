@@ -310,6 +310,12 @@ h1.title em{font-style:normal;background:var(--v-grad);-webkit-background-clip:t
 .toast{display:flex;gap:12px;align-items:flex-start;width:340px;background:var(--v-pop);backdrop-filter:blur(16px);border:1px solid var(--hair2);border-radius:var(--r4);padding:12px 14px;box-shadow:0 20px 50px -12px rgba(0,0,0,.85);animation:tin .3s var(--e)}
 @keyframes tin{from{opacity:0;transform:translateY(10px)}}
 .toast .ti{width:28px;height:28px;border-radius:9px;background:var(--v-grad);color:#fff;display:grid;place-items:center;flex:none} .toast b{font-weight:600;font-size:13px;display:block} .toast span{color:var(--t2);font-size:12.5px}
+/* home polish */
+.nav a.soon:after{content:"Soon";margin-left:auto;font-size:10px;font-weight:600;letter-spacing:.04em;color:var(--t4);border:1px solid var(--hair2);border-radius:99px;padding:1px 6px}
+.foot{margin:56px 0 8px;padding:22px 0 6px;border-top:1px solid var(--hair);display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:start}
+.foot .fl{display:flex;align-items:center;gap:10px} .foot .fmk{width:30px;height:30px;border-radius:9px;background:var(--v-grad);display:grid;place-items:center;color:#fff;font:600 15px/1 var(--dev);flex:none}
+.foot .fl b{display:block;font:700 14px var(--v-font-display)} .foot .fl span{display:block;font-size:11.5px;color:var(--t3)}
+.foot p{margin:0;font-size:12px;line-height:1.6;color:var(--t3);max-width:760px}
 /* film page: about, more films, look bar */
 .lookbar{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px} .lookbar::-webkit-scrollbar{display:none}
 .lookbar .seg2{flex:none} .lookbar .lv{flex:none}
@@ -339,7 +345,13 @@ h1.title em{font-style:normal;background:var(--v-grad);-webkit-background-clip:t
   .top [data-soon="Upload"],.thm{display:none}
   .theatre{padding:14px 14px 30px} .fhead h1{font-size:25px} .fhead .actions{width:100%}
   .prov{grid-template-columns:auto minmax(0,1fr)} .prov .btn{display:none}
-  .fabout{grid-template-columns:1fr} .frow{grid-auto-columns:170px}}
+  .fabout{grid-template-columns:1fr} .frow{grid-auto-columns:170px}
+  .nav a.on:before,.nav a.soon:after{display:none}
+  .starts{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;margin-left:-14px;margin-right:-14px;padding:0 14px} .starts::-webkit-scrollbar{display:none} .starts button,.starts .lb{flex:none}
+  .gal{grid-template-columns:1fr;gap:20px} .card .mt .d{font-size:14px}
+  .tiles{grid-template-columns:1fr} .tile .im{height:110px}
+  .filters{overflow-x:auto;scrollbar-width:none;max-width:100%} .filters button{flex:none}
+  .foot{grid-template-columns:1fr;gap:12px;margin-top:40px}}
 </style>
 </head>
 <body>
@@ -389,12 +401,12 @@ h1.title em{font-style:normal;background:var(--v-grad);-webkit-background-clip:t
       <a data-go="home" data-scroll="explore" data-n="explore"><svg class="i"><use href="#compass"/></svg>Explore</a>
       <div class="h">Create</div>
       <a data-go="ws" data-n="ws"><svg class="i"><use href="#film"/></svg>Chant to film</a>
-      <a data-soon="Reel maker"><svg class="i"><use href="#phone"/></svg>Reel maker</a>
-      <a data-soon="Recitation"><svg class="i"><use href="#mic"/></svg>Recitation</a>
-      <a data-soon="Styles"><svg class="i"><use href="#palette"/></svg>Styles</a>
+      <a data-soon="Reel maker" class="soon"><svg class="i"><use href="#phone"/></svg>Reel maker</a>
+      <a data-soon="Recitation" class="soon"><svg class="i"><use href="#mic"/></svg>Recitation</a>
+      <a data-soon="Styles" class="soon"><svg class="i"><use href="#palette"/></svg>Styles</a>
       <div class="h">Library</div>
       <a data-go="home" data-scroll="explore"><svg class="i"><use href="#folder"/></svg>My films<span class="k" id="nFilms"></span></a>
-      <a data-soon="Chant library"><svg class="i"><use href="#book"/></svg>Chant library</a>
+      <a data-soon="Chant library" class="soon"><svg class="i"><use href="#book"/></svg>Chant library</a>
       <a data-go="ws" data-n="jobs"><svg class="i"><use href="#layers"/></svg>Jobs<span class="live" id="navLive" hidden></span></a>
     </nav>
     <div class="railfoot">
@@ -439,19 +451,19 @@ h1.title em{font-style:normal;background:var(--v-grad);-webkit-background-clip:t
         <div class="starts" id="starts"><span class="lb">Start from</span></div>
       </div>
 
-      <div class="sec"><div><h2>Start with a template</h2><p>Hover to preview. Pick one and make it yours.</p></div></div>
+      <div class="sec"><div><h2>Start with a template</h2><p>Pick one and make it yours: the chant, a style and a voice, ready to generate.</p></div></div>
       <div class="presets" id="presets"></div>
 
       <div class="sec"><div><h2>Create</h2><p>Every tool shares the same chant, voice and meaning layer.</p></div></div>
       <div class="tiles">
         <div class="tile" data-go="ws"><div class="im" style="background-image:url('/static/proto/ya_surya.jpg')"></div><div class="fx"></div><div class="tx"><b><svg class="i"><use href="#film"/></svg>Chant to film</b><span>Text and voice in, a synced film out</span></div><svg class="i go"><use href="#arrow"/></svg></div>
-        <div class="tile" data-soon="Reel maker"><span class="badge ok">New</span><div class="im" style="background-image:url('/static/proto/si_8.jpg')"></div><div class="fx"></div><div class="tx"><b><svg class="i"><use href="#phone"/></svg>Reel maker</b><span>A 9:16 cut with a hook and captions</span></div><svg class="i go"><use href="#arrow"/></svg></div>
-        <div class="tile" data-soon="Recitation"><div class="im" style="background-image:url('/static/proto/ya_peace.jpg')"></div><div class="fx"></div><div class="tx"><b><svg class="i"><use href="#mic"/></svg>Recitation</b><span>Align a recording to every word</span></div><svg class="i go"><use href="#arrow"/></svg></div>
+        <div class="tile" data-soon="Reel maker"><span class="badge mut">Soon</span><div class="im" style="background-image:url('/static/proto/si_8.jpg')"></div><div class="fx"></div><div class="tx"><b><svg class="i"><use href="#phone"/></svg>Reel maker</b><span>A 9:16 cut with a hook and captions</span></div><svg class="i go"><use href="#arrow"/></svg></div>
+        <div class="tile" data-soon="Recitation"><span class="badge mut">Soon</span><div class="im" style="background-image:url('/static/proto/ya_peace.jpg')"></div><div class="fx"></div><div class="tx"><b><svg class="i"><use href="#mic"/></svg>Recitation</b><span>Align a recording to every word</span></div><svg class="i go"><use href="#arrow"/></svg></div>
         <div class="tile" data-soon="AI video"><span class="badge pro">Pro</span><div class="im" style="background-image:url('/static/proto/ai_c.jpg')"></div><div class="fx"></div><div class="tx"><b><svg class="i"><use href="#spark"/></svg>AI video</b><span>Painted styles rendered on a GPU</span></div><svg class="i go"><use href="#arrow"/></svg></div>
       </div>
 
-      <div class="sec" id="explore"><div><h2>Explore</h2><p>Hover to preview. Open any film to follow every word.</p></div>
-        <div class="filters" id="filters"><button class="on" data-f="all">All</button><button data-f="film">Films</button><button data-f="narr">Narrated</button><button data-f="reel">Reels</button><button data-f="studio">Yours</button></div></div>
+      <div class="sec" id="explore"><div><h2>Explore</h2><p>Open any film to follow every word, tap a word for its meaning, or switch its look.</p></div>
+        <div class="filters" id="filters"><button class="on" data-f="all">All</button><button data-f="film">Films</button><button data-f="narr">Narrated</button><button data-f="reel">Reels</button><button data-f="studio">Community</button></div></div>
       <div class="gal" id="gal"></div>
 
       <div class="sec"><div><h2>Reverent by design</h2><p>What makes a Vāk film trustworthy.</p></div></div>
@@ -460,6 +472,11 @@ h1.title em{font-style:normal;background:var(--v-grad);-webkit-background-clip:t
         <div><b><span class="ico"><svg class="i"><use href="#text"/></svg></span>No invented stories</b><p>Scenes come from what the words mean. A story is told only when a cited text tells it.</p></div>
         <div><b><span class="ico"><svg class="i"><use href="#users"/></svg></span>Open to a teacher's review</b><p>Translations and word meanings are drafts until a teacher checks them; AI-read chants are marked Interpreted and queued for review.</p></div>
       </div>
+      <footer class="foot">
+        <div class="fl"><span class="fmk">वा</span><div><b>Vāk</b><span>Understand what you chant</span></div></div>
+        <p>Texts and translations are drafts for learning, not scripture; a teacher's review is pending. Recordings and voices are credited in each chant's sources.
+          AI voices: ElevenLabs. Readings and stories: Claude. Built for the Art of Living buildathon, November 2026.</p>
+      </footer>
     </div></section>
 
     <section class="page" id="p-ws"><div class="ws">
@@ -733,7 +750,7 @@ function renderGal() {
   const fs = FILMS.filter(f => filt === 'all' || (filt === 'film' && f.kind === 'film') || (filt === 'narr' && f.narrated) || (filt === 'reel' && f.kind === 'reel') || (filt === 'studio' && f.kind === 'studio'));
   $('#gal').innerHTML = fs.map(f => {
     const free = ['shadow_puppet', 'silhouette'].includes(f.style);
-    const tags = [f.live ? 'Live' : f.kind === 'reel' ? 'Reel' : f.style ? (free ? 'Free style' : 'AI video') : '', f.narrated ? 'Narrated' : '', f.kind === 'studio' ? 'Yours' : ''].filter(Boolean);
+    const tags = [f.live ? 'Live' : f.kind === 'reel' ? 'Reel' : f.style ? (free ? 'Free style' : 'AI video') : '', f.narrated ? 'Narrated' : '', f.kind === 'studio' ? 'Community' : ''].filter(Boolean);
     return `<div class="card" data-id="${f.id}"><div class="th" style="background-image:url('${posterOf(f)}')">
       <video muted loop playsinline preload="none" data-src="${f.video}"></video><div class="tl">${tags.map(t => `<span>${t}</span>`).join('')}</div>
       <span class="dur">${fmt(f.duration)}</span><div class="prog"></div></div>
