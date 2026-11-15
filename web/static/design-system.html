@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en" class="v-root">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vāk design system</title>
+<link rel="stylesheet" href="/static/vak-ds.css">
+<style>
+body{margin:0;background:var(--v-bg);color:var(--v-t-1)}
+.ds{max-width:1160px;margin:0 auto;padding:0 32px 120px}
+.hd{position:relative;overflow:hidden;padding:72px 0 56px;border-bottom:1px solid var(--v-line)}
+.hd .v-aura{inset:-40% -10% 0}
+.hd h1{position:relative;font-size:var(--v-fs-hero);margin:14px 0 10px}
+.hd p{position:relative;max-width:620px;color:var(--v-t-2);font-size:var(--v-fs-lg);margin:0;line-height:1.6}
+.bar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:12px;height:60px;background:var(--v-glass);backdrop-filter:blur(16px);border-bottom:1px solid var(--v-line);margin:0 -32px;padding:0 32px}
+.bar nav{display:flex;gap:2px;flex-wrap:wrap} .bar nav a{color:var(--v-t-2);text-decoration:none;font-size:var(--v-fs-sm);padding:6px 10px;border-radius:99px} .bar nav a:hover{color:var(--v-t-1);background:var(--v-s-2)}
+.logo{display:flex;align-items:center;gap:10px;font:700 17px var(--v-font-display);letter-spacing:-.02em}
+.mk{width:30px;height:30px;border-radius:10px;background:var(--v-grad);display:grid;place-items:center;color:#fff;font:18px/1 var(--v-font-chant);box-shadow:0 6px 18px -6px rgba(242,56,122,.7)}
+section{padding:56px 0 8px} section>h2{font:700 var(--v-fs-h2)/1.1 var(--v-font-display);letter-spacing:-.03em;margin:0 0 6px} section>p.lead{color:var(--v-t-2);margin:0 0 24px;max-width:680px}
+h3{font:600 var(--v-fs-md) var(--v-font-ui);margin:28px 0 12px;color:var(--v-t-2)}
+.grid{display:grid;gap:14px} .g2{grid-template-columns:repeat(2,minmax(0,1fr))} .g3{grid-template-columns:repeat(3,minmax(0,1fr))} .g4{grid-template-columns:repeat(4,minmax(0,1fr))} .g5{grid-template-columns:repeat(5,minmax(0,1fr))} .g6{grid-template-columns:repeat(6,minmax(0,1fr))}
+.box{padding:20px;border-radius:var(--v-r-lg);background:var(--v-s-1);border:1px solid var(--v-line)}
+.sw{border-radius:var(--v-r-md);overflow:hidden;border:1px solid var(--v-line);background:var(--v-s-1)} .sw .c{height:76px} .sw .m{padding:10px 12px} .sw b{display:block;font-size:var(--v-fs-sm)} .sw code{font-size:11px;color:var(--v-t-3)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.spec{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;align-items:baseline;padding:14px 0;border-top:1px solid var(--v-line)} .spec:first-child{border-top:0}
+.spec code{font-size:11.5px;color:var(--v-t-3)}
+.principles .box b{display:block;font:700 18px var(--v-font-display);letter-spacing:-.02em;margin:10px 0 6px} .principles .box p{margin:0;color:var(--v-t-2);font-size:var(--v-fs-sm);line-height:1.6}
+.pn{width:30px;height:30px;border-radius:10px;background:var(--v-grad-soft);display:grid;place-items:center;font:700 14px var(--v-font-display);color:var(--v-acc-ink)}
+.do{border-left:3px solid var(--v-success);padding:4px 0 4px 14px;margin:6px 0;font-size:var(--v-fs-sm);color:var(--v-t-2)} .dont{border-left:3px solid var(--v-danger);padding:4px 0 4px 14px;margin:6px 0;font-size:var(--v-fs-sm);color:var(--v-t-2)}
+.motion{display:flex;align-items:center;gap:16px} .motion .track{flex:1;height:36px;border-radius:99px;background:var(--v-s-2);position:relative;overflow:hidden}
+.motion .dot{position:absolute;top:6px;left:6px;width:24px;height:24px;border-radius:50%;background:var(--v-grad)}
+.motion.go .dot{left:calc(100% - 30px)}
+svg.i{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:900px){.g3,.g4,.g5,.g6{grid-template-columns:repeat(2,minmax(0,1fr))}.g2{grid-template-columns:1fr}.hd h1{font-size:44px}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="v-grad-stroke" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#ffb52e"/><stop offset=".5" stop-color="#f2387a"/><stop offset="1" stop-color="#7b5cff"/></linearGradient></defs>
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></symbol>
+  <symbol id="mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol><symbol id="play" viewBox="0 0 24 24"><path d="M7 4.8v14.4l12-7.2z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="shield" viewBox="0 0 24 24"><path d="M12 3 4.5 6v6c0 4.5 3.2 7.8 7.5 9 4.3-1.2 7.5-4.5 7.5-9V6z"/><path d="m9 12 2 2 4-4"/></symbol><symbol id="check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol><symbol id="moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+  <symbol id="bolt" viewBox="0 0 24 24"><path d="M13 3 5 14h6l-1 7 8-11h-6z"/></symbol></svg>
+<div class="ds">
+  <div class="bar"><div class="logo"><span class="mk">वा</span>Vāk design system</div><nav><a href="#principles">Principles</a><a href="#color">Colour</a><a href="#type">Type</a><a href="#components">Components</a><a href="#media">Media</a><a href="#learning">Learning</a><a href="#feedback">Feedback</a><a href="#motion">Motion</a></nav><span style="flex:1"></span>
+    <div class="v-seg" id="theme"><button data-t="dark"><svg class="i"><use href="#moon"/></svg></button><button data-t="system">Auto</button><button data-t="light"><svg class="i"><use href="#sun"/></svg></button></div></div>
+
+  <header class="hd"><div class="v-aura"></div>
+    <span class="v-badge pro" style="position:relative">Utsav · v1</span>
+    <h1 class="v-display">Bold like a creator app.<br><span class="v-grad-text">Rooted like a chant.</span></h1>
+    <p>One set of tokens for Vāk's web app, player and share cards. The interface is a modern creative tool: neutral surfaces, big media, a glowing gradient for actions. The Indian character lives in three places only: the brand gradient's pigments, the chant typography and a few thin motifs.</p>
+  </header>
+
+  <section id="principles" class="principles"><h2>Principles</h2><p class="lead">Five rules every screen follows.</p>
+    <div class="grid g5">
+      <div class="box"><span class="pn">1</span><b>Media first</b><p>Films and frames are the colour. The interface stays neutral so they can shine.</p></div>
+      <div class="box"><span class="pn">2</span><b>One glow</b><p>The gradient marks what creates or what's live: Generate, progress, the lit word. Never decoration.</p></div>
+      <div class="box"><span class="pn">3</span><b>The chant leads</b><p>Devanagari is the hero type. Only the chant, the logo and word chips use it.</p></div>
+      <div class="box"><span class="pn">4</span><b>Trust is visible</b><p>Every chant and film shows its provenance seal: Verified, Identified or Interpreted.</p></div>
+      <div class="box"><span class="pn">5</span><b>Calm motion</b><p>Quick to respond, slow to settle. Playful on hover, never bouncy on sacred text.</p></div>
+    </div></section>
+
+  <section id="color"><h2>Colour</h2><p class="lead">Brand pigments come from Indian festival colours: genda (marigold), kesar (saffron), rani pink and neel. Neutrals carry 95% of the interface and swap with the mode.</p>
+    <h3>Brand gradient</h3>
+    <div class="box" style="padding:0;overflow:hidden"><div style="height:110px;background:var(--v-grad)"></div><div style="padding:14px 18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px"><b>--v-grad</b><code style="color:var(--v-t-3);font-size:12px">marigold #ffb52e → saffron #ff6a3d → rani #f2387a → neel #7b5cff</code></div></div>
+    <h3>Pigments</h3>
+    <div class="grid g5">
+      <div class="sw"><div class="c" style="background:var(--v-marigold)"></div><div class="m"><b>Genda · marigold</b><code>--v-marigold</code></div></div>
+      <div class="sw"><div class="c" style="background:var(--v-saffron)"></div><div class="m"><b>Kesar · saffron</b><code>--v-saffron</code></div></div>
+      <div class="sw"><div class="c" style="background:var(--v-rani)"></div><div class="m"><b>Rani pink</b><code>--v-rani</code></div></div>
+      <div class="sw"><div class="c" style="background:var(--v-neel)"></div><div class="m"><b>Neel · indigo</b><code>--v-neel</code></div></div>
+      <div class="sw"><div class="c" style="background:var(--v-peacock)"></div><div class="m"><b>Mor · peacock</b><code>--v-peacock</code></div></div>
+    </div>
+    <h3>Neutrals (this mode)</h3>
+    <div class="grid g6">
+      <div class="sw"><div class="c" style="background:var(--v-bg)"></div><div class="m"><b>Canvas</b><code>--v-bg</code></div></div>
+      <div class="sw"><div class="c" style="background:var(--v-s-1)"></div><div class="m"><b>Surface 1</b><code>--v-s-1</code></div></div>
+      <div class="sw"><div class="c" style="background:var(--v-s-2)"></div><div class="m"><b>Surface 2</b><code>--v-s-2</code></div></div>
+      <div class="sw"><div class="c" style="background:var(--v-s-3)"></div><div class="m"><b>Surface 3</b><code>--v-s-3</code></div></div>
+      <div class="sw"><div class="c" style="background:var(--v-t-2)"></div><div class="m"><b>Text 2</b><code>--v-t-2</code></div></div>
+      <div class="sw"><div class="c" style="background:var(--v-t-1)"></div><div class="m"><b>Text 1</b><code>--v-t-1</code></div></div>
+    </div>
+    <h3>Provenance</h3>
+    <div class="row"><span class="v-seal verified"><span class="v-seal-dot"><svg class="i"><use href="#check"/></svg></span>Verified · reviewed by a teacher</span><span class="v-seal identified"><span class="v-seal-dot"><svg class="i"><use href="#shield"/></svg></span>Identified · source cited</span><span class="v-seal interpreted"><span class="v-seal-dot"><svg class="i"><use href="#spark"/></svg></span>Interpreted · needs review</span></div>
+  </section>
+
+  <section id="type"><h2>Type</h2><p class="lead">Three voices. Bricolage Grotesque for headlines (bold, a little quirky), Inter for the interface, Tiro Devanagari Sanskrit for the chant.</p>
+    <div class="box">
+      <div class="spec"><code>Hero · Bricolage 700 · 64</code><div class="v-display" style="font-size:var(--v-fs-hero)">Understand what you chant</div></div>
+      <div class="spec"><code>H1 · Bricolage 700 · 44</code><div class="v-display" style="font-size:var(--v-fs-h1)">The Gāyatrī Mantra</div></div>
+      <div class="spec"><code>H2 · Bricolage 700 · 30</code><div class="v-display" style="font-size:var(--v-fs-h2)">Explore films</div></div>
+      <div class="spec"><code>Chant · Tiro · 34</code><div class="v-chant" style="font-size:var(--v-fs-chant-lg)">भर्गो देवस्य धीमहि</div></div>
+      <div class="spec"><code>IAST · Inter italic · 19</code><div class="v-iast" style="font-size:var(--v-fs-xl)">bhargo devasya dhīmahi</div></div>
+      <div class="spec"><code>Body · Inter 400 · 14</code><div>the radiance of the divine, we meditate upon. Word timing comes from the recording.</div></div>
+      <div class="spec"><code>Label · Inter 600 · 12.5</code><div style="font-weight:600;font-size:var(--v-fs-sm)">Shadow puppets · about 3 min · free</div></div>
+    </div></section>
+
+  <section id="components"><h2>Components</h2><p class="lead">Pill-shaped and roomy. One gradient button per view.</p>
+    <h3>Buttons</h3>
+    <div class="row"><button class="v-btn primary lg"><svg class="i"><use href="#bolt"/></svg>Generate</button><button class="v-btn primary">Generate film</button><button class="v-btn solid">New film</button><button class="v-btn">Remix style</button><button class="v-btn ghost">Cancel</button><button class="v-btn sm">Small</button><button class="v-btn icon" aria-label="Play"><svg class="i"><use href="#play"/></svg></button></div>
+    <h3>Chips and badges</h3>
+    <div class="row"><span class="v-chip"><span class="v-sw" style="background-image:url('/static/proto/sp_sun.jpg')"></span>Shadow puppets</span><span class="v-chip on"><svg class="i"><use href="#mic"/></svg>Library recording</span><span class="v-chip">16:9</span>
+      <span class="v-badge free">Free</span><span class="v-badge pro">Pro</span><span class="v-badge verified">Verified</span><span class="v-badge identified">Identified</span><span class="v-badge interpreted">Interpreted</span><span class="v-badge">Draft</span><span class="v-kbd">Ctrl K</span></div>
+    <h3>Composer</h3>
+    <div class="v-composer"><textarea placeholder="ॐ भूर्भुवः स्वः ॥&#10;तत्सवितुर्वरेण्यं भर्गो देवस्य धीमहि ।"></textarea>
+      <div class="row" style="padding:12px 14px;border-top:1px solid var(--v-line)"><span class="v-chip"><span class="v-sw" style="background-image:url('/static/proto/sp_sun.jpg')"></span>Shadow puppets</span><span class="v-chip"><svg class="i"><use href="#mic"/></svg>Upload recording</span><span class="v-chip">16:9</span><span style="flex:1"></span><span class="v-faint" style="font-size:12px">Free · about 3 min</span><button class="v-btn primary">Generate<svg class="i"><use href="#arrow"/></svg></button></div></div>
+    <h3>Controls</h3>
+    <div class="row"><div class="v-seg"><button class="on">Recording</button><button>Upload</button><button>Recite</button></div><span class="v-toggle on" onclick="this.classList.toggle('on')"><i></i>Loop line</span><span class="v-toggle" onclick="this.classList.toggle('on')"><i></i>Practice speed</span><input class="v-input" style="max-width:280px" placeholder="Title, e.g. Morning Gāyatrī"></div>
+  </section>
+
+  <section id="media"><h2>Media</h2><p class="lead">Big, rounded, hover-to-play. Presets are tall cards with a bold name: the "effects" shelf of a creator app.</p>
+    <h3>Presets</h3>
+    <div class="grid g4" id="presets"></div>
+    <h3>Film tiles</h3>
+    <div class="grid g3" id="tiles"></div>
+  </section>
+
+  <section id="learning"><h2>Learning</h2><p class="lead">The lit word is Vāk's signature: sung words in full ink, the current word glowing, upcoming words faint.</p>
+    <div class="grid g2">
+      <div class="box v-line-now"><div class="v-faint" style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Verse 1 · line 3 of 4</div>
+        <div class="v-chant" style="margin-top:6px"><span class="v-w sung">भर्गो</span> <span class="v-w now">देवस्य</span> <span class="v-w up">धीमहि</span></div>
+        <div class="v-iast" style="font-size:18px">bhargo <span style="color:var(--v-acc-ink)">devasya</span> dhīmahi</div><div style="margin-top:6px;font-size:16px">the radiance of the divine, we meditate upon</div></div>
+      <div class="box"><div class="v-faint" style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px">Word chips</div>
+        <span class="v-wchip">ॐ</span><span class="v-wchip">भूर्भुवः</span><span class="v-wchip now">स्वः</span><span class="v-wchip">तत्सवितुर्वरेण्यं</span><span class="v-wchip missing">उर्वारुकमिव</span>
+        <p class="v-faint" style="font-size:12px;margin:10px 0 0">Dashed: not in the glossary yet. A teacher can add its meaning.</p></div>
+    </div></section>
+
+  <section id="feedback"><h2>Feedback</h2><p class="lead">Progress always shows the stage in words. Loaders use a thin mandala; empty states use a kolam dot grid.</p>
+    <div class="grid g3">
+      <div class="v-toast"><div class="v-toast-ic"><svg class="i"><use href="#bolt"/></svg></div><div><b style="font-size:13px">Film queued</b><div class="v-muted" style="font-size:12.5px">Shadow puppets · about 3 minutes.</div></div></div>
+      <div class="box"><div class="row" style="justify-content:space-between;font-size:12.5px"><b>Animating frame 620 of 1039</b><span class="v-faint">62%</span></div><div class="v-progress" style="margin-top:10px"><i style="width:62%"></i></div></div>
+      <div class="box row" style="gap:16px"><svg class="v-mandala" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18"/><circle cx="20" cy="20" r="12"/><circle cx="20" cy="20" r="6"/></svg><div><b style="font-size:13px">Reading the chant</b><div class="v-faint" style="font-size:12px">Splitting lines and finding meanings…</div></div></div>
+      <div class="box v-kolam" style="grid-column:span 2;text-align:center;padding:40px"><div class="v-display" style="font-size:22px">Your first film starts here</div><p class="v-muted" style="margin:6px 0 16px">Paste a chant or pick one from the library.</p><button class="v-btn primary">Create a film</button></div>
+      <div class="box"><div class="v-skel" style="aspect-ratio:16/9"></div><div class="v-skel" style="height:12px;width:60%;margin-top:12px"></div><div class="v-skel" style="height:10px;width:35%;margin-top:8px"></div></div>
+    </div></section>
+
+  <section id="motion"><h2>Motion</h2><p class="lead">Click a row to play it.</p>
+    <div class="box">
+      <div class="spec"><code>Fast · 120 ms</code><div class="motion" style="--d:120ms"><div class="track"><div class="dot" style="transition:left 120ms var(--v-ease)"></div></div></div></div>
+      <div class="spec"><code>Base · 200 ms ease-out</code><div class="motion"><div class="track"><div class="dot" style="transition:left 200ms var(--v-ease)"></div></div></div></div>
+      <div class="spec"><code>Slow · 420 ms ease-out</code><div class="motion"><div class="track"><div class="dot" style="transition:left 420ms var(--v-ease)"></div></div></div></div>
+      <div class="spec"><code>Spring · toggles only</code><div class="motion"><div class="track"><div class="dot" style="transition:left 500ms var(--v-spring)"></div></div></div></div>
+    </div>
+    <h3>Do and don't</h3>
+    <div class="grid g2"><div class="box"><div class="do">Use the gradient for Generate, progress and the lit word.</div><div class="do">Let films and frames carry the colour.</div><div class="do">Show Devanagari large, with IAST and meaning beneath.</div></div>
+      <div class="box"><div class="dont">Gradient text on body copy or more than one gradient button per view.</div><div class="dont">Deity images, temple clip-art or ornament on controls.</div><div class="dont">Bouncy or spinning motion on the chant text.</div></div></div>
+  </section>
+</div>
+<script>
+const root = document.documentElement;
+const setT = t => { if (t === 'system') root.removeAttribute('data-theme'); else root.setAttribute('data-theme', t); try { localStorage.setItem('vak-theme', t); } catch (e) {} document.querySelectorAll('#theme button').forEach(b => b.classList.toggle('on', b.dataset.t === t)); };
+let saved = 'system'; try { saved = localStorage.getItem('vak-theme') || 'system'; } catch (e) {} setT(saved);
+document.querySelectorAll('#theme button').forEach(b => b.onclick = () => setT(b.dataset.t));
+document.querySelectorAll('.motion').forEach(m => m.closest('.spec').onclick = () => m.classList.toggle('go'));
+const P = [['Sunrise mantra', 'Shadow puppets · free', 'sp_sun', '/media/gayatri/renders/gayatri_shadow_puppet.mp4'], ['Mantra in light', 'Sacred geometry · free', 'si_116', '/media/gayatri/vishvamitra/renders/vishvamitra_silhouette.mp4#t=112'],
+  ['Story of the seer', 'Silhouette · narrated', 'si_8', '/media/gayatri/vishvamitra/renders/vishvamitra_silhouette.mp4#t=20'], ['Painted dawn', 'Ravi Varma · Pro', 'ai_b', '/media/gayatri/renders/gayatri_ravi_varma.mp4#t=20']];
+document.getElementById('presets').innerHTML = P.map(([n, d, im, v]) => `<div class="v-preset" style="background-image:url('/static/proto/${im}.jpg')"><video muted loop playsinline preload="none" data-src="${v}"></video><span class="v-preset-use v-btn sm solid">Use</span><div class="v-preset-label"><b>${n}</b><span>${d}</span></div></div>`).join('');
+const T = [['The Gāyatrī Mantra', 'Shadow puppets', 'sp_offer', 'Free'], ['Viśvāmitra', 'Silhouette · narrated', 'si_116', 'Narrated'], ['Mahāmṛtyuñjaya', 'Shadow puppets · recited', 'mm', 'Yours']];
+document.getElementById('tiles').innerHTML = T.map(([n, d, im, tag]) => `<div class="v-tile" style="background-image:url('/static/proto/${im}.jpg')"><div class="v-tile-top"><span class="v-badge glass">${tag}</span></div><div class="v-tile-cap"><div><b>${n}</b><small>${d}</small></div><span class="v-badge glass">0:49</span></div></div>`).join('');
+document.querySelectorAll('.v-preset').forEach(c => { const v = c.querySelector('video'); c.onmouseenter = () => { if (!v.src) v.src = v.dataset.src; v.play().then(() => c.classList.add('playing')).catch(() => {}); }; c.onmouseleave = () => { v.pause(); c.classList.remove('playing'); }; });
+</script>
+</body>
+</html>

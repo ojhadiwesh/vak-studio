@@ -1,0 +1,135 @@
+{
+ "_about": "Word glossary (knowledge layer): Devanagari word as chanted (sandhi form) -> meaning. Shared by every chant. Meanings are our own drafts and need a teacher's review before public use.",
+ "ॐ": {
+  "meaning": "Om, the sacred syllable (praṇava)",
+  "split": "om"
+ },
+ "भूर्भुवः": {
+  "meaning": "the earth and the middle region (atmosphere)",
+  "split": "bhūḥ bhuvaḥ"
+ },
+ "स्वः": {
+  "meaning": "heaven, the realm of light",
+  "split": "svaḥ"
+ },
+ "तत्सवितुर्वरेण्यं": {
+  "meaning": "that most excellent (worthy to be chosen) light of Savitṛ, the Sun",
+  "split": "tat savituḥ vareṇyam"
+ },
+ "भर्गो": {
+  "meaning": "radiance, effulgent splendour",
+  "split": "bhargaḥ"
+ },
+ "देवस्य": {
+  "meaning": "of the god, of the divine",
+  "split": "devasya"
+ },
+ "धीमहि": {
+  "meaning": "we meditate upon",
+  "split": "dhīmahi"
+ },
+ "धियो": {
+  "meaning": "thoughts, minds, intellects",
+  "split": "dhiyaḥ"
+ },
+ "यो": {
+  "meaning": "who, which (that light)",
+  "split": "yaḥ"
+ },
+ "नः": {
+  "meaning": "our",
+  "split": "naḥ"
+ },
+ "प्रचोदयात्": {
+  "meaning": "may it inspire, impel, awaken",
+  "split": "pracodayāt"
+ },
+ "त्र्यम्बकं": {
+  "meaning": "the three-eyed one (Śiva)",
+  "split": "tryambakam"
+ },
+ "यजामहे": {
+  "meaning": "we worship, we offer to",
+  "split": "yajāmahe"
+ },
+ "सुगन्धिं": {
+  "meaning": "the fragrant one",
+  "split": "sugandhim"
+ },
+ "पुष्टिवर्धनम्": {
+  "meaning": "who increases nourishment and well-being",
+  "split": "puṣṭi-vardhanam"
+ },
+ "उर्वारुकमिव": {
+  "meaning": "like a (ripe) cucumber",
+  "split": "urvārukam iva"
+ },
+ "बन्धनान्": {
+  "meaning": "from its bond (the vine)",
+  "split": "bandhanāt"
+ },
+ "मृत्योर्मुक्षीय": {
+  "meaning": "may I be freed from death",
+  "split": "mṛtyoḥ mukṣīya"
+ },
+ "मामृतात्": {
+  "meaning": "not from immortality",
+  "split": "mā amṛtāt"
+ },
+ "नमः": {
+  "meaning": "salutation, bowing to",
+  "split": "namaḥ"
+ },
+ "शिवाय": {
+  "meaning": "to Śiva, the auspicious one",
+  "split": "śivāya"
+ },
+ "नमो": {
+  "meaning": "salutation, bowing to",
+  "split": "namaḥ"
+ },
+ "नारायणाय": {
+  "meaning": "to Nārāyaṇa (Viṣṇu), the refuge of all beings",
+  "split": "nārāyaṇāya"
+ },
+ "गं": {
+  "meaning": "gaṃ, the seed syllable (bīja) of Gaṇeśa",
+  "split": "gaṃ"
+ },
+ "गणपतये": {
+  "meaning": "to Gaṇapati, lord of the hosts",
+  "split": "gaṇa-pataye"
+ },
+ "हरे": {
+  "meaning": "O Hari (the divine, the one who removes); also read as Harā, the divine energy",
+  "split": "hare"
+ },
+ "कृष्ण": {
+  "meaning": "O Kṛṣṇa, the all-attractive",
+  "split": "kṛṣṇa"
+ },
+ "राम": {
+  "meaning": "O Rāma, the one who delights",
+  "split": "rāma"
+ },
+ "शान्तिः": {
+  "meaning": "peace",
+  "split": "śāntiḥ"
+ },
+ "लोकाः": {
+  "meaning": "the worlds, all beings",
+  "split": "lokāḥ"
+ },
+ "समस्ताः": {
+  "meaning": "all, everywhere",
+  "split": "samastāḥ"
+ },
+ "सुखिनो": {
+  "meaning": "happy",
+  "split": "sukhinaḥ"
+ },
+ "भवन्तु": {
+  "meaning": "may they be",
+  "split": "bhavantu"
+ }
+}

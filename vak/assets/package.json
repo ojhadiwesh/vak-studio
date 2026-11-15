@@ -1,0 +1,19 @@
+{
+  "name": "assets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.3.0",
+    "@fontsource/tiro-devanagari-sanskrit": "^5.3.0",
+    "p5": "^2.3.4",
+    "p5.brush": "^3.0.0",
+    "playwright": "^1.65.0"
+  }
+}

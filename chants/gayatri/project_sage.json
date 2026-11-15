@@ -1,0 +1,193 @@
+{
+ "title": "Gayatri Mantra",
+ "chant": "chant.txt",
+ "audio": "audio/pixabay_399098.wav",
+ "translations": "translations.json",
+ "style": "art_nouveau",
+ "card": {
+  "kicker": "गायत्री मन्त्रः",
+  "chapter": "Ṛgveda 3.62.10",
+  "title": "The Gāyatrī Mantra",
+  "sub": "Seer Viśvāmitra · a meditation on the light of the Sun"
+ },
+ "characters": {
+  "Viśvāmitra": "The sage Vishvamitra: an elderly rishi with a long white beard and white hair tied in a topknot, bare-chested with a plain ochre cloth over one shoulder and an ochre dhoti, a rudraksha mala, a calm serene face. He is the only person in the picture."
+ },
+ "scenes": [
+  {
+   "id": "V01",
+   "title": "Night: the sage comes down to the river",
+   "units": [],
+   "description": "Night at a wide sacred river. The sage walks down the stone steps of a ghat toward the dark water, seen from behind, holding a small clay diya with an open flame in both hands in front of his chest. A deep indigo sky full of stars and the Milky Way above, reflected in the water. Full-bleed scene, no border.",
+   "motion": "The sage walks steadily down the steps toward the water, the lamp flame swaying in his hands. No other people appear.",
+   "camera": "The camera follows him from behind at a walking pace.",
+   "visual": {
+    "slow": 1.0
+   },
+   "characters": [
+    "Viśvāmitra"
+   ],
+   "reference": [
+    "V07"
+   ]
+  },
+  {
+   "id": "V02",
+   "title": "The lamp on the water",
+   "units": [],
+   "description": "Close view at water level at night: two weathered hands gently set a small clay diya with an open flame onto the dark rippling river, stars reflected in the water. Full-bleed scene, no border.",
+   "motion": "The hands release the lamp, it floats away from them on the current and ripples spread outward in rings.",
+   "camera": "Low camera at water level, slowly tracking the lamp.",
+   "visual": {
+    "slow": 1.01
+   },
+   "start": 10.0,
+   "characters": [
+    "Viśvāmitra"
+   ],
+   "reference": [
+    "V07"
+   ]
+  },
+  {
+   "id": "V03",
+   "title": "The lamp drifts out",
+   "units": [],
+   "description": "Night: a single small clay diya with an open flame, floating drifting on a wide dark river under a vast sky full of stars and the Milky Way, its golden reflection on the water, mist on the far bank. No people.",
+   "motion": "The lamp drifts steadily away across the water and the stars twinkle; its reflection trembles on the ripples. No people or hands appear.",
+   "camera": "The camera rises slowly upward, revealing the vast sky.",
+   "visual": {
+    "slow": 1.0
+   },
+   "start": 14.3
+  },
+  {
+   "id": "V04",
+   "title": "Dawn wakes: birds rise",
+   "units": [
+    1
+   ],
+   "description": "Pre-dawn over the wide river: deep blue sky with the last stars, a pale golden glow on the horizon, mist on the water, a flock of white egrets standing in the shallows. No people.",
+   "motion": "The egrets take off together and fly across the frame low over the misty water, wings beating. No people or hands appear.",
+   "camera": "The camera pans slowly to follow the birds.",
+   "visual": {
+    "slow": 1.0
+   },
+   "start": 18.5
+  },
+  {
+   "id": "V05",
+   "title": "Earth, sky and heaven: he steps into the river",
+   "units": [],
+   "description": "First light. The sage stands waist-deep in the calm river, facing the glowing eastern horizon, seen from behind and slightly to the side, mist around him, a few stars still in the sky.",
+   "motion": "The sage wades slowly forward through the water, the water swirling around his waist, mist drifting past. No other people appear.",
+   "camera": "The camera tracks slowly alongside him.",
+   "visual": {
+    "slow": 1.15
+   },
+   "start": 22.5,
+   "characters": [
+    "Viśvāmitra"
+   ],
+   "reference": [
+    "V07"
+   ]
+  },
+  {
+   "id": "V06",
+   "title": "That most excellent light of Savitṛ",
+   "units": [
+    2
+   ],
+   "description": "The sun bursts over the far horizon of the river, long golden rays fanning across the sky, a blazing path of light on the water, clouds lit gold. No people.",
+   "motion": "The sun rises visibly above the horizon, the rays sweep outward and the light races across the rippling water. No people or hands appear.",
+   "camera": "The camera glides forward low over the water toward the sun.",
+   "visual": {
+    "slow": 1.0
+   },
+   "start": 27.5
+  },
+  {
+   "id": "V07",
+   "title": "We meditate on the radiance: the offering",
+   "units": [
+    3
+   ],
+   "description": "Sunrise. The sage stands waist-deep in the river, seen in three-quarter view from behind, raising cupped hands full of water toward the rising sun as an offering, golden light all around him, mist on the water.",
+   "motion": "He lifts his cupped hands and pours the water back into the river in a glittering stream that catches the sunlight. No other people appear.",
+   "camera": "The camera slowly circles a little around him.",
+   "visual": {
+    "slow": 1.2
+   },
+   "start": 31.75,
+   "characters": [
+    "Viśvāmitra"
+   ]
+  },
+  {
+   "id": "V08",
+   "title": "May it awaken our minds: falling water",
+   "units": [
+    4
+   ],
+   "description": "Extreme close-up at sunrise: two weathered cupped hands of an old man, with a rudraksha bracelet, letting a stream of water pour into a river, every droplet glittering gold, the rising sun blurred behind. Only the hands and forearms are visible.",
+   "motion": "The water pours and splashes into the river, droplets sparkling and scattering.",
+   "camera": "Fixed close-up camera.",
+   "visual": {
+    "slow": 1.0
+   },
+   "start": 37.0,
+   "characters": [
+    "Viśvāmitra"
+   ]
+  },
+  {
+   "id": "V09",
+   "title": "The lotus opens",
+   "units": [],
+   "description": "Morning light on the river: a single pink lotus bud on the golden water among green lotus leaves, sunlight sparkling on the ripples. No people.",
+   "motion": "The lotus bud opens fully into a flower, petals unfolding one after another, as a gentle breeze moves the leaves. No people or hands appear.",
+   "camera": "The camera pushes in toward the flower.",
+   "visual": {
+    "slow": 1.0
+   },
+   "start": 41.0
+  },
+  {
+   "id": "V10",
+   "title": "Morning over the river",
+   "units": [],
+   "description": "Very high, very wide aerial view looking down along a wide sacred river in full morning light: long stone ghat steps and temple spires along the left bank, a few wooden boats on the shining water, golden sunlight on the ripples, and far below a single tiny distant figure in ochre standing waist-deep in the river, smaller than the boats. Full-bleed scene, no border, no close-up figures.",
+   "motion": "Birds fly across the shining river and the boats drift slowly on the current; the water sparkles. No other people appear.",
+   "camera": "The camera rises up and pulls back into a high wide view.",
+   "visual": {
+    "slow": 1.0
+   },
+   "start": 45.0
+  }
+ ],
+ "tune": false,
+ "out": "renders/gayatri_sage.mp4",
+ "audio_mode": "track",
+ "segments": [
+  [
+   18.5,
+   27.5,
+   {
+    "first_word_until": 24.0
+   }
+  ],
+  [
+   27.5,
+   31.75
+  ],
+  [
+   31.75,
+   37.0
+  ],
+  [
+   37.0,
+   44.6
+  ]
+ ]
+}

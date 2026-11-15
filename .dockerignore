@@ -1,0 +1,20 @@
+# Keep in sync with .gitignore / .railwayignore. The film library is not baked in: it comes from the Supabase seed archive.
+.git
+.env
+.env.*
+.venv
+**/__pycache__
+**/node_modules
+**/.vak_cache
+**/renders
+**/clips
+**/_work
+**/master_444
+chants/studio
+examples
+art
+models
+web/data
+*.log
+*.mp4
+*.mov

@@ -1,0 +1,88 @@
+{
+ "identification": {
+  "name": "Karpūragauraṃ (Śiva namaskāra verse sung at the close of āratī)",
+  "source": "",
+  "tradition": "Popular Śaiva devotional verse, widely chanted at the end of āratī in Hindu worship",
+  "confidence": "medium",
+  "notes": "The verse is very well known, but I cannot verify a textual source. Popular attributions, for example to the Yajurveda or to a hymn by Kṛṣṇa in the Mahābhārata, are not confirmed here and should not be cited without checking."
+ },
+ "genre": "stotra",
+ "deity": "shiva",
+ "deity_name": "Śiva (Bhava), with Bhavānī (Pārvatī)",
+ "dhyana": "Śiva, white as camphor, the embodiment of compassion, wearing the king of serpents as a garland, dwelling ever in the lotus of the heart, together with Bhavānī.",
+ "viniyoga": "",
+ "meaning_summary": "I bow to Bhava (Śiva) together with Bhavānī. He is white as camphor and the embodiment of compassion. He is the essence of worldly existence and wears the king of serpents as a garland. He dwells always in the lotus of the heart.",
+ "story": {
+  "has_story": false,
+  "speaker": "",
+  "listener": "",
+  "frame": "",
+  "legend": "",
+  "characters": [],
+  "setting": "",
+  "source": "",
+  "confidence": "unknown"
+ },
+ "lines": [
+  {
+   "devanagari": "कर्पूरगौरं करुणावतारं संसारसारं भुजगेन्द्रहारम् सदा वसन्तं हृदयारविन्दे भवं भवानीसहितं नमामि",
+   "english": "I bow to Bhava (Śiva), together with Bhavānī. He is white as camphor, the embodiment of compassion, the essence of worldly existence, and wears the king of serpents as a garland. He dwells always in the lotus of the heart.",
+   "words": [
+    {
+     "dev": "कर्पूरगौरं",
+     "split": "कर्पूर + गौरम्",
+     "meaning": "white (fair) as camphor"
+    },
+    {
+     "dev": "करुणावतारं",
+     "split": "करुणा + अवतारम्",
+     "meaning": "the embodiment (incarnation) of compassion"
+    },
+    {
+     "dev": "संसारसारं",
+     "split": "संसार + सारम्",
+     "meaning": "the essence of worldly existence (saṃsāra)"
+    },
+    {
+     "dev": "भुजगेन्द्रहारम्",
+     "split": "भुजग + इन्द्र + हारम्",
+     "meaning": "who has the king of serpents as his garland"
+    },
+    {
+     "dev": "सदा",
+     "split": "सदा",
+     "meaning": "always"
+    },
+    {
+     "dev": "वसन्तं",
+     "split": "वसन्तम्",
+     "meaning": "dwelling"
+    },
+    {
+     "dev": "हृदयारविन्दे",
+     "split": "हृदय + अरविन्दे",
+     "meaning": "in the lotus of the heart"
+    },
+    {
+     "dev": "भवं",
+     "split": "भवम्",
+     "meaning": "Bhava (a name of Śiva)"
+    },
+    {
+     "dev": "भवानीसहितं",
+     "split": "भवानी + सहितम्",
+     "meaning": "together with Bhavānī (Pārvatī)"
+    },
+    {
+     "dev": "नमामि",
+     "split": "नमामि",
+     "meaning": "I bow / I offer salutation"
+    }
+   ]
+  }
+ ],
+ "translation_confidence": "high",
+ "caution": "Do not repeat popular claims that this verse comes from the Yajurveda or the Mahābhārata unless a teacher can verify an edition and verse number. 'Saṃsārasāraṃ' is read in different ways: most take it as 'the essence of saṃsāra'. Some explain it as the essence or highest reality behind worldly existence, or as the one who draws devotees out of it. The app shows the full four-pāda verse as a single line; chanters usually pause after each pāda.",
+ "_model": "claude-opus-5-5",
+ "_at": "2026-11-15 13:01"
+}

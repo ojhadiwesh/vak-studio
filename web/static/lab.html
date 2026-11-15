@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en" class="v-root" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vāk style lab</title>
+<link rel="stylesheet" href="/static/vak-ds.css">
+<style>
+body{margin:0;background:#050507;color:var(--v-t-1);font-family:var(--v-font-ui)}
+.wrap{max-width:1320px;margin:0 auto;padding:18px 24px 40px}
+.bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.bar h1{font:700 22px var(--v-font-display);letter-spacing:-.02em;margin:0 12px 0 0}
+.stage{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 0 0 1px rgba(255,255,255,.08),0 40px 120px -40px #000}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.big{position:absolute;left:0;right:0;top:38%;transform:translateY(-50%);text-align:center;font:clamp(40px,7.5vw,118px)/1 var(--v-font-chant);color:#fff6dc;pointer-events:none;
+  text-shadow:0 0 30px rgba(255,200,110,.85),0 0 80px rgba(255,140,60,.55);opacity:0;transition:opacity .35s,transform .6s;mix-blend-mode:screen}
+.big.on{opacity:.95}
+.cap{position:absolute;left:0;right:0;bottom:0;padding:70px 20px 22px;text-align:center;background:linear-gradient(180deg,transparent,rgba(0,0,0,.6));pointer-events:none}
+.cap .d{font:clamp(18px,2.6vw,36px)/1.3 var(--v-font-chant)} .cap .d span{transition:color .2s}
+.cap .d .s{color:#fff} .cap .d .c{color:#ffc14d;text-shadow:0 0 18px rgba(255,180,60,.7)} .cap .d .u{color:rgba(255,255,255,.38)}
+.cap .i{font:italic clamp(12px,1.4vw,18px) var(--v-font-ui);color:rgba(255,255,255,.72);margin-top:4px} .cap .e{font-size:clamp(12px,1.3vw,16px);color:#f3ead8;margin-top:4px}
+.playov{position:absolute;inset:0;display:grid;place-items:center;cursor:pointer;background:rgba(0,0,0,.35);transition:opacity .3s}
+.playov.off{opacity:0;pointer-events:none}
+.playov span{width:84px;height:84px;border-radius:50%;background:var(--v-grad);display:grid;place-items:center;box-shadow:0 20px 60px -10px rgba(242,56,122,.7)}
+.note{color:var(--v-t-3);font-size:12.5px;margin-top:12px;line-height:1.6;max-width:900px}
+.meter{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--v-t-3)} .meter i{display:block;width:120px;height:6px;border-radius:9px;background:var(--v-s-3);overflow:hidden} .meter b{display:block;height:100%;background:var(--v-grad);width:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar"><h1>Style lab</h1>
+    <div class="v-seg" id="styles"><button data-s="nada" class="on">Nāda · cymatics</button><button data-s="gold">Liquid gold</button></div>
+    <div class="v-seg" id="chants"></div>
+    <span style="flex:1"></span>
+    <span class="v-toggle on" id="bigT"><i></i>Word in the centre</span>
+    <span class="meter" id="hud" style="min-width:300px;justify-content:flex-end;font-variant-numeric:tabular-nums"></span>
+    <div class="meter">voice <i><b id="lvl"></b></i></div>
+    <button class="v-btn sm" id="pp">Play</button>
+  </div>
+  <div class="stage" id="stage">
+    <canvas id="c2"></canvas><canvas id="gl"></canvas>
+    <div class="big" id="big"></div>
+    <div class="cap"><div class="d" id="capD"></div><div class="i" id="capI"></div><div class="e" id="capE"></div></div>
+    <div class="playov" id="ov"><span><svg width="30" height="30" viewBox="0 0 24 24"><path d="M7 4.8v14.4l12-7.2z" fill="#fff"/></svg></span></div>
+  </div>
+  <p class="note">Prototype. Both styles run live in your browser and react to the actual audio (Web Audio analysis). Words come from the film's word timings.
+    <b>Nāda</b>: 24,000 grains of sand on a plate that hears the chant: the voice's pitch sets the rings, its brightness (the vowel) sets the petals, a second partial adds a square mode, loudness shakes the plate, and in silence the sand rests. A low, closed hum like Om gives rings with a centre point, as Hans Jenny saw.
+    <b>Liquid gold</b>: pigment flowing in dark water; the voice stirs it, every word blooms a drop of saffron or vermilion.</p>
+</div>
+<audio id="au" crossorigin="anonymous" preload="auto"></audio>
+<script>
+const $ = s => document.querySelector(s);
+const CHANTS = [
+  { name: 'Gāyatrī', audio: '/media/gayatri/audio/pixabay_399098.wav', film: 'gayatri~renders~gayatri_shadow_puppet.mp4' },
+  { name: 'Oṃ Namaḥ Śivāya', audio: '/media/studio/om_namah_sivaya_1114-172328-df6f/recitation.wav', film: 'studio~om_namah_sivaya_1114-172328-df6f~renders~om_namah_sivaya_yantra.mp4', loop: true },
+  { name: 'Lokāḥ Samastāḥ', audio: '/media/studio/lokah_samastah_sukhino_bhavantu_1114-172328-3ad6/recitation.wav', film: 'studio~lokah_samastah_sukhino_bhavantu_1114-172328-3ad6~renders~lokah_samastah_sukhino_bhavantu_yantra.mp4', loop: true },
+];
+let UNITS = [], WORDS = [], style = 'nada', showBig = true;
+const au = $('#au');
+$('#chants').innerHTML = CHANTS.map((c, i) => `<button data-i="${i}" class="${i ? '' : 'on'}">${c.name}</button>`).join('');
+async function loadChant(i) {
+  const c = CHANTS[i]; au.pause(); au.src = c.audio; au.loop = !!c.loop;
+  const f = await fetch('/api/films/' + c.film).then(r => r.json());
+  UNITS = f.storyboard.units; WORDS = UNITS.flatMap((u, ui) => u.words.map((w, wi) => ({ ...w, ui, wi })));
+  document.querySelectorAll('#chants button').forEach(b => b.classList.toggle('on', +b.dataset.i === i));
+  nada.reset(); $('#ov').classList.remove('off'); $('#pp').textContent = 'Play';
+}
+document.querySelectorAll('#chants button').forEach(b => b.onclick = () => loadChant(+b.dataset.i));
+document.querySelectorAll('#styles button').forEach(b => b.onclick = () => { style = b.dataset.s; document.querySelectorAll('#styles button').forEach(x => x.classList.toggle('on', x === b)); $('#c2').style.display = style === 'nada' ? 'block' : 'none'; $('#gl').style.display = style === 'gold' ? 'block' : 'none'; });
+$('#bigT').onclick = () => { showBig = !showBig; $('#bigT').classList.toggle('on', showBig); };
+
+// ---------- audio analysis ----------
+let actx, an, td, fd, fdb;
+function initAudio() { if (actx) return; actx = new AudioContext(); const src = actx.createMediaElementSource(au); an = actx.createAnalyser(); an.fftSize = 2048; an.smoothingTimeConstant = 0.7; src.connect(an); an.connect(actx.destination); td = new Float32Array(an.fftSize); fd = new Uint8Array(an.frequencyBinCount); fdb = new Float32Array(an.frequencyBinCount); }
+const SND = { f0: 0, clarity: 0, centroid: 0, peaks: [] };     // what the plate "hears"
+function pitch(sr) {                       // normalised autocorrelation: fundamental between 70 and 700 Hz
+  const n = 1024, lo = Math.floor(sr / 700), hi = Math.floor(sr / 70); let e0 = 0; for (let i = 0; i < n; i++) e0 += td[i] * td[i];
+  if (e0 < 1e-4) return [0, 0];
+  let best = 0, bl = 0; for (let l = lo; l <= hi; l++) { let c = 0, e1 = 0; for (let i = 0; i < n; i++) { c += td[i] * td[i + l]; e1 += td[i + l] * td[i + l]; } const r = c / Math.sqrt(e0 * e1 + 1e-9); if (r > best) { best = r; bl = l; } }
+  if (bl > lo && bl < hi) { const ac = l => { let c = 0; for (let i = 0; i < n; i++) c += td[i] * td[i + l]; return c; }; const a = ac(bl - 1), b = ac(bl), c = ac(bl + 1); bl += 0.5 * (a - c) / (a - 2 * b + c || 1); }
+  return [sr / bl, best];
+}
+let amp = 0, low = 0, high = 0;
+function analyse() {
+  if (!an) return; an.getFloatTimeDomainData(td); let s = 0; for (let i = 0; i < td.length; i++) s += td[i] * td[i];
+  const rms = Math.sqrt(s / td.length); amp = amp * 0.8 + Math.min(1, rms * 4.5) * 0.2;
+  an.getByteFrequencyData(fd); let l = 0, h = 0; for (let i = 2; i < 40; i++) l += fd[i]; for (let i = 80; i < 400; i++) h += fd[i];
+  low = low * 0.85 + (l / 38 / 255) * 0.15; high = high * 0.85 + (h / 320 / 255) * 0.15;
+  const sr = actx.sampleRate, hz = sr / an.fftSize; const [f0, cl] = pitch(sr); SND.f0 = f0; SND.clarity = cl;
+  an.getFloatFrequencyData(fdb); let num = 0, den = 0; const pk = [];
+  for (let i = Math.floor(70 / hz); i < Math.floor(3000 / hz); i++) { const m = Math.pow(10, fdb[i] / 20); num += m * i * hz; den += m; if (fdb[i] > fdb[i - 1] && fdb[i] >= fdb[i + 1] && fdb[i] > -70) pk.push([i * hz, fdb[i]]); }
+  SND.centroid = den ? num / den : 0; SND.peaks = pk.sort((a, b) => b[1] - a[1]).slice(0, 3);
+  $('#hud').textContent = amp < 0.03 ? 'silence · the sand rests' : `${SND.clarity > 0.6 ? Math.round(f0) + ' Hz pitch' : 'unpitched'} · brightness ${Math.round(SND.centroid)} Hz · loudness ${Math.round(amp * 100)}%`;
+  $('#lvl').style.width = Math.round(amp * 100) + '%';
+}
+const toggle = () => { initAudio(); actx.resume(); if (au.paused) { au.play(); $('#ov').classList.add('off'); $('#pp').textContent = 'Pause'; } else { au.pause(); $('#pp').textContent = 'Play'; } };
+$('#pp').onclick = toggle; $('#ov').onclick = toggle; $('#stage').addEventListener('dblclick', () => $('#stage').requestFullscreen?.());
+
+// ---------- words and captions ----------
+let lastCap = '';
+function wordAt(t) { let w = null; for (const x of WORDS) if (t >= x.start - 0.08 && t < x.end + 0.25) w = x; return w; }
+function caption(t) {
+  let k = -1; UNITS.forEach((u, i) => { if (u.start != null && t >= u.start - 0.35) k = i; });
+  if (k >= 0 && t > Math.min(UNITS[k].end + 1.6, (UNITS[k + 1]?.start ?? 1e9) - 0.3)) k = -1;
+  const w = wordAt(t); const big = $('#big');
+  if (w && showBig) { if (big.textContent !== w.dev) big.textContent = w.dev; big.classList.add('on'); } else big.classList.remove('on');
+  const key = k + ':' + (k >= 0 ? UNITS[k].words.map(x => t >= x.end ? 's' : t >= x.start ? 'c' : 'u').join('') : '');
+  if (key === lastCap) return; lastCap = key;
+  if (k < 0) { $('#capD').innerHTML = ''; $('#capI').textContent = ''; $('#capE').textContent = ''; return; }
+  const u = UNITS[k]; $('#capD').innerHTML = u.words.map(x => `<span class="${t >= x.end ? 's' : t >= x.start ? 'c' : 'u'}">${x.dev}</span>`).join(' ');
+  $('#capI').textContent = u.iast; $('#capE').textContent = u.english || '';
+}
+
+// ---------- Nāda: cymatics ----------
+const nada = (() => {
+  const cv = $('#c2'), W = 1280, H = 720; cv.width = W; cv.height = H;
+  const gl = cv.getContext('webgl', { preserveDrawingBuffer: true, premultipliedAlpha: false, antialias: false });
+  const N = 24000, px = new Float32Array(N), py = new Float32Array(N), pos = new Float32Array(N * 2);
+  const R = H * 0.42, CX = W / 2, CY = H * 0.47;
+  const sh = (type, src) => { const o = gl.createShader(type); gl.shaderSource(o, src); gl.compileShader(o); if (!gl.getShaderParameter(o, gl.COMPILE_STATUS)) console.error(gl.getShaderInfoLog(o)); return o; };
+  const prog = (vs, fs) => { const p = gl.createProgram(); gl.attachShader(p, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(p, sh(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(p); return p; };
+  // plate: a dark bronze disc lit from above, painted at low alpha every frame so the sand leaves short trails
+  const plateP = prog('attribute vec2 p;varying vec2 v;void main(){v=p;gl_Position=vec4(p,0.,1.);}',
+    `precision mediump float;varying vec2 v;uniform float amp,al;uniform vec2 c,res;void main(){vec2 q=(v*.5+.5)*res;vec2 d=(q-c)/${R.toFixed(1)};float r=dot(d,d);
+     vec3 col=r<1.?vec3(.07,.05,.035)+vec3(.06,.045,.025)*(1.-r)*(.6+amp):vec3(.02,.016,.012)*max(0.,1.4-r);
+     float rim=exp(-pow((sqrt(r)-1.012)*70.,2.))*(.35+amp*.6);col+=vec3(1.,.8,.5)*rim;gl_FragColor=vec4(col,al);}`);
+  const ptP = prog(`attribute vec2 a;uniform vec2 res;uniform float sz;void main(){gl_Position=vec4(a/res*2.-1.,0.,1.);gl_Position.y*=-1.;gl_PointSize=sz;}`,
+    `precision mediump float;uniform vec3 col;uniform float al;void main(){vec2 d=gl_PointCoord-.5;float f=exp(-dot(d,d)*14.);gl_FragColor=vec4(col*f*al,1.);}`);
+  const quad = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, quad); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+  const pbuf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, pbuf); gl.bufferData(gl.ARRAY_BUFFER, pos.byteLength, gl.DYNAMIC_DRAW);
+  function reset() { for (let i = 0; i < N; i++) { const a = Math.random() * 6.283, r = Math.sqrt(Math.random()); px[i] = Math.cos(a) * r; py[i] = Math.sin(a) * r; } }
+  reset();
+  // the plate pattern comes from the sound: pitch sets the rings (higher voice = more, tighter rings),
+  // brightness (how many harmonics: the vowel) sets the petals, the second-strongest partial adds a square mode on top,
+  // loudness sets how hard the plate shakes; in silence the sand rests where it is
+  let lastF0 = 0;
+  function target() {
+    if (amp < 0.03) return null;
+    let f0 = SND.clarity > 0.55 && SND.f0 > 60 ? SND.f0 : (lastF0 || 150); if (f0 > 620) f0 /= 2; lastF0 = f0;
+    const k = Math.max(1, Math.min(6, Math.round((1.0 + 1.7 * Math.log2(f0 / 75)) * 2) / 2));
+    const m = Math.max(0, Math.min(10, Math.round(Math.log2(Math.max(SND.centroid, 120) / 120) * 3.2 - 1)));   // dark 'u/m' → few petals, bright 'i/e' → many
+    const p2 = SND.peaks[1], w2 = p2 && SND.peaks[0] ? Math.max(0, Math.min(0.6, 1 + (p2[1] - SND.peaks[0][1]) / 20)) : 0;
+    const n2 = p2 ? Math.max(2, Math.min(9, Math.round(Math.log2(p2[0] / 60) * 2.2))) : 3;
+    return { k, m, n2, m2: (n2 + m) % 7 + 1, w2: Math.round(w2 * 4) / 4 };
+  }
+  const same = (a, b) => a && b && a.k === b.k && a.m === b.m && a.n2 === b.n2 && a.w2 === b.w2;
+  function f(M, x, y) {
+    if (!M) return 0;
+    const r = Math.hypot(x, y), th = Math.atan2(y, x), P = Math.PI;
+    const circ = M.m === 0 ? Math.sin(M.k * P * r) : Math.cos(M.k * P * r) * Math.cos(M.m * th);   // m = 0: rings with a centre point (Jenny's Om)
+    if (!M.w2) return circ;
+    const sq = Math.cos(M.n2 * P * x / 1.4) * Math.cos(M.m2 * P * y / 1.4) - Math.cos(M.m2 * P * x / 1.4) * Math.cos(M.n2 * P * y / 1.4);
+    return circ * (1 - M.w2) + sq * M.w2;
+  }
+  let cur = { k: 1.5, m: 0, w2: 0 }, prev = cur, changedAt = -9, cand = null, candAt = 0;
+  function step(t, dt) {
+    const now = performance.now() / 1000, T = target();
+    if (T && !same(T, cur)) { if (!same(T, cand)) { cand = T; candAt = now; } else if (now - candAt > 0.12) { prev = cur; cur = T; changedAt = now; cand = null;
+      for (let i = 0; i < N; i += 4) { px[i] += (Math.random() - .5) * .05; py[i] += (Math.random() - .5) * .05; } } }
+    if (!T) return;                                           // silence: the plate is still
+    const u = Math.min(1, (now - changedAt) / 0.35), e = 1.5e-3, jit = 0.001 + amp * 0.014, st = 0.025 + 0.02 * amp;
+    for (let i = 0; i < N; i++) {
+      let x = px[i], y = py[i];
+      const F = (a, b) => { const fa = f(cur, a, b); return u >= 1 ? fa : fa * u + f(prev, a, b) * (1 - u); };
+      const f0 = F(x, y), gx = (F(x + e, y) - f0) / e, gy = (F(x, y + e) - f0) / e;
+      const g2 = gx * gx + gy * gy + 1e-6, k = f0 / g2;                       // move toward the still (nodal) lines, f = 0
+      x -= gx * k * st * 6; y -= gy * k * st * 6;
+      x += (Math.random() - .5) * jit; y += (Math.random() - .5) * jit;
+      const r = x * x + y * y; if (r > 0.995) { const s = 0.995 / Math.sqrt(r); x *= s; y *= s; }
+      px[i] = x; py[i] = y;
+    }
+  }
+  function draw(t) {
+    gl.viewport(0, 0, W, H); gl.enable(gl.BLEND);
+    gl.useProgram(plateP); gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    gl.bindBuffer(gl.ARRAY_BUFFER, quad); let l = gl.getAttribLocation(plateP, 'p'); gl.enableVertexAttribArray(l); gl.vertexAttribPointer(l, 2, gl.FLOAT, false, 0, 0);
+    gl.uniform1f(gl.getUniformLocation(plateP, 'amp'), amp); gl.uniform1f(gl.getUniformLocation(plateP, 'al'), 0.42);
+    gl.uniform2f(gl.getUniformLocation(plateP, 'c'), CX, H - CY); gl.uniform2f(gl.getUniformLocation(plateP, 'res'), W, H); gl.drawArrays(gl.TRIANGLES, 0, 3);
+    for (let i = 0; i < N; i++) { pos[i * 2] = CX + px[i] * R; pos[i * 2 + 1] = CY + py[i] * R; }
+    gl.useProgram(ptP); gl.blendFunc(gl.ONE, gl.ONE);                        // additive light
+    gl.bindBuffer(gl.ARRAY_BUFFER, pbuf); gl.bufferSubData(gl.ARRAY_BUFFER, 0, pos);
+    l = gl.getAttribLocation(ptP, 'a'); gl.enableVertexAttribArray(l); gl.vertexAttribPointer(l, 2, gl.FLOAT, false, 0, 0);
+    gl.uniform2f(gl.getUniformLocation(ptP, 'res'), W, H);
+    const C = gl.getUniformLocation(ptP, 'col'), A = gl.getUniformLocation(ptP, 'al'), S = gl.getUniformLocation(ptP, 'sz');
+    gl.uniform3f(C, 1.0, 0.62, 0.25); gl.uniform1f(A, 0.05 + amp * 0.06); gl.uniform1f(S, 9.0); gl.drawArrays(gl.POINTS, 0, N);   // soft glow
+    gl.uniform3f(C, 1.0, 0.86, 0.55); gl.uniform1f(A, 0.32 + amp * 0.3); gl.uniform1f(S, 2.2); gl.drawArrays(gl.POINTS, 0, N);   // the grains
+  }
+  return { reset, step, draw };
+})();
+
+// ---------- Liquid gold: domain-warped flow ----------
+const gold = (() => {
+  const cv = $('#gl'); cv.width = 1280; cv.height = 720; cv.style.display = 'none';
+  const gl = cv.getContext('webgl'); if (!gl) return { draw() {} };
+  const vs = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+  const fs = `precision highp float;uniform vec2 res;uniform float t,amp,low;uniform vec4 B[6];
+  float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+  float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
+  float fbm(vec2 p){float s=0.,a=.5;mat2 m=mat2(1.6,1.2,-1.2,1.6);for(int i=0;i<6;i++){s+=a*n(p);p=m*p;a*=.5;}return s;}
+  void main(){vec2 uv=(gl_FragCoord.xy-.5*res)/res.y;vec2 p=uv*2.2;float T=t*.06;
+    vec2 q=vec2(fbm(p+vec2(0.,T)),fbm(p+vec2(5.2,1.3)-T));
+    float w=2.6+amp*2.2+low*1.5;
+    vec2 r=vec2(fbm(p+w*q+vec2(1.7,9.2)+T*1.5),fbm(p+w*q+vec2(8.3,2.8)-T));
+    float f=fbm(p+w*r);
+    vec3 water=vec3(.012,.015,.03),ind=vec3(.05,.04,.16),saff=vec3(1.,.42,.08),gold=vec3(1.,.78,.35),hot=vec3(1.,.97,.85);
+    vec3 col=mix(water,ind,clamp(length(q)*.9,0.,1.));
+    float vein=smoothstep(.55,.95,f)*smoothstep(.2,.9,length(r));
+    col=mix(col,saff*.75,clamp(f*f*1.6,0.,1.)*.55);
+    col+=gold*pow(vein,1.6)*(1.1+amp*1.4);
+    col+=hot*pow(vein,6.)*(.6+amp*2.);
+    for(int i=0;i<6;i++){vec4 b=B[i];if(b.w<0.)continue;float age=b.w;vec2 c=b.xy+.12*(r-.5);
+      float d=length(uv-c);float rad=.05+age*.22;float ring=exp(-pow((d-rad)/(.05+age*.05),2.))*exp(-age*.55);
+      vec3 dye=mix(vec3(1.,.25,.12),vec3(1.,.6,.15),b.z);col+=dye*ring*(.9)*(.6+.6*fbm(uv*6.+age));}
+    col*=1.-.55*dot(uv,uv);gl_FragColor=vec4(pow(col,vec3(.9)),1.);}`;
+  const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) console.error(gl.getShaderInfoLog(s)); return s; };
+  const pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(pr); gl.useProgram(pr);
+  const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+  const loc = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+  const U = n => gl.getUniformLocation(pr, n);
+  const blooms = []; let lastW = null;
+  function draw(t) {
+    const w = wordAt(t);
+    if (w && w !== lastW) { lastW = w; const a = Math.random() * 6.283, r = 0.15 + Math.random() * 0.35; blooms.push({ x: Math.cos(a) * r * 1.4, y: Math.sin(a) * r * .8, k: Math.random(), t0: t }); if (blooms.length > 6) blooms.shift(); }
+    const B = new Float32Array(24).fill(-1); blooms.forEach((b, i) => { const age = t - b.t0; if (age >= 0 && age < 9) { B[i * 4] = b.x; B[i * 4 + 1] = b.y; B[i * 4 + 2] = b.k; B[i * 4 + 3] = age; } });
+    gl.viewport(0, 0, cv.width, cv.height); gl.uniform2f(U('res'), cv.width, cv.height); gl.uniform1f(U('t'), t + performance.now() / 1000 * 0.15); gl.uniform1f(U('amp'), amp); gl.uniform1f(U('low'), low);
+    gl.uniform4fv(U('B'), B); gl.drawArrays(gl.TRIANGLES, 0, 3);
+  }
+  return { draw };
+})();
+
+// ---------- loop ----------
+let last = performance.now();
+function frame(now) {
+  const dt = Math.min(0.05, (now - last) / 1000); last = now; analyse();
+  const t = au.currentTime;
+  if (style === 'nada') { nada.step(t, dt); nada.draw(t); } else gold.draw(t);
+  caption(t); requestAnimationFrame(frame);
+}
+loadChant(0).then(() => requestAnimationFrame(frame));
+</script>
+</body>
+</html>

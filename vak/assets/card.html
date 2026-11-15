@@ -1,0 +1,74 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#000}canvas{display:block}</style>
+<script src="node_modules/p5/lib/p5.min.js"></script>
+<script src="node_modules/p5.brush/dist/p5.brush.js"></script>
+</head><body>
+<script>
+// Chapter title card: watercolour blooms on a dark paper, then gold ink flourishes.
+// Each call to window.step(i) adds one "beat" of paint; the runner screenshots after each.
+const W = 1280, H = 720;
+window.BG = "#F3EAD7";
+window.SEED = +(new URLSearchParams(location.search).get("seed") || 11);
+const GOLD = "#E3B04B", SAFFRON = "#D9822B", CRIMSON = "#9E2B3A", ROSE = "#C76B7E", INDIGO = "#14122B", INK = "#2B2560";
+let plan = [];
+window.ready = false;
+
+function buildPlan() {
+  randomSeed(window.SEED || 11);
+  // 1) watercolour blooms around the edges, leaving the centre clear for the title
+  const blooms = [
+    [-560, -260, 300, CRIMSON, 75], [560, 260, 320, CRIMSON, 75],
+    [-600, 210, 220, SAFFRON, 85], [600, -220, 230, SAFFRON, 85],
+    [-330, -330, 170, GOLD, 70], [340, 330, 180, GOLD, 70],
+    [60, -360, 160, ROSE, 55], [-90, 360, 160, ROSE, 55],
+    [-690, -10, 170, ROSE, 60], [690, 10, 170, GOLD, 60],
+  ];
+  blooms.forEach(b => plan.push(() => {
+    brush.noStroke(); brush.noHatch();
+    brush.fill(b[3], b[4]); brush.fillBleed(0.35, "out"); brush.fillTexture(0.55, 0.45, true, 0.25);
+    brush.circle(b[0], b[1], b[2]);
+    brush.noFill();
+  }));
+  // 2) indigo ink flourishes curling in from both sides
+  for (let k = 0; k < 12; k++) {
+    const side = k % 2 ? 1 : -1, y = random(-200, 200), len = random(170, 280), w = random(0.7, 1.3), x = side * random(600, 640);
+    plan.push(() => {
+      brush.field("curved");
+      brush.set(k % 3 ? "rotring" : "pen", k % 4 === 0 ? CRIMSON : INK, w);
+      brush.flowLine(x, y, len, side > 0 ? 180 : 0);
+      brush.noField();
+    });
+  }
+  // 3) a crimson brushed underline drawn left-to-right in segments
+  const segs = 8, x0 = -250, x1 = 250, uy = 92;
+  for (let s = 0; s < segs; s++) {
+    plan.push(() => {
+      brush.set("marker", CRIMSON, 1.2);
+      brush.line(x0 + (x1 - x0) * s / segs, uy, x0 + (x1 - x0) * (s + 1) / segs, uy);
+    });
+  }
+  // 4) small drops of gold
+  const drops = [[-420, -120, 18], [430, 120, 16], [-250, 230, 12], [260, -240, 14], [-120, -250, 10], [150, 250, 12]];
+  drops.forEach(d => plan.push(() => {
+    brush.noStroke(); brush.fill(GOLD, 120); brush.fillBleed(0.15); brush.circle(d[0], d[1], d[2]); brush.noFill();
+  }));
+}
+
+function setup() {
+  createCanvas(W, H, WEBGL);
+
+  angleMode(DEGREES);
+  brush.scaleBrushes(4);
+  background("#F3EAD7");
+  buildPlan();
+  window.total = plan.length;
+  window.ready = true;
+}
+window.pendingStep = -1;
+window.done = -1;
+function draw() { const p = window.pendingStep; randomSeed(99); background(window.BG); try { for (let k = 0; k <= p; k++) plan[k](); } catch (e) { if (!window.err) { window.err = e.message; console.log("ERR " + e.message + " " + (e.stack||"").slice(0,400)); } } window.done = p; window.fcount = (window.fcount||0) + 1; if (window.fcount - window.startF >= 2) { noLoop(); window.idle = true; } }
+window.startF = 0; window.idle = false;
+window.paintStep = (i) => new Promise(res => { window.pendingStep = i; window.startF = window.fcount||0; window.idle = false; loop(); const chk = () => (window.idle ? setTimeout(res, 50) : setTimeout(chk, 10)); chk(); });
+</script>
+</body></html>

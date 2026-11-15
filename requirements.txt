@@ -1,0 +1,16 @@
+# Engine + web app (Python 3.11+). Also needs: ffmpeg on PATH, `npm install` in vak/assets, Playwright Chromium.
+indic-transliteration
+numpy
+scipy
+soundfile
+pyworld
+opencv-python-headless
+rembg[cpu]
+pillow
+edge-tts
+fastapi
+uvicorn
+python-multipart
+elevenlabs
+python-dotenv
+anthropic

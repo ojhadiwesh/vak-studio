@@ -1,0 +1,556 @@
+{
+ "title": "Mahamrityunjaya Mantra",
+ "style": {
+  "id": "photoreal",
+  "name": "Photoreal live action",
+  "block": "Photorealistic live-action film still, real people with natural skin texture, shot on a cinema camera with a 35mm lens, natural motivated light (lamps, fire, sun), shallow depth of field, subtle film grain, historically accurate ancient Indian setting, full-bleed frame, 16:9.",
+  "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, illustration, painting, anime, 3d render, CGI, plastic skin, waxy face, oversaturated, decorative border, frame, text, modern objects, floating fabric",
+  "motion": "Faces stay stable and natural, with no morphing. Natural, realistic movement."
+ },
+ "timeline": {},
+ "units": [
+  {
+   "id": "u001",
+   "kind": "verse",
+   "verse": 1,
+   "devanagari": "ॐ",
+   "iast": "oṃ",
+   "words": [
+    {
+     "dev": "ॐ",
+     "iast": "oṃ",
+     "syl": 2
+    }
+   ],
+   "speaker": null,
+   "english": "Om.",
+   "label": ""
+  },
+  {
+   "id": "u002",
+   "kind": "verse",
+   "verse": 1,
+   "devanagari": "त्र्यम्बकं यजामहे",
+   "iast": "tryambakaṃ yajāmahe",
+   "words": [
+    {
+     "dev": "त्र्यम्बकं",
+     "iast": "tryambakaṃ",
+     "syl": 3
+    },
+    {
+     "dev": "यजामहे",
+     "iast": "yajāmahe",
+     "syl": 4
+    }
+   ],
+   "speaker": null,
+   "english": "We worship the three-eyed one,",
+   "label": ""
+  },
+  {
+   "id": "u003",
+   "kind": "verse",
+   "verse": 1,
+   "devanagari": "सुगन्धिं पुष्टिवर्धनम्",
+   "iast": "sugandhiṃ puṣṭivardhanam",
+   "words": [
+    {
+     "dev": "सुगन्धिं",
+     "iast": "sugandhiṃ",
+     "syl": 3
+    },
+    {
+     "dev": "पुष्टिवर्धनम्",
+     "iast": "puṣṭivardhanam",
+     "syl": 5
+    }
+   ],
+   "speaker": null,
+   "english": "fragrant, who makes all life flourish.",
+   "label": ""
+  },
+  {
+   "id": "u004",
+   "kind": "verse",
+   "verse": 1,
+   "devanagari": "उर्वारुकमिव बन्धनान्",
+   "iast": "urvārukamiva bandhanān",
+   "words": [
+    {
+     "dev": "उर्वारुकमिव",
+     "iast": "urvārukamiva",
+     "syl": 6
+    },
+    {
+     "dev": "बन्धनान्",
+     "iast": "bandhanān",
+     "syl": 3
+    }
+   ],
+   "speaker": null,
+   "english": "As the ripe cucumber is freed from its vine,",
+   "label": ""
+  },
+  {
+   "id": "u005",
+   "kind": "verse",
+   "verse": 1,
+   "devanagari": "मृत्योर्मुक्षीय मामृतात्",
+   "iast": "mṛtyormukṣīya māmṛtāt",
+   "words": [
+    {
+     "dev": "मृत्योर्मुक्षीय",
+     "iast": "mṛtyormukṣīya",
+     "syl": 5
+    },
+    {
+     "dev": "मामृतात्",
+     "iast": "māmṛtāt",
+     "syl": 3
+    }
+   ],
+   "speaker": null,
+   "english": "may we be freed from death, not from immortality.",
+   "label": ""
+  }
+ ],
+ "audio": {},
+ "scenes": [
+  {
+   "id": "N01",
+   "title": "The hermitage at dusk",
+   "units": [],
+   "technique": "story",
+   "visual": {
+    "slow": 1.0,
+    "prompt": "Photorealistic live-action film still, real people with natural skin texture, shot on a cinema camera with a 35mm lens, natural motivated light (lamps, fire, sun), shallow depth of field, subtle film grain, historically accurate ancient Indian setting, full-bleed frame, 16:9. A forest hermitage in ancient South India at dusk: a small granite shrine under huge banyan trees beside a wide river, thatched huts, oil lamps glowing in stone niches, smoke rising from a fire altar. No people.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, illustration, painting, anime, 3d render, CGI, plastic skin, waxy face, oversaturated, decorative border, frame, text, modern objects, floating fabric",
+    "motion_prompt": "Smoke rises from the fire altar and lamp flames flicker as birds fly home across the darkening sky. No people or hands appear; nothing enters the frame. The camera slowly pushes in toward the shrine. Faces stay stable and natural, with no morphing. Natural, realistic movement.",
+    "style_id": "photoreal",
+    "status": "needs generation",
+    "want_image": "images/photoreal/N01.png",
+    "want_clip": "clips/photoreal/N01.mp4"
+   },
+   "characters": [],
+   "reference": [],
+   "start": null
+  },
+  {
+   "id": "N02",
+   "title": "The parents pray",
+   "units": [],
+   "technique": "story",
+   "visual": {
+    "slow": 1.0,
+    "prompt": "Photorealistic live-action film still, real people with natural skin texture, shot on a cinema camera with a 35mm lens, natural motivated light (lamps, fire, sun), shallow depth of field, subtle film grain, historically accurate ancient Indian setting, full-bleed frame, 16:9. Night, seen from behind: an elderly sage with long grey hair in an ochre cloth and his wife in a plain cotton sari sit side by side before a blazing fire altar, palms joined in prayer. Their faces are not visible.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, illustration, painting, anime, 3d render, CGI, plastic skin, waxy face, oversaturated, decorative border, frame, text, modern objects, floating fabric",
+    "motion_prompt": "The fire leaps and crackles, sparks rise into the night, and the couple slowly bow their heads. The camera slowly pushes in from behind them. Faces stay stable and natural, with no morphing. Natural, realistic movement.",
+    "style_id": "photoreal",
+    "status": "needs generation",
+    "want_image": "images/photoreal/N02.png",
+    "want_clip": "clips/photoreal/N02.mp4"
+   },
+   "characters": [],
+   "reference": [],
+   "start": null
+  },
+  {
+   "id": "N03",
+   "title": "Shiva answers as light",
+   "units": [],
+   "technique": "story",
+   "visual": {
+    "slow": 1.0,
+    "prompt": "Photorealistic live-action film still, real people with natural skin texture, shot on a cinema camera with a 35mm lens, natural motivated light (lamps, fire, sun), shallow depth of field, subtle film grain, historically accurate ancient Indian setting, full-bleed frame, 16:9. Inside the dark hermitage shrine, the black stone Shiva linga begins to glow from within with a soft white-gold light that lights the granite walls; garlands of jasmine around it. No people.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, illustration, painting, anime, 3d render, CGI, plastic skin, waxy face, oversaturated, decorative border, frame, text, modern objects, floating fabric",
+    "motion_prompt": "The inner light swells and pulses, moving light and shadow across the walls; dust glitters in the air. No people or hands appear; nothing enters the frame. Fixed camera. Faces stay stable and natural, with no morphing. Natural, realistic movement.",
+    "style_id": "photoreal",
+    "status": "needs generation",
+    "want_image": "images/photoreal/N03.png",
+    "want_clip": "clips/photoreal/N03.mp4"
+   },
+   "characters": [],
+   "reference": [],
+   "start": null
+  },
+  {
+   "id": "N04",
+   "title": "The choice",
+   "units": [],
+   "technique": "story",
+   "visual": {
+    "slow": 1.0,
+    "prompt": "Photorealistic live-action film still, real people with natural skin texture, shot on a cinema camera with a 35mm lens, natural motivated light (lamps, fire, sun), shallow depth of field, subtle film grain, historically accurate ancient Indian setting, full-bleed frame, 16:9. Close-up in firelight: an old man's weathered hand and a woman's hand with a thin bangle, clasped together firmly over a small brass lamp. Only the hands are visible.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, illustration, painting, anime, 3d render, CGI, plastic skin, waxy face, oversaturated, decorative border, frame, text, modern objects, floating fabric",
+    "motion_prompt": "The two hands tighten their grip on each other; the lamp flame trembles and steadies. Fixed close-up camera. Faces stay stable and natural, with no morphing. Natural, realistic movement.",
+    "style_id": "photoreal",
+    "status": "needs generation",
+    "want_image": "images/photoreal/N04.png",
+    "want_clip": "clips/photoreal/N04.mp4"
+   },
+   "characters": [],
+   "reference": [],
+   "start": null
+  },
+  {
+   "id": "N05",
+   "title": "A son is born",
+   "units": [],
+   "technique": "story",
+   "visual": {
+    "slow": 1.0,
+    "prompt": "Photorealistic live-action film still, real people with natural skin texture, shot on a cinema camera with a 35mm lens, natural motivated light (lamps, fire, sun), shallow depth of field, subtle film grain, historically accurate ancient Indian setting, full-bleed frame, 16:9. Warm oil-lamp light inside a thatched hut: a newborn baby wrapped in white cotton, asleep in his mother's arms; only her arms, shoulder and the end of her sari are visible.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, illustration, painting, anime, 3d render, CGI, plastic skin, waxy face, oversaturated, decorative border, frame, text, modern objects, floating fabric",
+    "motion_prompt": "The baby stirs and yawns in his sleep while the mother gently rocks him; the lamp flame flickers. The camera slowly pushes in. Faces stay stable and natural, with no morphing. Natural, realistic movement.",
+    "style_id": "photoreal",
+    "status": "needs generation",
+    "want_image": "images/photoreal/N05.png",
+    "want_clip": "clips/photoreal/N05.mp4"
+   },
+   "characters": [],
+   "reference": [],
+   "start": null
+  },
+  {
+   "id": "N06",
+   "title": "Every dawn",
+   "units": [],
+   "technique": "story",
+   "visual": {
+    "slow": 1.0,
+    "prompt": "Photorealistic live-action film still, real people with natural skin texture, shot on a cinema camera with a 35mm lens, natural motivated light (lamps, fire, sun), shallow depth of field, subtle film grain, historically accurate ancient Indian setting, full-bleed frame, 16:9. Dawn mist over the river. Seen from behind, Mārkaṇḍeya walks along a forest path toward the granite shrine, carrying a brass water pot on his hip and a small basket of bilva leaves. Markandeya, a slim sixteen-year-old Indian boy with a shaven head and a short tuft of hair (shikha) at the back, three horizontal lines of white sacred ash (tripundra) on his forehead, a rudraksha bead necklace, a white sacred thread across his chest, a plain white cotton dhoti and a white cloth over one shoulder, bare feet, a calm devoted face.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, illustration, painting, anime, 3d render, CGI, plastic skin, waxy face, oversaturated, decorative border, frame, text, modern objects, floating fabric",
+    "motion_prompt": "He walks steadily along the path toward the shrine; mist drifts and birds cross the sky. The camera follows him from behind at a walking pace. Faces stay stable and natural, with no morphing. Natural, realistic movement.",
+    "style_id": "photoreal",
+    "status": "needs generation",
+    "want_image": "images/photoreal/N06.png",
+    "want_clip": "clips/photoreal/N06.mp4"
+   },
+   "characters": [
+    "Mārkaṇḍeya"
+   ],
+   "reference": [
+    "N07"
+   ],
+   "start": null
+  },
+  {
+   "id": "N07",
+   "title": "Worship (character anchor)",
+   "units": [],
+   "technique": "story",
+   "visual": {
+    "slow": 1.0,
+    "prompt": "Photorealistic live-action film still, real people with natural skin texture, shot on a cinema camera with a 35mm lens, natural motivated light (lamps, fire, sun), shallow depth of field, subtle film grain, historically accurate ancient Indian setting, full-bleed frame, 16:9. Inside a dim granite shrine lit by oil lamps, Mārkaṇḍeya sits cross-legged before a black stone Shiva linga garlanded with jasmine, pouring water from a brass pot over it, seen in three-quarter profile. Markandeya, a slim sixteen-year-old Indian boy with a shaven head and a short tuft of hair (shikha) at the back, three horizontal lines of white sacred ash (tripundra) on his forehead, a rudraksha bead necklace, a white sacred thread across his chest, a plain white cotton dhoti and a white cloth over one shoulder, bare feet, a calm devoted face.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, illustration, painting, anime, 3d render, CGI, plastic skin, waxy face, oversaturated, decorative border, frame, text, modern objects, floating fabric",
+    "motion_prompt": "He pours a steady stream of water over the linga; the water runs down the stone and the lamp flames flicker. His face stays steady and natural. The camera slowly circles a little around him. Faces stay stable and natural, with no morphing. Natural, realistic movement.",
+    "style_id": "photoreal",
+    "status": "needs generation",
+    "want_image": "images/photoreal/N07.png",
+    "want_clip": "clips/photoreal/N07.mp4"
+   },
+   "characters": [
+    "Mārkaṇḍeya"
+   ],
+   "reference": [],
+   "start": null
+  },
+  {
+   "id": "N08",
+   "title": "Bilva leaves",
+   "units": [],
+   "technique": "story",
+   "visual": {
+    "slow": 1.0,
+    "prompt": "Photorealistic live-action film still, real people with natural skin texture, shot on a cinema camera with a 35mm lens, natural motivated light (lamps, fire, sun), shallow depth of field, subtle film grain, historically accurate ancient Indian setting, full-bleed frame, 16:9. Extreme close-up: a young man's hands placing a fresh three-leaf bilva sprig on top of a wet black stone linga, water glistening, a brass lamp glowing behind. Only the hands are visible.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, illustration, painting, anime, 3d render, CGI, plastic skin, waxy face, oversaturated, decorative border, frame, text, modern objects, floating fabric",
+    "motion_prompt": "The hands lay the leaves down gently and withdraw; drops of water run down the stone. Fixed close-up camera. Faces stay stable and natural, with no morphing. Natural, realistic movement.",
+    "style_id": "photoreal",
+    "status": "needs generation",
+    "want_image": "images/photoreal/N08.png",
+    "want_clip": "clips/photoreal/N08.mp4"
+   },
+   "characters": [],
+   "reference": [],
+   "start": null
+  },
+  {
+   "id": "N09",
+   "title": "The sixteenth morning",
+   "units": [],
+   "technique": "story",
+   "visual": {
+    "slow": 1.0,
+    "prompt": "Photorealistic live-action film still, real people with natural skin texture, shot on a cinema camera with a 35mm lens, natural motivated light (lamps, fire, sun), shallow depth of field, subtle film grain, historically accurate ancient Indian setting, full-bleed frame, 16:9. Dawn, seen from behind: the elderly sage and his wife stand at the doorway of their hut, watching their son walk away toward the shrine in the distance. The mother rests her hand on the father's arm. Their faces are not visible.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, illustration, painting, anime, 3d render, CGI, plastic skin, waxy face, oversaturated, decorative border, frame, text, modern objects, floating fabric",
+    "motion_prompt": "The son walks away into the distance; the mother's hand tightens on the father's arm; a cold wind stirs the trees. Fixed camera. Faces stay stable and natural, with no morphing. Natural, realistic movement.",
+    "style_id": "photoreal",
+    "status": "needs generation",
+    "want_image": "images/photoreal/N09.png",
+    "want_clip": "clips/photoreal/N09.mp4"
+   },
+   "characters": [],
+   "reference": [],
+   "start": null
+  },
+  {
+   "id": "N10",
+   "title": "The sky darkens",
+   "units": [],
+   "technique": "story",
+   "visual": {
+    "slow": 1.0,
+    "prompt": "Photorealistic live-action film still, real people with natural skin texture, shot on a cinema camera with a 35mm lens, natural motivated light (lamps, fire, sun), shallow depth of field, subtle film grain, historically accurate ancient Indian setting, full-bleed frame, 16:9. The forest hermitage under an unnaturally darkening sky: black storm clouds boil over the banyan trees and the granite shrine, oil lamps in the courtyard. No people.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, illustration, painting, anime, 3d render, CGI, plastic skin, waxy face, oversaturated, decorative border, frame, text, modern objects, floating fabric",
+    "motion_prompt": "Storm clouds roll in fast, wind whips the trees, and the courtyard lamps gutter and go out one by one. No people or hands appear; nothing enters the frame. Fixed low-angle camera. Faces stay stable and natural, with no morphing. Natural, realistic movement.",
+    "style_id": "photoreal",
+    "status": "needs generation",
+    "want_image": "images/photoreal/N10.png",
+    "want_clip": "clips/photoreal/N10.mp4"
+   },
+   "characters": [],
+   "reference": [],
+   "start": null
+  },
+  {
+   "id": "N11",
+   "title": "Yama arrives",
+   "units": [],
+   "technique": "story",
+   "visual": {
+    "slow": 1.0,
+    "prompt": "Photorealistic live-action film still, real people with natural skin texture, shot on a cinema camera with a 35mm lens, natural motivated light (lamps, fire, sun), shallow depth of field, subtle film grain, historically accurate ancient Indian setting, full-bleed frame, 16:9. Low close-up in the dust of the courtyard in stormy half-light: the heavy black hooves of a huge water buffalo stepping slowly forward, dust swirling in a dark wind. Only the hooves and lower legs are visible.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, illustration, painting, anime, 3d render, CGI, plastic skin, waxy face, oversaturated, decorative border, frame, text, modern objects, floating fabric",
+    "motion_prompt": "The hooves step heavily forward, raising dust that swirls in the wind. Fixed low camera at ground level. Faces stay stable and natural, with no morphing. Natural, realistic movement.",
+    "style_id": "photoreal",
+    "status": "needs generation",
+    "want_image": "images/photoreal/N11.png",
+    "want_clip": "clips/photoreal/N11.mp4"
+   },
+   "characters": [],
+   "reference": [],
+   "start": null
+  },
+  {
+   "id": "N12",
+   "title": "The shadow of Death",
+   "units": [],
+   "technique": "story",
+   "visual": {
+    "slow": 1.0,
+    "prompt": "Photorealistic live-action film still, real people with natural skin texture, shot on a cinema camera with a 35mm lens, natural motivated light (lamps, fire, sun), shallow depth of field, subtle film grain, historically accurate ancient Indian setting, full-bleed frame, 16:9. The lamp-lit granite wall inside the shrine: the huge shadow of a crowned, horned rider on a buffalo falls across the wall, holding a looped rope. Only the shadow is visible, no figure.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, illustration, painting, anime, 3d render, CGI, plastic skin, waxy face, oversaturated, decorative border, frame, text, modern objects, floating fabric",
+    "motion_prompt": "The horned shadow slowly grows larger across the wall as the lamp flames bend away from it. No people or hands appear; nothing enters the frame. The camera slowly pushes in. Faces stay stable and natural, with no morphing. Natural, realistic movement.",
+    "style_id": "photoreal",
+    "status": "needs generation",
+    "want_image": "images/photoreal/N12.png",
+    "want_clip": "clips/photoreal/N12.mp4"
+   },
+   "characters": [],
+   "reference": [],
+   "start": null
+  },
+  {
+   "id": "N13",
+   "title": "He holds on",
+   "units": [],
+   "technique": "story",
+   "visual": {
+    "slow": 1.0,
+    "prompt": "Photorealistic live-action film still, real people with natural skin texture, shot on a cinema camera with a 35mm lens, natural motivated light (lamps, fire, sun), shallow depth of field, subtle film grain, historically accurate ancient Indian setting, full-bleed frame, 16:9. In the dark shrine lit by a single lamp, Mārkaṇḍeya wraps both arms around the black stone linga, cheek pressed to the stone, eyes shut, in profile. Markandeya, a slim sixteen-year-old Indian boy with a shaven head and a short tuft of hair (shikha) at the back, three horizontal lines of white sacred ash (tripundra) on his forehead, a rudraksha bead necklace, a white sacred thread across his chest, a plain white cotton dhoti and a white cloth over one shoulder, bare feet, a calm devoted face.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, illustration, painting, anime, 3d render, CGI, plastic skin, waxy face, oversaturated, decorative border, frame, text, modern objects, floating fabric",
+    "motion_prompt": "He tightens his embrace around the linga as a cold wind bends the lamp flame; jasmine petals blow across the floor. His face stays steady and natural. The camera slowly pushes in. Faces stay stable and natural, with no morphing. Natural, realistic movement.",
+    "style_id": "photoreal",
+    "status": "needs generation",
+    "want_image": "images/photoreal/N13.png",
+    "want_clip": "clips/photoreal/N13.mp4"
+   },
+   "characters": [
+    "Mārkaṇḍeya"
+   ],
+   "reference": [
+    "N07"
+   ],
+   "start": null
+  },
+  {
+   "id": "N14",
+   "title": "The noose falls",
+   "units": [],
+   "technique": "story",
+   "visual": {
+    "slow": 1.0,
+    "prompt": "Photorealistic live-action film still, real people with natural skin texture, shot on a cinema camera with a 35mm lens, natural motivated light (lamps, fire, sun), shallow depth of field, subtle film grain, historically accurate ancient Indian setting, full-bleed frame, 16:9. Wide view of the dark shrine: a black rope noose drops from the darkness above and loops around both Mārkaṇḍeya and the linga he embraces; one oil lamp burns. Markandeya, a slim sixteen-year-old Indian boy with a shaven head and a short tuft of hair (shikha) at the back, three horizontal lines of white sacred ash (tripundra) on his forehead, a rudraksha bead necklace, a white sacred thread across his chest, a plain white cotton dhoti and a white cloth over one shoulder, bare feet, a calm devoted face.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, illustration, painting, anime, 3d render, CGI, plastic skin, waxy face, oversaturated, decorative border, frame, text, modern objects, floating fabric",
+    "motion_prompt": "The noose falls over the boy and the linga together and pulls tight; he holds on. Fixed camera. Faces stay stable and natural, with no morphing. Natural, realistic movement.",
+    "style_id": "photoreal",
+    "status": "needs generation",
+    "want_image": "images/photoreal/N14.png",
+    "want_clip": "clips/photoreal/N14.mp4"
+   },
+   "characters": [
+    "Mārkaṇḍeya"
+   ],
+   "reference": [
+    "N07"
+   ],
+   "start": null
+  },
+  {
+   "id": "N15",
+   "title": "He prays",
+   "units": [],
+   "technique": "story",
+   "visual": {
+    "slow": 1.0,
+    "prompt": "Photorealistic live-action film still, real people with natural skin texture, shot on a cinema camera with a 35mm lens, natural motivated light (lamps, fire, sun), shallow depth of field, subtle film grain, historically accurate ancient Indian setting, full-bleed frame, 16:9. Close-up in profile: Mārkaṇḍeya's face against the black stone, eyes closed, lips parted in prayer, lit by a single trembling lamp. Markandeya, a slim sixteen-year-old Indian boy with a shaven head and a short tuft of hair (shikha) at the back, three horizontal lines of white sacred ash (tripundra) on his forehead, a rudraksha bead necklace, a white sacred thread across his chest, a plain white cotton dhoti and a white cloth over one shoulder, bare feet, a calm devoted face.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, illustration, painting, anime, 3d render, CGI, plastic skin, waxy face, oversaturated, decorative border, frame, text, modern objects, floating fabric",
+    "motion_prompt": "The lamp light trembles across his face and a single tear runs down his cheek as he keeps praying. His face stays steady and natural. Fixed close-up camera. Faces stay stable and natural, with no morphing. Natural, realistic movement.",
+    "style_id": "photoreal",
+    "status": "needs generation",
+    "want_image": "images/photoreal/N15.png",
+    "want_clip": "clips/photoreal/N15.mp4"
+   },
+   "characters": [
+    "Mārkaṇḍeya"
+   ],
+   "reference": [
+    "N07"
+   ],
+   "start": null
+  },
+  {
+   "id": "C01",
+   "title": "Om, we worship the three-eyed one",
+   "units": [
+    "u001",
+    "u002"
+   ],
+   "technique": "story",
+   "visual": {
+    "slow": 1.0,
+    "prompt": "Photorealistic live-action film still, real people with natural skin texture, shot on a cinema camera with a 35mm lens, natural motivated light (lamps, fire, sun), shallow depth of field, subtle film grain, historically accurate ancient Indian setting, full-bleed frame, 16:9. Close-up of the black stone Shiva linga with a black rope noose around it: thin cracks of white-gold light begin to glow from inside the stone.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, illustration, painting, anime, 3d render, CGI, plastic skin, waxy face, oversaturated, decorative border, frame, text, modern objects, floating fabric",
+    "motion_prompt": "The glowing cracks spread across the stone and the light inside it brightens. No people or hands appear; nothing enters the frame. The camera slowly pushes in. Faces stay stable and natural, with no morphing. Natural, realistic movement.",
+    "style_id": "photoreal",
+    "status": "needs generation",
+    "want_image": "images/photoreal/C01.png",
+    "want_clip": "clips/photoreal/C01.mp4"
+   },
+   "characters": [],
+   "reference": [],
+   "start": null
+  },
+  {
+   "id": "C02",
+   "title": "Fragrant, giver of life",
+   "units": [
+    "u003"
+   ],
+   "technique": "story",
+   "visual": {
+    "slow": 1.0,
+    "prompt": "Photorealistic live-action film still, real people with natural skin texture, shot on a cinema camera with a 35mm lens, natural motivated light (lamps, fire, sun), shallow depth of field, subtle film grain, historically accurate ancient Indian setting, full-bleed frame, 16:9. Inside the shrine, warm golden light and fragrant smoke from camphor and incense swirl around the stone linga and Mārkaṇḍeya embracing it; jasmine and marigold petals in the air. Markandeya, a slim sixteen-year-old Indian boy with a shaven head and a short tuft of hair (shikha) at the back, three horizontal lines of white sacred ash (tripundra) on his forehead, a rudraksha bead necklace, a white sacred thread across his chest, a plain white cotton dhoti and a white cloth over one shoulder, bare feet, a calm devoted face.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, illustration, painting, anime, 3d render, CGI, plastic skin, waxy face, oversaturated, decorative border, frame, text, modern objects, floating fabric",
+    "motion_prompt": "Fragrant smoke and petals swirl upward in a rising spiral of golden light. His face stays steady and natural. The camera slowly cranes up. Faces stay stable and natural, with no morphing. Natural, realistic movement.",
+    "style_id": "photoreal",
+    "status": "needs generation",
+    "want_image": "images/photoreal/C02.png",
+    "want_clip": "clips/photoreal/C02.mp4"
+   },
+   "characters": [
+    "Mārkaṇḍeya"
+   ],
+   "reference": [
+    "N07"
+   ],
+   "start": null
+  },
+  {
+   "id": "C03",
+   "title": "As the ripe cucumber from its vine",
+   "units": [
+    "u004"
+   ],
+   "technique": "story",
+   "visual": {
+    "slow": 1.0,
+    "prompt": "Photorealistic live-action film still, real people with natural skin texture, shot on a cinema camera with a 35mm lens, natural motivated light (lamps, fire, sun), shallow depth of field, subtle film grain, historically accurate ancient Indian setting, full-bleed frame, 16:9. Close-up in soft morning light: a ripe golden cucumber hangs from its green vine on a bamboo trellis, dew on its skin, a garden blurred behind. No people.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, illustration, painting, anime, 3d render, CGI, plastic skin, waxy face, oversaturated, decorative border, frame, text, modern objects, floating fabric",
+    "motion_prompt": "The stem gently parts and the ripe cucumber drops free, falling softly onto the grass below; the vine sways. No people or hands appear; nothing enters the frame. Fixed close-up camera. Faces stay stable and natural, with no morphing. Natural, realistic movement.",
+    "style_id": "photoreal",
+    "status": "needs generation",
+    "want_image": "images/photoreal/C03.png",
+    "want_clip": "clips/photoreal/C03.mp4"
+   },
+   "characters": [],
+   "reference": [],
+   "start": null
+  },
+  {
+   "id": "C04",
+   "title": "Free us from death",
+   "units": [
+    "u005"
+   ],
+   "technique": "story",
+   "visual": {
+    "slow": 1.0,
+    "prompt": "Photorealistic live-action film still, real people with natural skin texture, shot on a cinema camera with a 35mm lens, natural motivated light (lamps, fire, sun), shallow depth of field, subtle film grain, historically accurate ancient Indian setting, full-bleed frame, 16:9. A column of blinding white-gold light erupts from the linga and fills the shrine; the black noose around Mārkaṇḍeya burns away into glowing embers; he still embraces the linga, lit gold. Markandeya, a slim sixteen-year-old Indian boy with a shaven head and a short tuft of hair (shikha) at the back, three horizontal lines of white sacred ash (tripundra) on his forehead, a rudraksha bead necklace, a white sacred thread across his chest, a plain white cotton dhoti and a white cloth over one shoulder, bare feet, a calm devoted face.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, illustration, painting, anime, 3d render, CGI, plastic skin, waxy face, oversaturated, decorative border, frame, text, modern objects, floating fabric",
+    "motion_prompt": "The light blazes outward, the noose dissolves into sparks and drifting embers, and the horned shadow on the wall breaks apart. His face stays steady and natural. The camera slowly pulls back. Faces stay stable and natural, with no morphing. Natural, realistic movement.",
+    "style_id": "photoreal",
+    "status": "needs generation",
+    "want_image": "images/photoreal/C04.png",
+    "want_clip": "clips/photoreal/C04.mp4"
+   },
+   "characters": [
+    "Mārkaṇḍeya"
+   ],
+   "reference": [
+    "N07"
+   ],
+   "start": null
+  },
+  {
+   "id": "C05",
+   "title": "Not from immortality",
+   "units": [],
+   "technique": "story",
+   "visual": {
+    "slow": 1.0,
+    "prompt": "Photorealistic live-action film still, real people with natural skin texture, shot on a cinema camera with a 35mm lens, natural motivated light (lamps, fire, sun), shallow depth of field, subtle film grain, historically accurate ancient Indian setting, full-bleed frame, 16:9. Outside: the storm clouds tear apart and the first sunlight of dawn pours over the forest hermitage, the granite shrine and the river. No people.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, illustration, painting, anime, 3d render, CGI, plastic skin, waxy face, oversaturated, decorative border, frame, text, modern objects, floating fabric",
+    "motion_prompt": "Clouds part, sunbeams sweep across the courtyard and the river, and birds take flight. No people or hands appear; nothing enters the frame. The camera slowly cranes up. Faces stay stable and natural, with no morphing. Natural, realistic movement.",
+    "style_id": "photoreal",
+    "status": "needs generation",
+    "want_image": "images/photoreal/C05.png",
+    "want_clip": "clips/photoreal/C05.mp4"
+   },
+   "characters": [],
+   "reference": [],
+   "start": null
+  },
+  {
+   "id": "C06",
+   "title": "Forever sixteen",
+   "units": [],
+   "technique": "story",
+   "visual": {
+    "slow": 1.0,
+    "prompt": "Photorealistic live-action film still, real people with natural skin texture, shot on a cinema camera with a 35mm lens, natural motivated light (lamps, fire, sun), shallow depth of field, subtle film grain, historically accurate ancient Indian setting, full-bleed frame, 16:9. Wide shot at sunrise: Mārkaṇḍeya steps out of the granite shrine into the sunlight, and his mother runs across the courtyard to embrace him while his father hurries behind; small figures in a wide frame.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, illustration, painting, anime, 3d render, CGI, plastic skin, waxy face, oversaturated, decorative border, frame, text, modern objects, floating fabric",
+    "motion_prompt": "The mother reaches the boy and holds him tightly; the father joins them; sunlight floods the courtyard. The camera slowly cranes up and pulls back. Faces stay stable and natural, with no morphing. Natural, realistic movement.",
+    "style_id": "photoreal",
+    "status": "needs generation",
+    "want_image": "images/photoreal/C06.png",
+    "want_clip": "clips/photoreal/C06.mp4"
+   },
+   "characters": [],
+   "reference": [],
+   "start": null
+  }
+ ],
+ "renders": {}
+}

@@ -1,0 +1,104 @@
+{
+ "title": "Gayatri Mantra",
+ "chant": "chant.txt",
+ "audio": "audio/pixabay_399098.wav",
+ "translations": "translations.json",
+ "style": "ravi_varma",
+ "card": {
+  "kicker": "गायत्री मन्त्रः",
+  "chapter": "Ṛgveda 3.62.10",
+  "title": "The Gāyatrī Mantra",
+  "sub": "Ṛgveda 3.62.10 · a meditation on the light of the Sun"
+ },
+ "characters": {},
+ "scenes": [
+  {
+   "id": "G00",
+   "title": "Om (night)",
+   "units": [],
+   "description": "Night over a wide, calm sacred river seen from a stone ghat. A deep indigo sky full of stars and the Milky Way, reflected softly in the still dark water, faint mist low on the river, a single small oil lamp glowing on the ghat steps in the foreground. No people. Silent and vast.",
+   "motion": "The stars twinkle softly and their reflections ripple gently on the water while the lamp flame flickers.",
+   "camera": "Fixed camera.",
+   "visual": {
+    "slow": 2
+   }
+  },
+  {
+   "id": "G01",
+   "title": "Om. Earth, sky and heaven",
+   "units": [
+    1
+   ],
+   "description": "Pre-dawn over a wide, calm sacred river seen from a stone ghat. Three bands of the world in one tall vista: dark river and riverbank below, a layer of soft mist in the middle, a deep blue starry sky above with only a faint pale glow along the horizon; the sun has not risen and is not visible. No people. Quiet and vast.",
+   "motion": "Mist drifts slowly across the empty river while the stars fade. No people or hands appear; nothing enters the frame.",
+   "camera": "Camera slowly tilts up from the river to the sky.",
+   "visual": {
+    "slow": 2
+   },
+   "start": 18.5
+  },
+  {
+   "id": "G02",
+   "title": "That most excellent light of Savitṛ",
+   "units": [
+    2
+   ],
+   "description": "The first rim of the sun breaking over the far horizon of the same river, long golden rays fanning across the sky, a shining path of light on the calm water, silhouetted trees on the far bank. No people.",
+   "motion": "The sun's rays slowly widen and brighten, and the path of light shimmers on the water.",
+   "camera": "Fixed camera.",
+   "visual": {
+    "slow": 1.25
+   }
+  },
+  {
+   "id": "G03",
+   "title": "We meditate on the radiance",
+   "units": [
+    3
+   ],
+   "description": "Wide shot. Seen from behind, a single small figure in a plain saffron shawl sits cross-legged in meditation on the stone steps of the ghat, placed in the lower third of the frame and occupying only a small part of it, facing the risen sun across the wide river. Warm golden light surrounds the figure, soft mist on the water, large open sky. The face is not visible. Visible oil-paint brushstrokes and canvas texture.",
+   "motion": "Golden light slowly grows around the seated figure and mist drifts on the water. The figure stays still.",
+   "camera": "Camera slowly pushes in.",
+   "visual": {
+    "slow": 1.5
+   }
+  },
+  {
+   "id": "G04",
+   "title": "May it awaken our minds",
+   "units": [
+    4
+   ],
+   "description": "Full morning light on the river. In the foreground a single pink lotus floats on the water, half open, lit by the sun, with a small clay diya flame floating beside it. Golden reflections across the whole river. No people.",
+   "motion": "The lotus slowly opens its petals on its own while the diya flame flickers and soft ripples spread. No people or hands appear; nothing enters the frame.",
+   "camera": "Camera slowly pulls back.",
+   "visual": {
+    "slow": 2
+   }
+  }
+ ],
+ "tune": false,
+ "out": "renders/gayatri.mp4",
+ "audio_mode": "track",
+ "segments": [
+  [
+   18.5,
+   27.5,
+   {
+    "first_word_until": 24.0
+   }
+  ],
+  [
+   27.5,
+   31.75
+  ],
+  [
+   31.75,
+   37.0
+  ],
+  [
+   37.0,
+   44.6
+  ]
+ ]
+}

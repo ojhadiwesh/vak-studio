@@ -1,0 +1,265 @@
+{
+ "title": "Gayatri Mantra",
+ "style": {
+  "id": "shadow_puppet",
+  "name": "Shadow puppets (tholu bommalata)",
+  "kind": "animation",
+  "block": "",
+  "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, 3d render, photo",
+  "motion": "Faces stay stable and natural, with no morphing. "
+ },
+ "timeline": {
+  "card": 7.225,
+  "scene_start": 6.025,
+  "voice_offset": 0.0,
+  "total": 49.336
+ },
+ "units": [
+  {
+   "id": "u001",
+   "kind": "invocation",
+   "verse": null,
+   "devanagari": "ॐ भूर्भुवः स्वः",
+   "iast": "oṃ bhūrbhuvaḥ svaḥ",
+   "words": [
+    {
+     "dev": "ॐ",
+     "iast": "oṃ",
+     "syl": 2,
+     "start": 18.5,
+     "end": 24.0
+    },
+    {
+     "dev": "भूर्भुवः",
+     "iast": "bhūrbhuvaḥ",
+     "syl": 3,
+     "start": 24.0,
+     "end": 26.625
+    },
+    {
+     "dev": "स्वः",
+     "iast": "svaḥ",
+     "syl": 1,
+     "start": 26.625,
+     "end": 27.5
+    }
+   ],
+   "speaker": null,
+   "english": "Om. Earth, sky and heaven —",
+   "label": "Invocation",
+   "start": 18.5,
+   "end": 27.5
+  },
+  {
+   "id": "u002",
+   "kind": "verse",
+   "verse": 1,
+   "devanagari": "तत्सवितुर्वरेण्यं",
+   "iast": "tatsaviturvareṇyaṃ",
+   "words": [
+    {
+     "dev": "तत्सवितुर्वरेण्यं",
+     "iast": "tatsaviturvareṇyaṃ",
+     "syl": 7,
+     "start": 27.5,
+     "end": 31.75
+    }
+   ],
+   "speaker": null,
+   "english": "that most excellent light of Savitṛ, the Sun,",
+   "label": "",
+   "start": 27.5,
+   "end": 31.75
+  },
+  {
+   "id": "u003",
+   "kind": "verse",
+   "verse": 1,
+   "devanagari": "भर्गो देवस्य धीमहि",
+   "iast": "bhargo devasya dhīmahi",
+   "words": [
+    {
+     "dev": "भर्गो",
+     "iast": "bhargo",
+     "syl": 2,
+     "start": 31.75,
+     "end": 33.062
+    },
+    {
+     "dev": "देवस्य",
+     "iast": "devasya",
+     "syl": 3,
+     "start": 33.062,
+     "end": 35.031
+    },
+    {
+     "dev": "धीमहि",
+     "iast": "dhīmahi",
+     "syl": 3,
+     "start": 35.031,
+     "end": 37.0
+    }
+   ],
+   "speaker": null,
+   "english": "the radiance of the divine, we meditate upon.",
+   "label": "",
+   "start": 31.75,
+   "end": 37.0
+  },
+  {
+   "id": "u004",
+   "kind": "verse",
+   "verse": 1,
+   "devanagari": "धियो यो नः प्रचोदयात्",
+   "iast": "dhiyo yo naḥ pracodayāt",
+   "words": [
+    {
+     "dev": "धियो",
+     "iast": "dhiyo",
+     "syl": 2,
+     "start": 37.0,
+     "end": 38.9
+    },
+    {
+     "dev": "यो",
+     "iast": "yo",
+     "syl": 1,
+     "start": 38.9,
+     "end": 39.85
+    },
+    {
+     "dev": "नः",
+     "iast": "naḥ",
+     "syl": 1,
+     "start": 39.85,
+     "end": 40.8
+    },
+    {
+     "dev": "प्रचोदयात्",
+     "iast": "pracodayāt",
+     "syl": 4,
+     "start": 40.8,
+     "end": 44.6
+    }
+   ],
+   "speaker": null,
+   "english": "May it awaken and guide our minds.",
+   "label": "",
+   "start": 37.0,
+   "end": 44.6
+  }
+ ],
+ "audio": {
+  "path": "C:\\Users\\sshai\\Downloads\\Sanskrit AI Video Engine\\Devi Kavacham Film\\vak_engine\\chants\\gayatri\\audio/pixabay_399098.wav",
+  "voice": "C:\\Users\\sshai\\Downloads\\Sanskrit AI Video Engine\\Devi Kavacham Film\\vak_engine\\chants\\gayatri\\.vak_cache\\audio48\\37ad41dcef33d2b7.wav",
+  "duration": 49.136,
+  "tonic_hz": 311.13,
+  "segments": [
+   [
+    18.5,
+    27.5
+   ],
+   [
+    27.5,
+    31.75
+   ],
+   [
+    31.75,
+    37.0
+   ],
+   [
+    37.0,
+    44.6
+   ]
+  ],
+  "mode": "track"
+ },
+ "scenes": [
+  {
+   "id": "G00",
+   "title": "Om (night)",
+   "units": [],
+   "technique": "story",
+   "visual": {
+    "slow": 2,
+    "prompt": "Night over a wide, calm sacred river seen from a stone ghat. A deep indigo sky full of stars and the Milky Way, reflected softly in the still dark water, faint mist low on the river, a single small oil lamp glowing on the ghat steps in the foreground. No people. Silent and vast.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, 3d render, photo",
+    "motion_prompt": "The stars twinkle softly and their reflections ripple gently on the water while the lamp flame flickers. Fixed camera. Faces stay stable and natural, with no morphing."
+   },
+   "characters": [],
+   "reference": [],
+   "start": null
+  },
+  {
+   "id": "G01",
+   "title": "Om. Earth, sky and heaven",
+   "units": [
+    "u001"
+   ],
+   "technique": "story",
+   "visual": {
+    "slow": 2,
+    "prompt": "Pre-dawn over a wide, calm sacred river seen from a stone ghat. Three bands of the world in one tall vista: dark river and riverbank below, a layer of soft mist in the middle, a deep blue starry sky above with only a faint pale glow along the horizon; the sun has not risen and is not visible. No people. Quiet and vast.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, 3d render, photo",
+    "motion_prompt": "Mist drifts slowly across the empty river while the stars fade. No people or hands appear; nothing enters the frame. Camera slowly tilts up from the river to the sky. Faces stay stable and natural, with no morphing."
+   },
+   "characters": [],
+   "reference": [],
+   "start": 18.5
+  },
+  {
+   "id": "G02",
+   "title": "That most excellent light of Savitṛ",
+   "units": [
+    "u002"
+   ],
+   "technique": "story",
+   "visual": {
+    "slow": 1.25,
+    "prompt": "The first rim of the sun breaking over the far horizon of the same river, long golden rays fanning across the sky, a shining path of light on the calm water, silhouetted trees on the far bank. No people.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, 3d render, photo",
+    "motion_prompt": "The sun's rays slowly widen and brighten, and the path of light shimmers on the water. Fixed camera. Faces stay stable and natural, with no morphing."
+   },
+   "characters": [],
+   "reference": [],
+   "start": null
+  },
+  {
+   "id": "G03",
+   "title": "We meditate on the radiance",
+   "units": [
+    "u003"
+   ],
+   "technique": "story",
+   "visual": {
+    "slow": 1.5,
+    "prompt": "Wide shot. Seen from behind, a single small figure in a plain saffron shawl sits cross-legged in meditation on the stone steps of the ghat, placed in the lower third of the frame and occupying only a small part of it, facing the risen sun across the wide river. Warm golden light surrounds the figure, soft mist on the water, large open sky. The face is not visible. Visible oil-paint brushstrokes and canvas texture.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, 3d render, photo",
+    "motion_prompt": "Golden light slowly grows around the seated figure and mist drifts on the water. The figure stays still. Camera slowly pushes in. Faces stay stable and natural, with no morphing."
+   },
+   "characters": [],
+   "reference": [],
+   "start": null
+  },
+  {
+   "id": "G04",
+   "title": "May it awaken our minds",
+   "units": [
+    "u004"
+   ],
+   "technique": "story",
+   "visual": {
+    "slow": 2,
+    "prompt": "Full morning light on the river. In the foreground a single pink lotus floats on the water, half open, lit by the sun, with a small clay diya flame floating beside it. Golden reflections across the whole river. No people.",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, 3d render, photo",
+    "motion_prompt": "The lotus slowly opens its petals on its own while the diya flame flickers and soft ripples spread. No people or hands appear; nothing enters the frame. Camera slowly pulls back. Faces stay stable and natural, with no morphing."
+   },
+   "characters": [],
+   "reference": [],
+   "start": null
+  }
+ ],
+ "renders": {
+  "film": "C:\\Users\\sshai\\Downloads\\Sanskrit AI Video Engine\\Devi Kavacham Film\\vak_engine\\chants\\gayatri\\renders/gayatri_shadow_puppet.mp4"
+ }
+}

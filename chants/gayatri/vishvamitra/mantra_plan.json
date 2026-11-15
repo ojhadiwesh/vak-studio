@@ -1,0 +1,675 @@
+{
+ "about": "The geometry finale: the Gāyatrī as Viśvāmitra's vision. Times in seconds of the recording (track time) or word anchors; shifted onto the film after the narration.",
+ "scenes": [
+  {
+   "id": "G1",
+   "title": "Music: the vision opens",
+   "from": 14.5,
+   "to": 18.5,
+   "fade_in": 0.3,
+   "fade_out": 0.0,
+   "camera": {
+    "from": {
+     "zoom": 1.0,
+     "x": 0.5,
+     "y": 0.5
+    },
+    "to": {
+     "zoom": 1.04,
+     "x": 0.5,
+     "y": 0.48
+    }
+   },
+   "layers": [
+    {
+     "el": "sky",
+     "mood": "cosmos"
+    },
+    {
+     "el": "stars",
+     "n": 220,
+     "a": 0.8
+    },
+    {
+     "el": "mandala",
+     "x": 0.5,
+     "y": 0.42,
+     "r": 430,
+     "a": 1,
+     "draw": 1
+    },
+    {
+     "el": "figure",
+     "role": "ascetic",
+     "x": 0.5,
+     "y": 0.97,
+     "s": 0.75,
+     "dir": 1,
+     "pose": "meditate_up",
+     "beard": 1,
+     "jata": 1.1,
+     "headGlow": 0.8
+    }
+   ]
+  },
+  {
+   "id": "G2",
+   "title": "Om",
+   "from": 18.5,
+   "to": 24.0,
+   "fade_in": 0,
+   "fade_out": 0,
+   "camera": {
+    "from": {
+     "zoom": 1.04,
+     "x": 0.5,
+     "y": 0.48
+    },
+    "to": {
+     "zoom": 1.0,
+     "x": 0.5,
+     "y": 0.46
+    }
+   },
+   "layers": [
+    {
+     "el": "sky",
+     "mood": "cosmos"
+    },
+    {
+     "el": "stars",
+     "n": 220,
+     "a": 0.8
+    },
+    {
+     "el": "mandala",
+     "x": 0.5,
+     "y": 0.42,
+     "r": 430,
+     "a": 1,
+     "draw": 1,
+     "pulse": 1,
+     "anim": [
+      {
+       "prop": "pulse",
+       "keys": [
+        [
+         18.5,
+         0.6
+        ],
+        [
+         19.5,
+         1.4
+        ],
+        [
+         21.5,
+         1.0
+        ],
+        [
+         23.5,
+         1.3
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "el": "word",
+     "unit": 1,
+     "x": 0.5,
+     "y": 0.4,
+     "size": 230
+    },
+    {
+     "el": "figure",
+     "role": "ascetic",
+     "x": 0.5,
+     "y": 0.97,
+     "s": 0.75,
+     "dir": 1,
+     "pose": "meditate_up",
+     "beard": 1,
+     "jata": 1.1,
+     "headGlow": 0.8
+    }
+   ]
+  },
+  {
+   "id": "G3",
+   "title": "bhūr bhuvaḥ svaḥ: the three worlds",
+   "from": 24.0,
+   "to": 27.5,
+   "fade_in": 0,
+   "fade_out": 0.25,
+   "camera": {
+    "zoom": 1.0,
+    "x": 0.5,
+    "y": 0.47
+   },
+   "layers": [
+    {
+     "el": "sky",
+     "mood": "cosmos"
+    },
+    {
+     "el": "stars",
+     "n": 220,
+     "a": 0.8
+    },
+    {
+     "el": "mandala",
+     "x": 0.5,
+     "y": 0.42,
+     "r": 430,
+     "a": 0.45,
+     "draw": 1
+    },
+    {
+     "el": "worlds",
+     "x": 0.5,
+     "y": 0.42,
+     "s": 0.95,
+     "earth": 0,
+     "sky": 0,
+     "heaven": 0,
+     "anim": [
+      {
+       "prop": "earth",
+       "from": 0,
+       "to": 1,
+       "at": {
+        "u": 1,
+        "w": 1
+       },
+       "until": {
+        "u": 1,
+        "w": 1,
+        "d": 0.5
+       }
+      },
+      {
+       "prop": "sky",
+       "from": 0,
+       "to": 1,
+       "at": {
+        "u": 1,
+        "w": 1,
+        "f": 0.5
+       },
+       "until": {
+        "u": 1,
+        "w": 1,
+        "f": 0.5,
+        "d": 0.5
+       }
+      },
+      {
+       "prop": "heaven",
+       "from": 0,
+       "to": 1,
+       "at": {
+        "u": 1,
+        "w": 2
+       },
+       "until": {
+        "u": 1,
+        "w": 2,
+        "d": 0.5
+       }
+      }
+     ]
+    },
+    {
+     "el": "word",
+     "unit": 1,
+     "x": 0.5,
+     "y": 0.42,
+     "size": 130
+    },
+    {
+     "el": "figure",
+     "role": "ascetic",
+     "x": 0.5,
+     "y": 0.97,
+     "s": 0.75,
+     "dir": 1,
+     "pose": "meditate_up",
+     "beard": 1,
+     "jata": 1.1,
+     "headGlow": 0.8
+    }
+   ]
+  },
+  {
+   "id": "G4",
+   "title": "tat savitur vareṇyaṃ: the sun's figure draws itself",
+   "from": 27.5,
+   "to": 31.75,
+   "fade_in": 0.25,
+   "fade_out": 0,
+   "camera": {
+    "from": {
+     "zoom": 1.0,
+     "x": 0.5,
+     "y": 0.47
+    },
+    "to": {
+     "zoom": 1.05,
+     "x": 0.5,
+     "y": 0.45
+    }
+   },
+   "layers": [
+    {
+     "el": "sky",
+     "mood": "cosmos"
+    },
+    {
+     "el": "stars",
+     "n": 220,
+     "a": 0.6
+    },
+    {
+     "el": "rays",
+     "x": 0.5,
+     "y": 0.42,
+     "n": 12,
+     "len": 900,
+     "a": 0,
+     "spin": 0.08,
+     "anim": [
+      {
+       "prop": "a",
+       "from": 0,
+       "to": 1,
+       "at": 27.6,
+       "until": 29.5
+      }
+     ]
+    },
+    {
+     "el": "yantra",
+     "x": 0.5,
+     "y": 0.42,
+     "r": 300,
+     "draw": 0,
+     "anim": [
+      {
+       "prop": "draw",
+       "from": 0,
+       "to": 1,
+       "at": 27.6,
+       "until": 31.4,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "el": "word",
+     "unit": 2,
+     "x": 0.5,
+     "y": 0.13,
+     "size": 100
+    },
+    {
+     "el": "figure",
+     "role": "ascetic",
+     "x": 0.5,
+     "y": 0.97,
+     "s": 0.75,
+     "dir": 1,
+     "pose": "meditate_up",
+     "beard": 1,
+     "jata": 1.1,
+     "headGlow": 0.9
+    }
+   ]
+  },
+  {
+   "id": "G5",
+   "title": "bhargo devasya dhīmahi: the radiance pulses on each word",
+   "from": 31.75,
+   "to": 37.0,
+   "fade_in": 0,
+   "fade_out": 0,
+   "camera": {
+    "from": {
+     "zoom": 1.05,
+     "x": 0.5,
+     "y": 0.45
+    },
+    "to": {
+     "zoom": 1.12,
+     "x": 0.5,
+     "y": 0.44
+    }
+   },
+   "layers": [
+    {
+     "el": "sky",
+     "mood": "cosmos"
+    },
+    {
+     "el": "stars",
+     "n": 220,
+     "a": 0.6
+    },
+    {
+     "el": "rays",
+     "x": 0.5,
+     "y": 0.42,
+     "n": 12,
+     "len": 900,
+     "a": 1,
+     "spin": 0.08
+    },
+    {
+     "el": "yantra",
+     "x": 0.5,
+     "y": 0.42,
+     "r": 300,
+     "draw": 1,
+     "pulse": 0,
+     "anim": [
+      {
+       "prop": "pulse",
+       "keys": [
+        [
+         {
+          "u": 3,
+          "w": 0
+         },
+         0
+        ],
+        [
+         {
+          "u": 3,
+          "w": 0,
+          "d": 0.3
+         },
+         1
+        ],
+        [
+         {
+          "u": 3,
+          "w": 1
+         },
+         0.15
+        ],
+        [
+         {
+          "u": 3,
+          "w": 1,
+          "d": 0.3
+         },
+         1
+        ],
+        [
+         {
+          "u": 3,
+          "w": 2
+         },
+         0.2
+        ],
+        [
+         {
+          "u": 3,
+          "w": 2,
+          "d": 0.35
+         },
+         1.2
+        ],
+        [
+         {
+          "u": 3,
+          "e": "end"
+         },
+         0.6
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "el": "word",
+     "unit": 3,
+     "x": 0.5,
+     "y": 0.13,
+     "size": 140
+    },
+    {
+     "el": "figure",
+     "role": "ascetic",
+     "x": 0.5,
+     "y": 0.97,
+     "s": 0.75,
+     "dir": 1,
+     "pose": "meditate_up",
+     "beard": 1,
+     "jata": 1.1,
+     "headGlow": 1
+    }
+   ]
+  },
+  {
+   "id": "G6",
+   "title": "dhiyo yo naḥ pracodayāt: the light enters the mind; a thousand petals open",
+   "from": 37.0,
+   "to": 44.8,
+   "fade_in": 0.3,
+   "fade_out": 0,
+   "camera": {
+    "from": {
+     "zoom": 1.0,
+     "x": 0.5,
+     "y": 0.5
+    },
+    "to": {
+     "zoom": 1.08,
+     "x": 0.5,
+     "y": 0.56
+    }
+   },
+   "layers": [
+    {
+     "el": "sky",
+     "mood": "cosmos",
+     "moodTo": "dawn",
+     "anim": [
+      {
+       "prop": "moodMix",
+       "from": 0,
+       "to": 0.6,
+       "at": 37.0,
+       "until": 44.6
+      }
+     ]
+    },
+    {
+     "el": "stars",
+     "n": 220,
+     "a": 0.6,
+     "anim": [
+      {
+       "prop": "a",
+       "from": 0.6,
+       "to": 0.1,
+       "at": 37.0,
+       "until": 44.6
+      }
+     ]
+    },
+    {
+     "el": "mandala",
+     "x": 0.5,
+     "y": 0.62,
+     "r": 520,
+     "a": 1,
+     "draw": 0,
+     "anim": [
+      {
+       "prop": "draw",
+       "from": 0,
+       "to": 1,
+       "at": {
+        "u": 4,
+        "w": 3
+       },
+       "until": {
+        "u": 4,
+        "e": "end"
+       }
+      }
+     ]
+    },
+    {
+     "el": "beam",
+     "x": 0.5,
+     "y0": -0.1,
+     "y1": 0.58,
+     "a": 0,
+     "anim": [
+      {
+       "prop": "a",
+       "from": 0,
+       "to": 1,
+       "at": {
+        "u": 4,
+        "w": 0
+       },
+       "until": {
+        "u": 4,
+        "w": 2,
+        "e": "end"
+       }
+      }
+     ]
+    },
+    {
+     "el": "word",
+     "unit": 4,
+     "x": 0.5,
+     "y": 0.28,
+     "size": 130
+    },
+    {
+     "el": "figure",
+     "role": "ascetic",
+     "x": 0.5,
+     "y": 0.97,
+     "s": 1.05,
+     "dir": 1,
+     "pose": "meditate_up",
+     "beard": 1,
+     "jata": 1.1,
+     "headGlow": 0.6,
+     "anim": [
+      {
+       "prop": "headGlow",
+       "from": 0.6,
+       "to": 1.6,
+       "at": {
+        "u": 4,
+        "w": 1
+       },
+       "until": {
+        "u": 4,
+        "e": "end"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "G7",
+   "title": "Closing Om: all becomes one point of light",
+   "from": 44.8,
+   "to": 49.4,
+   "fade_in": 0,
+   "fade_out": 1.6,
+   "camera": {
+    "from": {
+     "zoom": 1.08,
+     "x": 0.5,
+     "y": 0.56
+    },
+    "to": {
+     "zoom": 1.0,
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "layers": [
+    {
+     "el": "sky",
+     "mood": "dawn",
+     "moodTo": "gold",
+     "moodMix": 0.6,
+     "anim": [
+      {
+       "prop": "moodMix",
+       "from": 0.6,
+       "to": 1,
+       "at": 44.8,
+       "until": 48
+      }
+     ]
+    },
+    {
+     "el": "mandala",
+     "x": 0.5,
+     "y": 0.62,
+     "r": 520,
+     "a": 1,
+     "draw": 1,
+     "anim": [
+      {
+       "prop": "a",
+       "from": 1,
+       "to": 0,
+       "at": 45.5,
+       "until": 48.0
+      }
+     ]
+    },
+    {
+     "el": "sun",
+     "x": 0.5,
+     "y": 0.62,
+     "r": 60,
+     "glow": 1,
+     "a": 1
+    },
+    {
+     "el": "point",
+     "x": 0.5,
+     "y": 0.62,
+     "r": 300,
+     "a": 0,
+     "anim": [
+      {
+       "prop": "a",
+       "from": 0,
+       "to": 1,
+       "at": 45.0,
+       "until": 47.5
+      }
+     ]
+    },
+    {
+     "el": "figure",
+     "role": "ascetic",
+     "x": 0.5,
+     "y": 0.97,
+     "s": 1.05,
+     "dir": 1,
+     "pose": "meditate",
+     "beard": 1,
+     "jata": 1.1,
+     "headGlow": 1
+    }
+   ]
+  }
+ ]
+}

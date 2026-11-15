@@ -1,0 +1,34 @@
+# Secrets: never committed (keys live in .env.local here and in Railway variables there)
+.env
+.env.*
+!.env.example
+
+# Local environments and build output
+.venv/
+**/__pycache__/
+**/node_modules/
+*.log
+
+# Engine caches and generated media (the film library travels via the Supabase seed archive: python -m web.seed push)
+**/.vak_cache/
+**/renders/
+**/clips/
+**/_work/
+**/master_444/
+chants/*/images/
+chants/*/*/images/
+chants/studio/
+examples/
+art/
+models/
+*.mp4
+*.mov
+
+# Studio runtime data
+web/data/
+
+# Drafts and regenerable intermediates
+**/images_v1*/
+**/audio/sep/
+**/narration_*.wav
+**/narration_*.mp3

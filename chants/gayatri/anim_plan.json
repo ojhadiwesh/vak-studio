@@ -1,0 +1,705 @@
+{
+ "about": "Style-agnostic animation plan for the Gāyatrī (Pixabay track). Times: seconds on the audio timeline, or {u: unit, w: word, e: start|end, f: fraction, d: offset}. Written by hand in the Planner's format.",
+ "scenes": [
+  {
+   "id": "A1",
+   "title": "Night on the river; the sage comes to the ghat",
+   "from": 6.0,
+   "to": 18.5,
+   "fade_in": 0.8,
+   "fade_out": 0.6,
+   "camera": {
+    "from": {
+     "zoom": 1.0,
+     "x": 0.5,
+     "y": 0.5
+    },
+    "to": {
+     "zoom": 1.08,
+     "x": 0.47,
+     "y": 0.5
+    }
+   },
+   "layers": [
+    {
+     "el": "screen",
+     "day": 0.0,
+     "anim": [
+      {
+       "prop": "day",
+       "from": 0.0,
+       "to": 0.12,
+       "at": 12.8,
+       "until": 18.5
+      }
+     ]
+    },
+    {
+     "el": "stars",
+     "n": 170,
+     "a": 1
+    },
+    {
+     "el": "moon",
+     "x": 0.8,
+     "y": 0.17,
+     "s": 1
+    },
+    {
+     "el": "temple",
+     "x": 0.72,
+     "y": 0.57,
+     "s": 0.55
+    },
+    {
+     "el": "palm",
+     "x": 0.93,
+     "y": 0.62,
+     "s": 1.1,
+     "dir": -1
+    },
+    {
+     "el": "ghat",
+     "x": 0.44,
+     "y": 0.5,
+     "s": 0.9
+    },
+    {
+     "el": "diya",
+     "x": 0.47,
+     "y": 0.495,
+     "s": 0.8
+    },
+    {
+     "el": "sage",
+     "id": "sage",
+     "x": 0.06,
+     "y": 0.5,
+     "s": 0.55,
+     "pot": 1,
+     "walk": 1,
+     "pace": 0.9,
+     "anim": [
+      {
+       "prop": "x",
+       "from": 0.06,
+       "to": 0.3,
+       "at": 12.8,
+       "until": 17.4,
+       "ease": "linear"
+      },
+      {
+       "prop": "walk",
+       "from": 1,
+       "to": 0,
+       "at": 17.0,
+       "until": 17.5
+      },
+      {
+       "prop": "pose",
+       "from": "stand",
+       "to": "pray",
+       "at": 17.5,
+       "until": 18.4
+      }
+     ]
+    },
+    {
+     "el": "river",
+     "y": 0.66,
+     "day": 0.0
+    }
+   ]
+  },
+  {
+   "id": "A2",
+   "title": "Om: he stands in the river and raises his hands",
+   "from": 18.5,
+   "to": 24.0,
+   "fade_in": 0.5,
+   "fade_out": 0.35,
+   "camera": {
+    "from": {
+     "zoom": 1.25,
+     "x": 0.5,
+     "y": 0.42
+    },
+    "to": {
+     "zoom": 1.0,
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "layers": [
+    {
+     "el": "screen",
+     "day": 0.12,
+     "anim": [
+      {
+       "prop": "day",
+       "from": 0.12,
+       "to": 0.3,
+       "at": 18.5,
+       "until": 24.0
+      }
+     ]
+    },
+    {
+     "el": "stars",
+     "n": 120,
+     "a": 0.8,
+     "anim": [
+      {
+       "prop": "a",
+       "from": 0.8,
+       "to": 0.3,
+       "at": 18.5,
+       "until": 24.0
+      }
+     ]
+    },
+    {
+     "el": "sage",
+     "x": 0.5,
+     "y": 0.83,
+     "s": 0.72,
+     "pose": "stand",
+     "anim": [
+      {
+       "prop": "pose",
+       "from": "stand",
+       "to": "raise",
+       "at": 19.0,
+       "until": 21.5
+      }
+     ]
+    },
+    {
+     "el": "river",
+     "y": 0.63,
+     "day": 0.2
+    }
+   ]
+  },
+  {
+   "id": "A3",
+   "title": "bhūr bhuvaḥ svaḥ: earth, the middle air and heaven light up in turn",
+   "from": 24.0,
+   "to": 27.5,
+   "fade_in": 0.3,
+   "fade_out": 0.35,
+   "camera": {
+    "from": {
+     "zoom": 1.0,
+     "x": 0.5,
+     "y": 0.6
+    },
+    "to": {
+     "zoom": 1.0,
+     "x": 0.5,
+     "y": 0.45
+    }
+   },
+   "layers": [
+    {
+     "el": "screen",
+     "day": 0.3
+    },
+    {
+     "el": "worlds",
+     "earth": 0,
+     "sky": 0,
+     "heaven": 0,
+     "anim": [
+      {
+       "prop": "earth",
+       "from": 0,
+       "to": 1,
+       "at": {
+        "u": 1,
+        "w": 1
+       },
+       "until": {
+        "u": 1,
+        "w": 1,
+        "d": 0.6
+       }
+      },
+      {
+       "prop": "sky",
+       "from": 0,
+       "to": 1,
+       "at": {
+        "u": 1,
+        "w": 1,
+        "f": 0.5
+       },
+       "until": {
+        "u": 1,
+        "w": 1,
+        "f": 0.5,
+        "d": 0.6
+       }
+      },
+      {
+       "prop": "heaven",
+       "from": 0,
+       "to": 1,
+       "at": {
+        "u": 1,
+        "w": 2
+       },
+       "until": {
+        "u": 1,
+        "w": 2,
+        "d": 0.6
+       }
+      }
+     ]
+    },
+    {
+     "el": "sage",
+     "x": 0.5,
+     "y": 0.86,
+     "s": 0.38,
+     "pose": "raise",
+     "rods": false
+    }
+   ]
+  },
+  {
+   "id": "A4",
+   "title": "tat savitur vareṇyaṃ: the sun rises",
+   "from": 27.5,
+   "to": 31.75,
+   "fade_in": 0.35,
+   "fade_out": 0.4,
+   "camera": {
+    "zoom": 1.0,
+    "x": 0.5,
+    "y": 0.5
+   },
+   "layers": [
+    {
+     "el": "screen",
+     "day": 0.35,
+     "anim": [
+      {
+       "prop": "day",
+       "from": 0.35,
+       "to": 0.85,
+       "at": 27.5,
+       "until": 31.5
+      }
+     ]
+    },
+    {
+     "el": "hills",
+     "y": 0.64,
+     "color": "#4b6a2a"
+    },
+    {
+     "el": "sun",
+     "x": 0.5,
+     "y": 0.78,
+     "s": 1.1,
+     "rays": 0,
+     "glow": 0.4,
+     "anim": [
+      {
+       "prop": "y",
+       "from": 0.78,
+       "to": 0.36,
+       "at": 27.5,
+       "until": 31.2,
+       "ease": "out"
+      },
+      {
+       "prop": "rays",
+       "from": 0,
+       "to": 1,
+       "at": 28.4,
+       "until": 30.8
+      },
+      {
+       "prop": "glow",
+       "from": 0.4,
+       "to": 1,
+       "at": 28.0,
+       "until": 31.5
+      }
+     ]
+    },
+    {
+     "el": "river",
+     "y": 0.66,
+     "day": 0.6,
+     "glitter": 0,
+     "gx": 0.5,
+     "anim": [
+      {
+       "prop": "glitter",
+       "from": 0,
+       "to": 1,
+       "at": 28.8,
+       "until": 31.0
+      }
+     ]
+    },
+    {
+     "el": "sage",
+     "x": 0.2,
+     "y": 0.86,
+     "s": 0.4,
+     "pose": "raise",
+     "rods": false
+    }
+   ]
+  },
+  {
+   "id": "A5",
+   "title": "bhargo devasya dhīmahi: meditating on the radiance",
+   "from": 31.75,
+   "to": 37.0,
+   "fade_in": 0.4,
+   "fade_out": 0.4,
+   "camera": {
+    "from": {
+     "zoom": 1.0,
+     "x": 0.5,
+     "y": 0.5
+    },
+    "to": {
+     "zoom": 1.1,
+     "x": 0.45,
+     "y": 0.48
+    }
+   },
+   "layers": [
+    {
+     "el": "screen",
+     "day": 0.9
+    },
+    {
+     "el": "sun",
+     "x": 0.7,
+     "y": 0.3,
+     "s": 1.25,
+     "rays": 1,
+     "glow": 0.6,
+     "anim": [
+      {
+       "prop": "glow",
+       "keys": [
+        [
+         {
+          "u": 3,
+          "w": 0
+         },
+         0.6
+        ],
+        [
+         {
+          "u": 3,
+          "w": 0,
+          "d": 0.35
+         },
+         1.0
+        ],
+        [
+         {
+          "u": 3,
+          "w": 1
+         },
+         0.65
+        ],
+        [
+         {
+          "u": 3,
+          "w": 1,
+          "d": 0.35
+         },
+         1.0
+        ],
+        [
+         {
+          "u": 3,
+          "w": 2
+         },
+         0.7
+        ],
+        [
+         {
+          "u": 3,
+          "w": 2,
+          "d": 0.4
+         },
+         1.15
+        ],
+        [
+         {
+          "u": 3,
+          "e": "end"
+         },
+         0.9
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "el": "river",
+     "y": 0.7,
+     "day": 0.9,
+     "glitter": 0.8,
+     "gx": 0.7
+    },
+    {
+     "el": "ghat",
+     "x": 0.56,
+     "y": 0.6,
+     "s": 1.0
+    },
+    {
+     "el": "sage",
+     "x": 0.47,
+     "y": 0.6,
+     "s": 0.68,
+     "pose": "meditate"
+    }
+   ]
+  },
+  {
+   "id": "A6",
+   "title": "dhiyo yo naḥ: the water offering to the sun",
+   "from": 37.0,
+   "to": 41.2,
+   "fade_in": 0.4,
+   "fade_out": 0.4,
+   "camera": {
+    "from": {
+     "zoom": 1.0,
+     "x": 0.5,
+     "y": 0.5
+    },
+    "to": {
+     "zoom": 1.12,
+     "x": 0.46,
+     "y": 0.47
+    }
+   },
+   "layers": [
+    {
+     "el": "screen",
+     "day": 0.95
+    },
+    {
+     "el": "sun",
+     "x": 0.78,
+     "y": 0.27,
+     "s": 1.0,
+     "rays": 1,
+     "glow": 0.9
+    },
+    {
+     "el": "sage",
+     "x": 0.42,
+     "y": 0.9,
+     "s": 0.72,
+     "pose": "raise",
+     "pot": 1,
+     "pour": 0,
+     "rods": true,
+     "anim": [
+      {
+       "prop": "pose",
+       "from": "raise",
+       "to": "offer",
+       "at": 37.0,
+       "until": 38.0
+      },
+      {
+       "prop": "pour",
+       "from": 0,
+       "to": 1,
+       "at": 38.2,
+       "until": 39.4
+      }
+     ]
+    },
+    {
+     "el": "river",
+     "y": 0.66,
+     "day": 0.95,
+     "glitter": 1,
+     "gx": 0.6
+    }
+   ]
+  },
+  {
+   "id": "A7",
+   "title": "pracodayāt: the lotus opens, the egrets rise",
+   "from": 41.2,
+   "to": 45.0,
+   "fade_in": 0.4,
+   "fade_out": 0.4,
+   "camera": {
+    "from": {
+     "zoom": 1.15,
+     "x": 0.5,
+     "y": 0.55
+    },
+    "to": {
+     "zoom": 1.0,
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "layers": [
+    {
+     "el": "screen",
+     "day": 1.0
+    },
+    {
+     "el": "sun",
+     "x": 0.82,
+     "y": 0.2,
+     "s": 0.8,
+     "rays": 1,
+     "glow": 0.8
+    },
+    {
+     "el": "egrets",
+     "y": 0.3,
+     "n": 6,
+     "fly": 0,
+     "anim": [
+      {
+       "prop": "fly",
+       "from": 0,
+       "to": 1,
+       "at": 41.6,
+       "until": 45.0,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "el": "river",
+     "y": 0.62,
+     "day": 1.0,
+     "glitter": 0.7,
+     "gx": 0.8
+    },
+    {
+     "el": "lotus",
+     "x": 0.5,
+     "y": 0.7,
+     "s": 2.0,
+     "open": 0,
+     "rise": 0,
+     "anim": [
+      {
+       "prop": "rise",
+       "from": 0,
+       "to": 1,
+       "at": 41.2,
+       "until": 42.4
+      },
+      {
+       "prop": "open",
+       "from": 0,
+       "to": 1,
+       "at": {
+        "u": 4,
+        "w": 3
+       },
+       "until": {
+        "u": 4,
+        "w": 3,
+        "e": "end"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "A8",
+   "title": "Closing Om: the whole scene in full light; the lamp dims",
+   "from": 45.0,
+   "to": 49.4,
+   "fade_in": 0.4,
+   "fade_out": 1.8,
+   "camera": {
+    "from": {
+     "zoom": 1.1,
+     "x": 0.5,
+     "y": 0.52
+    },
+    "to": {
+     "zoom": 1.0,
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "layers": [
+    {
+     "el": "screen",
+     "day": 1.0
+    },
+    {
+     "el": "sun",
+     "x": 0.5,
+     "y": 0.24,
+     "s": 0.9,
+     "rays": 1,
+     "glow": 1
+    },
+    {
+     "el": "temple",
+     "x": 0.8,
+     "y": 0.6,
+     "s": 0.6
+    },
+    {
+     "el": "palm",
+     "x": 0.08,
+     "y": 0.64,
+     "s": 1.0
+    },
+    {
+     "el": "egrets",
+     "y": 0.18,
+     "n": 4,
+     "fly": 0.2,
+     "anim": [
+      {
+       "prop": "fly",
+       "from": 0.2,
+       "to": 0.9,
+       "at": 45.0,
+       "until": 49.4,
+       "ease": "linear"
+      }
+     ]
+    },
+    {
+     "el": "sage",
+     "x": 0.5,
+     "y": 0.86,
+     "s": 0.46,
+     "pose": "pray",
+     "rods": false
+    },
+    {
+     "el": "river",
+     "y": 0.66,
+     "day": 1.0,
+     "glitter": 0.9,
+     "gx": 0.5
+    }
+   ]
+  }
+ ]
+}

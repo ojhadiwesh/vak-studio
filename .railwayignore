@@ -1,0 +1,17 @@
+# What `railway up` leaves behind: secrets, local environments and the big media (the library comes from the seed
+# archive in Supabase Storage on first boot; see web/seed.py). Keep in sync with .dockerignore.
+.env.local
+.env*
+.venv/
+**/__pycache__/
+**/node_modules/
+**/.vak_cache/
+chants/
+art/
+models/
+examples/
+web/data/
+*.log
+*.mp4
+*.mov
+*.wav

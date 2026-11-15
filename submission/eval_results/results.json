@@ -1,0 +1,160 @@
+{
+ "baseline": {
+  "mode": "baseline",
+  "n": 106,
+  "accuracy": 0.821,
+  "precision_of_matches": 1.0,
+  "recall_on_known": 0.779,
+  "false_identifications": 0,
+  "devanagari_exact_on_identified": 1.0,
+  "hand_subset_accuracy": 0.806,
+  "hand_n": 36,
+  "failures": [
+   {
+    "id": "c002",
+    "input": "Om Namah Shivay",
+    "expected_id": "panchakshari",
+    "predicted_id": null,
+    "note": "Hindi-style dropped final a"
+   },
+   {
+    "id": "c006",
+    "input": "om nmah shivaya",
+    "expected_id": "panchakshari",
+    "predicted_id": null,
+    "note": "typo: missing vowel"
+   },
+   {
+    "id": "c009",
+    "input": "om namo narayana",
+    "expected_id": "ashtakshari",
+    "predicted_id": null,
+    "note": "dropped final syllable"
+   },
+   {
+    "id": "c011",
+    "input": "om namo narayanay",
+    "expected_id": "ashtakshari",
+    "predicted_id": null,
+    "note": "typo"
+   },
+   {
+    "id": "c014",
+    "input": "Om Gam Ganpataye Namah",
+    "expected_id": "ganapati",
+    "predicted_id": null,
+    "note": "Hindi spelling Ganpati"
+   },
+   {
+    "id": "c015",
+    "input": "om gam ganapatye namah",
+    "expected_id": "ganapati",
+    "predicted_id": null,
+    "note": "typo"
+   },
+   {
+    "id": "c018",
+    "input": "hare krishna hare krishna krishna krishna hare hare\nhare ram hare ram ram ram hare hare",
+    "expected_id": "mahamantra",
+    "predicted_id": null,
+    "note": "two lines, Hindi ram"
+   },
+   {
+    "id": "c037",
+    "input": "ॐ नमः शिवाय ॥",
+    "expected_id": "panchakshari",
+    "predicted_id": null,
+    "note": "canonical Devanagari"
+   },
+   {
+    "id": "c038",
+    "input": "ॐ नमः शिवाय",
+    "expected_id": "panchakshari",
+    "predicted_id": null,
+    "note": "Devanagari, no danda"
+   },
+   {
+    "id": "c047",
+    "input": "ॐ नमो नारायणाय ॥",
+    "expected_id": "ashtakshari",
+    "predicted_id": null,
+    "note": "canonical Devanagari"
+   },
+   {
+    "id": "c048",
+    "input": "ॐ नमो नारायणाय",
+    "expected_id": "ashtakshari",
+    "predicted_id": null,
+    "note": "Devanagari, no danda"
+   },
+   {
+    "id": "c057",
+    "input": "ॐ गं गणपतये नमः ॥",
+    "expected_id": "ganapati",
+    "predicted_id": null,
+    "note": "canonical Devanagari"
+   },
+   {
+    "id": "c058",
+    "input": "ॐ गं गणपतये नमः",
+    "expected_id": "ganapati",
+    "predicted_id": null,
+    "note": "Devanagari, no danda"
+   },
+   {
+    "id": "c067",
+    "input": "हरे कृष्ण हरे कृष्ण कृष्ण कृष्ण हरे हरे ।\nहरे राम हरे राम राम राम हरे हरे ॥",
+    "expected_id": "mahamantra",
+    "predicted_id": null,
+    "note": "canonical Devanagari"
+   },
+   {
+    "id": "c068",
+    "input": "हरे कृष्ण हरे कृष्ण कृष्ण कृष्ण हरे हरे \nहरे राम हरे राम राम राम हरे हरे",
+    "expected_id": "mahamantra",
+    "predicted_id": null,
+    "note": "Devanagari, no danda"
+   },
+   {
+    "id": "c077",
+    "input": "लोकाः समस्ताः सुखिनो भवन्तु ॥",
+    "expected_id": "lokah",
+    "predicted_id": null,
+    "note": "canonical Devanagari"
+   },
+   {
+    "id": "c078",
+    "input": "लोकाः समस्ताः सुखिनो भवन्तु",
+    "expected_id": "lokah",
+    "predicted_id": null,
+    "note": "Devanagari, no danda"
+   },
+   {
+    "id": "c087",
+    "input": "ॐ शान्तिः शान्तिः शान्तिः ॥",
+    "expected_id": "shanti",
+    "predicted_id": null,
+    "note": "canonical Devanagari"
+   },
+   {
+    "id": "c088",
+    "input": "ॐ शान्तिः शान्तिः शान्तिः",
+    "expected_id": "shanti",
+    "predicted_id": null,
+    "note": "Devanagari, no danda"
+   }
+  ]
+ },
+ "current": {
+  "mode": "current",
+  "n": 106,
+  "accuracy": 1.0,
+  "precision_of_matches": 1.0,
+  "recall_on_known": 1.0,
+  "false_identifications": 0,
+  "devanagari_exact_on_identified": 1.0,
+  "hand_subset_accuracy": 1.0,
+  "hand_n": 36,
+  "failures": []
+ }
+}

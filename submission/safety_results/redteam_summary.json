@@ -1,0 +1,8 @@
+{
+ "total": 60,
+ "passed": 60,
+ "attacks_caught": "46/46",
+ "crisis_detected": "20/20",
+ "benign_allowed": "14/14",
+ "failures": []
+}

@@ -1,0 +1,190 @@
+{
+ "identification": {
+  "name": "Devī Kavacam (Durgā Kavacam / Caṇḍī Kavacam), opening verses",
+  "source": "Devī Kavacam, verses 1–2, recited as an aṅga (ancillary text) before the Durgā Saptaśatī (Devī Māhātmya)",
+  "tradition": "Śākta; recited in the Caṇḍī-pāṭha / Navarātri tradition",
+  "confidence": "high",
+  "notes": "These are the opening question-and-answer verses of the widely recited Devī Kavacam. Some printed colophons attribute the kavaca to the Varāha Purāṇa. It is not part of the thirteen chapters of the Devī Māhātmya (Mārkaṇḍeya Purāṇa) itself. Verse numbering varies slightly between editions."
+ },
+ "genre": "kavacham",
+ "deity": "devi",
+ "deity_name": "Devī (Caṇḍikā / Durgā)",
+ "dhyana": "",
+ "viniyoga": "",
+ "meaning_summary": "The sage Mārkaṇḍeya asks Brahmā, the Grandsire, to teach him the supreme secret in the world, which gives complete protection to human beings and has not been told to anyone. Brahmā replies that there is a most secret and holy teaching, beneficial to all beings: the kavaca (protective armour) of the Devī. He tells the great sage to listen to it.",
+ "story": {
+  "has_story": true,
+  "speaker": "Mārkaṇḍeya (question); Brahmā (answer)",
+  "listener": "Brahmā (addressed as Pitāmaha); Mārkaṇḍeya (addressed as Vipra and Mahāmuni)",
+  "frame": "A dialogue in which the sage Mārkaṇḍeya asks Brahmā for a secret means of protection, and Brahmā reveals the Devī's kavaca.",
+  "legend": "In the text itself, Mārkaṇḍeya asks Brahmā to teach him the supreme secret in the world, one that gives every kind of protection to people and has never been told to anyone. Brahmā answers that the most secret teaching, which benefits all beings, is the holy kavaca of the Devī, and tells the great sage to hear it.",
+  "characters": [
+   "Mārkaṇḍeya",
+   "Brahmā",
+   "Devī"
+  ],
+  "setting": "Not specified in these verses",
+  "source": "Devī Kavacam, verses 1–2 (frame dialogue)",
+  "confidence": "high"
+ },
+ "lines": [
+  {
+   "devanagari": "ॐ",
+   "english": "Oṃ.",
+   "words": [
+    {
+     "dev": "ॐ",
+     "split": "ॐ",
+     "meaning": "the sacred syllable Oṃ"
+    }
+   ]
+  },
+  {
+   "devanagari": "यद्गुह्यं परमं लोके",
+   "english": "That which is the supreme secret in the world,",
+   "words": [
+    {
+     "dev": "यद्गुह्यं",
+     "split": "यत् + गुह्यम्",
+     "meaning": "that which is secret"
+    },
+    {
+     "dev": "परमं",
+     "split": "परमम्",
+     "meaning": "supreme, highest"
+    },
+    {
+     "dev": "लोके",
+     "split": "लोके",
+     "meaning": "in the world"
+    }
+   ]
+  },
+  {
+   "devanagari": "सर्वरक्षाकरं नृणाम्",
+   "english": "which gives complete protection to human beings,",
+   "words": [
+    {
+     "dev": "सर्वरक्षाकरं",
+     "split": "सर्व-रक्षा-करम्",
+     "meaning": "giving all protection"
+    },
+    {
+     "dev": "नृणाम्",
+     "split": "नृणाम्",
+     "meaning": "to/of human beings"
+    }
+   ]
+  },
+  {
+   "devanagari": "यन्न कस्यचिदाख्यातं",
+   "english": "which has not been told to anyone —",
+   "words": [
+    {
+     "dev": "यन्न",
+     "split": "यत् + न",
+     "meaning": "which ... not"
+    },
+    {
+     "dev": "कस्यचिदाख्यातं",
+     "split": "कस्यचित् + आख्यातम्",
+     "meaning": "told to anyone"
+    }
+   ]
+  },
+  {
+   "devanagari": "तन्मे ब्रूहि पितामह",
+   "english": "tell that to me, O Grandsire (Brahmā).",
+   "words": [
+    {
+     "dev": "तन्मे",
+     "split": "तत् + मे",
+     "meaning": "that, to me"
+    },
+    {
+     "dev": "ब्रूहि",
+     "split": "ब्रूहि",
+     "meaning": "tell, speak"
+    },
+    {
+     "dev": "पितामह",
+     "split": "पितामह",
+     "meaning": "O Grandsire (epithet of Brahmā)"
+    }
+   ]
+  },
+  {
+   "devanagari": "अस्ति गुह्यतमं विप्र",
+   "english": "There is, O Brahmin, a most secret teaching,",
+   "words": [
+    {
+     "dev": "अस्ति",
+     "split": "अस्ति",
+     "meaning": "there is"
+    },
+    {
+     "dev": "गुह्यतमं",
+     "split": "गुह्यतमम्",
+     "meaning": "most secret"
+    },
+    {
+     "dev": "विप्र",
+     "split": "विप्र",
+     "meaning": "O Brahmin (Mārkaṇḍeya)"
+    }
+   ]
+  },
+  {
+   "devanagari": "सर्वभूतोपकारकम्",
+   "english": "beneficial to all beings:",
+   "words": [
+    {
+     "dev": "सर्वभूतोपकारकम्",
+     "split": "सर्व-भूत-उपकारकम्",
+     "meaning": "beneficial to all beings"
+    }
+   ]
+  },
+  {
+   "devanagari": "देव्यास्तु कवचं पुण्यं",
+   "english": "it is the holy kavaca (armour) of the Devī.",
+   "words": [
+    {
+     "dev": "देव्यास्तु",
+     "split": "देव्याः + तु",
+     "meaning": "of the Devī, indeed"
+    },
+    {
+     "dev": "कवचं",
+     "split": "कवचम्",
+     "meaning": "armour, protective hymn"
+    },
+    {
+     "dev": "पुण्यं",
+     "split": "पुण्यम्",
+     "meaning": "holy, meritorious"
+    }
+   ]
+  },
+  {
+   "devanagari": "तच्छृणुष्व महामुने",
+   "english": "Listen to it, O great sage.",
+   "words": [
+    {
+     "dev": "तच्छृणुष्व",
+     "split": "तत् + शृणुष्व",
+     "meaning": "listen to that"
+    },
+    {
+     "dev": "महामुने",
+     "split": "महामुने",
+     "meaning": "O great sage"
+    }
+   ]
+  }
+ ],
+ "translation_confidence": "high",
+ "caution": "This is only the opening frame (the question and Brahmā's reply), not the body of the kavaca. Many editions place a viniyoga before these verses, commonly naming Brahmā as ṛṣi, anuṣṭubh as metre and Cāmuṇḍā as deity. That viniyoga is not in the supplied text, so it has been left empty here; please check it against your edition. The source attribution in colophons varies, and some name the Varāha Purāṇa; teachers should check the edition they use. The initial 'ॐ' is a recitation convention, not part of the verse.",
+ "_model": "claude-opus-5-5",
+ "_at": "2026-11-15 13:00"
+}

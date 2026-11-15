@@ -1,0 +1,106 @@
+{"id": "c001", "input": "om namah shivaya", "expected_id": "panchakshari", "kind": "hand", "note": "most common spelling"}
+{"id": "c002", "input": "Om Namah Shivay", "expected_id": "panchakshari", "kind": "hand", "note": "Hindi-style dropped final a"}
+{"id": "c003", "input": "om namaha shivaaya", "expected_id": "panchakshari", "kind": "hand", "note": "long vowel doubled"}
+{"id": "c004", "input": "aum namah sivaya", "expected_id": "panchakshari", "kind": "hand", "note": "s for sh"}
+{"id": "c005", "input": "OM NAMAH SHIVAYA!!", "expected_id": "panchakshari", "kind": "hand", "note": "caps + punctuation"}
+{"id": "c006", "input": "om nmah shivaya", "expected_id": "panchakshari", "kind": "hand", "note": "typo: missing vowel"}
+{"id": "c007", "input": "om namha shivaya", "expected_id": "panchakshari", "kind": "hand", "note": "typo: transposed"}
+{"id": "c008", "input": "om namo narayanaya", "expected_id": "ashtakshari", "kind": "hand", "note": ""}
+{"id": "c009", "input": "om namo narayana", "expected_id": "ashtakshari", "kind": "hand", "note": "dropped final syllable"}
+{"id": "c010", "input": "Om Namo Naaraayanaaya", "expected_id": "ashtakshari", "kind": "hand", "note": "doubled vowels"}
+{"id": "c011", "input": "om namo narayanay", "expected_id": "ashtakshari", "kind": "hand", "note": "typo"}
+{"id": "c012", "input": "om gam ganapataye namaha", "expected_id": "ganapati", "kind": "hand", "note": ""}
+{"id": "c013", "input": "om gan ganapataye namah", "expected_id": "ganapati", "kind": "hand", "note": "anusvara as n"}
+{"id": "c014", "input": "Om Gam Ganpataye Namah", "expected_id": "ganapati", "kind": "hand", "note": "Hindi spelling Ganpati"}
+{"id": "c015", "input": "om gam ganapatye namah", "expected_id": "ganapati", "kind": "hand", "note": "typo"}
+{"id": "c016", "input": "hare krishna hare krishna krishna krishna hare hare hare rama hare rama rama rama hare hare", "expected_id": "mahamantra", "kind": "hand", "note": "full"}
+{"id": "c017", "input": "Hare Krsna Hare Krsna Krsna Krsna Hare Hare Hare Rama Hare Rama Rama Rama Hare Hare", "expected_id": "mahamantra", "kind": "hand", "note": "ISKCON spelling krsna"}
+{"id": "c018", "input": "hare krishna hare krishna krishna krishna hare hare\nhare ram hare ram ram ram hare hare", "expected_id": "mahamantra", "kind": "hand", "note": "two lines, Hindi ram"}
+{"id": "c019", "input": "lokah samastah sukhino bhavantu", "expected_id": "lokah", "kind": "hand", "note": ""}
+{"id": "c020", "input": "loka samasta sukhino bhavanthu", "expected_id": "lokah", "kind": "hand", "note": "South Indian th"}
+{"id": "c021", "input": "Lokaa Samastaa Sukhino Bhavantu", "expected_id": "lokah", "kind": "hand", "note": "doubled vowels"}
+{"id": "c022", "input": "lokah samasta sukino bhavantu", "expected_id": "lokah", "kind": "hand", "note": "typo: sukino"}
+{"id": "c023", "input": "om shanti shanti shanti", "expected_id": "shanti", "kind": "hand", "note": ""}
+{"id": "c024", "input": "Om Shanti Shanti Shantihi", "expected_id": "shanti", "kind": "hand", "note": "spoken visarga"}
+{"id": "c025", "input": "om shaanti shaanti shaantih", "expected_id": "shanti", "kind": "hand", "note": "doubled vowels"}
+{"id": "c026", "input": "om santi santi santi", "expected_id": "shanti", "kind": "hand", "note": "s for sh"}
+{"id": "c027", "input": "om bhur bhuvah svah tat savitur varenyam bhargo devasya dhimahi dhiyo yo nah prachodayat", "expected_id": null, "kind": "hand", "note": "Gayatri: not in chants.json"}
+{"id": "c028", "input": "om tryambakam yajamahe sugandhim pushtivardhanam", "expected_id": null, "kind": "hand", "note": "Mahamrityunjaya: not in chants.json"}
+{"id": "c029", "input": "om namo bhagavate vasudevaya", "expected_id": null, "kind": "hand", "note": "close to ashtakshari but different"}
+{"id": "c030", "input": "om namah", "expected_id": null, "kind": "hand", "note": "too short to identify"}
+{"id": "c031", "input": "om shri ganeshaya namah", "expected_id": null, "kind": "hand", "note": "different Ganesha mantra"}
+{"id": "c032", "input": "hare rama hare rama", "expected_id": null, "kind": "hand", "note": "fragment shared by many bhajans"}
+{"id": "c033", "input": "om mani padme hum", "expected_id": null, "kind": "hand", "note": "Buddhist mantra"}
+{"id": "c034", "input": "sarve bhavantu sukhinah sarve santu niramayah", "expected_id": null, "kind": "hand", "note": "close to lokah but different prayer"}
+{"id": "c035", "input": "om sahana vavatu sahanau bhunaktu", "expected_id": null, "kind": "hand", "note": "shanti mantra, different one"}
+{"id": "c036", "input": "I love chanting every morning", "expected_id": null, "kind": "hand", "note": "ordinary sentence"}
+{"id": "c037", "input": "ॐ नमः शिवाय ॥", "expected_id": "panchakshari", "kind": "variant", "note": "canonical Devanagari"}
+{"id": "c038", "input": "ॐ नमः शिवाय", "expected_id": "panchakshari", "kind": "variant", "note": "Devanagari, no danda"}
+{"id": "c039", "input": "oṃ namaḥ śivāya ||", "expected_id": "panchakshari", "kind": "variant", "note": "IAST"}
+{"id": "c040", "input": "OṂ NAMAḤ ŚIVĀYA ||", "expected_id": "panchakshari", "kind": "variant", "note": "IAST upper case"}
+{"id": "c041", "input": "Om Namah Shivaya", "expected_id": "panchakshari", "kind": "variant", "note": "title case"}
+{"id": "c042", "input": "om  namah  shivaya", "expected_id": "panchakshari", "kind": "variant", "note": "double spaces"}
+{"id": "c043", "input": "om namah shivaya.", "expected_id": "panchakshari", "kind": "variant", "note": "trailing period"}
+{"id": "c044", "input": "  om namah shivaya\n", "expected_id": "panchakshari", "kind": "variant", "note": "padding"}
+{"id": "c045", "input": "om-namah-shivaya", "expected_id": "panchakshari", "kind": "variant", "note": "hyphens"}
+{"id": "c046", "input": "omnamahshivaya", "expected_id": "panchakshari", "kind": "variant", "note": "no spaces"}
+{"id": "c047", "input": "ॐ नमो नारायणाय ॥", "expected_id": "ashtakshari", "kind": "variant", "note": "canonical Devanagari"}
+{"id": "c048", "input": "ॐ नमो नारायणाय", "expected_id": "ashtakshari", "kind": "variant", "note": "Devanagari, no danda"}
+{"id": "c049", "input": "oṃ namo nārāyaṇāya ||", "expected_id": "ashtakshari", "kind": "variant", "note": "IAST"}
+{"id": "c050", "input": "OṂ NAMO NĀRĀYAṆĀYA ||", "expected_id": "ashtakshari", "kind": "variant", "note": "IAST upper case"}
+{"id": "c051", "input": "Om Namo Narayanaya", "expected_id": "ashtakshari", "kind": "variant", "note": "title case"}
+{"id": "c052", "input": "om  namo  narayanaya", "expected_id": "ashtakshari", "kind": "variant", "note": "double spaces"}
+{"id": "c053", "input": "om namo narayanaya.", "expected_id": "ashtakshari", "kind": "variant", "note": "trailing period"}
+{"id": "c054", "input": "  om namo narayanaya\n", "expected_id": "ashtakshari", "kind": "variant", "note": "padding"}
+{"id": "c055", "input": "om-namo-narayanaya", "expected_id": "ashtakshari", "kind": "variant", "note": "hyphens"}
+{"id": "c056", "input": "omnamonarayanaya", "expected_id": "ashtakshari", "kind": "variant", "note": "no spaces"}
+{"id": "c057", "input": "ॐ गं गणपतये नमः ॥", "expected_id": "ganapati", "kind": "variant", "note": "canonical Devanagari"}
+{"id": "c058", "input": "ॐ गं गणपतये नमः", "expected_id": "ganapati", "kind": "variant", "note": "Devanagari, no danda"}
+{"id": "c059", "input": "oṃ gaṃ gaṇapataye namaḥ ||", "expected_id": "ganapati", "kind": "variant", "note": "IAST"}
+{"id": "c060", "input": "OṂ GAṂ GAṆAPATAYE NAMAḤ ||", "expected_id": "ganapati", "kind": "variant", "note": "IAST upper case"}
+{"id": "c061", "input": "Om Gam Ganapataye Namah", "expected_id": "ganapati", "kind": "variant", "note": "title case"}
+{"id": "c062", "input": "om  gam  ganapataye  namah", "expected_id": "ganapati", "kind": "variant", "note": "double spaces"}
+{"id": "c063", "input": "om gam ganapataye namah.", "expected_id": "ganapati", "kind": "variant", "note": "trailing period"}
+{"id": "c064", "input": "  om gam ganapataye namah\n", "expected_id": "ganapati", "kind": "variant", "note": "padding"}
+{"id": "c065", "input": "om-gam-ganapataye-namah", "expected_id": "ganapati", "kind": "variant", "note": "hyphens"}
+{"id": "c066", "input": "omgamganapatayenamah", "expected_id": "ganapati", "kind": "variant", "note": "no spaces"}
+{"id": "c067", "input": "हरे कृष्ण हरे कृष्ण कृष्ण कृष्ण हरे हरे ।\nहरे राम हरे राम राम राम हरे हरे ॥", "expected_id": "mahamantra", "kind": "variant", "note": "canonical Devanagari"}
+{"id": "c068", "input": "हरे कृष्ण हरे कृष्ण कृष्ण कृष्ण हरे हरे \nहरे राम हरे राम राम राम हरे हरे", "expected_id": "mahamantra", "kind": "variant", "note": "Devanagari, no danda"}
+{"id": "c069", "input": "hare kṛṣṇa hare kṛṣṇa kṛṣṇa kṛṣṇa hare hare |\nhare rāma hare rāma rāma rāma hare hare ||", "expected_id": "mahamantra", "kind": "variant", "note": "IAST"}
+{"id": "c070", "input": "HARE KṚṢṆA HARE KṚṢṆA KṚṢṆA KṚṢṆA HARE HARE |\nHARE RĀMA HARE RĀMA RĀMA RĀMA HARE HARE ||", "expected_id": "mahamantra", "kind": "variant", "note": "IAST upper case"}
+{"id": "c071", "input": "Hare Krishna Hare Krishna Krishna Krishna Hare Hare Hare Rama Hare Rama Rama Rama Hare Hare", "expected_id": "mahamantra", "kind": "variant", "note": "title case"}
+{"id": "c072", "input": "hare  krishna  hare  krishna  krishna  krishna  hare  hare  hare  rama  hare  rama  rama  rama  hare  hare", "expected_id": "mahamantra", "kind": "variant", "note": "double spaces"}
+{"id": "c073", "input": "hare krishna hare krishna krishna krishna hare hare hare rama hare rama rama rama hare hare.", "expected_id": "mahamantra", "kind": "variant", "note": "trailing period"}
+{"id": "c074", "input": "  hare krishna hare krishna krishna krishna hare hare hare rama hare rama rama rama hare hare\n", "expected_id": "mahamantra", "kind": "variant", "note": "padding"}
+{"id": "c075", "input": "hare-krishna-hare-krishna-krishna-krishna-hare-hare-hare-rama-hare-rama-rama-rama-hare-hare", "expected_id": "mahamantra", "kind": "variant", "note": "hyphens"}
+{"id": "c076", "input": "harekrishnaharekrishnakrishnakrishnahareharehareramahareramaramaramaharehare", "expected_id": "mahamantra", "kind": "variant", "note": "no spaces"}
+{"id": "c077", "input": "लोकाः समस्ताः सुखिनो भवन्तु ॥", "expected_id": "lokah", "kind": "variant", "note": "canonical Devanagari"}
+{"id": "c078", "input": "लोकाः समस्ताः सुखिनो भवन्तु", "expected_id": "lokah", "kind": "variant", "note": "Devanagari, no danda"}
+{"id": "c079", "input": "lokāḥ samastāḥ sukhino bhavantu ||", "expected_id": "lokah", "kind": "variant", "note": "IAST"}
+{"id": "c080", "input": "LOKĀḤ SAMASTĀḤ SUKHINO BHAVANTU ||", "expected_id": "lokah", "kind": "variant", "note": "IAST upper case"}
+{"id": "c081", "input": "Lokah Samastah Sukhino Bhavantu", "expected_id": "lokah", "kind": "variant", "note": "title case"}
+{"id": "c082", "input": "lokah  samastah  sukhino  bhavantu", "expected_id": "lokah", "kind": "variant", "note": "double spaces"}
+{"id": "c083", "input": "lokah samastah sukhino bhavantu.", "expected_id": "lokah", "kind": "variant", "note": "trailing period"}
+{"id": "c084", "input": "  lokah samastah sukhino bhavantu\n", "expected_id": "lokah", "kind": "variant", "note": "padding"}
+{"id": "c085", "input": "lokah-samastah-sukhino-bhavantu", "expected_id": "lokah", "kind": "variant", "note": "hyphens"}
+{"id": "c086", "input": "lokahsamastahsukhinobhavantu", "expected_id": "lokah", "kind": "variant", "note": "no spaces"}
+{"id": "c087", "input": "ॐ शान्तिः शान्तिः शान्तिः ॥", "expected_id": "shanti", "kind": "variant", "note": "canonical Devanagari"}
+{"id": "c088", "input": "ॐ शान्तिः शान्तिः शान्तिः", "expected_id": "shanti", "kind": "variant", "note": "Devanagari, no danda"}
+{"id": "c089", "input": "oṃ śāntiḥ śāntiḥ śāntiḥ ||", "expected_id": "shanti", "kind": "variant", "note": "IAST"}
+{"id": "c090", "input": "OṂ ŚĀNTIḤ ŚĀNTIḤ ŚĀNTIḤ ||", "expected_id": "shanti", "kind": "variant", "note": "IAST upper case"}
+{"id": "c091", "input": "Om Shanti Shanti Shanti", "expected_id": "shanti", "kind": "variant", "note": "title case"}
+{"id": "c092", "input": "om  shanti  shanti  shanti", "expected_id": "shanti", "kind": "variant", "note": "double spaces"}
+{"id": "c093", "input": "om shanti shanti shanti.", "expected_id": "shanti", "kind": "variant", "note": "trailing period"}
+{"id": "c094", "input": "  om shanti shanti shanti\n", "expected_id": "shanti", "kind": "variant", "note": "padding"}
+{"id": "c095", "input": "om-shanti-shanti-shanti", "expected_id": "shanti", "kind": "variant", "note": "hyphens"}
+{"id": "c096", "input": "omshantishantishanti", "expected_id": "shanti", "kind": "variant", "note": "no spaces"}
+{"id": "c097", "input": "ॐ भूर्भुवः स्वः", "expected_id": null, "kind": "variant", "note": "Gayatri vyahrti, Devanagari"}
+{"id": "c098", "input": "ॐ त्र्यम्बकं यजामहे", "expected_id": null, "kind": "variant", "note": "Mahamrityunjaya, Devanagari"}
+{"id": "c099", "input": "नमस्ते", "expected_id": null, "kind": "variant", "note": "greeting"}
+{"id": "c100", "input": "asdf qwer zxcv", "expected_id": null, "kind": "variant", "note": "keyboard noise"}
+{"id": "c101", "input": "1234 5678", "expected_id": null, "kind": "variant", "note": "numbers"}
+{"id": "c102", "input": "hello how are you", "expected_id": null, "kind": "variant", "note": "chat"}
+{"id": "c103", "input": "shiva", "expected_id": null, "kind": "variant", "note": "single deity name"}
+{"id": "c104", "input": "krishna", "expected_id": null, "kind": "variant", "note": "single deity name"}
+{"id": "c105", "input": "ram ram", "expected_id": null, "kind": "variant", "note": "fragment"}
+{"id": "c106", "input": "om om om", "expected_id": null, "kind": "variant", "note": "only Om"}

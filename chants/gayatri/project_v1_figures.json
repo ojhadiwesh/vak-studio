@@ -1,0 +1,81 @@
+{
+ "title": "Gayatri Mantra",
+ "chant": "chant.txt",
+ "audio": "recording.wav",
+ "translations": "translations.json",
+ "style": "ravi_varma",
+ "card": {
+  "kicker": "गायत्री मन्त्रः",
+  "chapter": "Ṛgveda 3.62.10",
+  "title": "The Gāyatrī Mantra",
+  "sub": "Seer Viśvāmitra · to Savitṛ, the Sun"
+ },
+ "characters": {
+  "Viśvāmitra": "The sage Vishvamitra: an elderly rishi with a long white beard and matted hair tied in a topknot, ochre robes, rudraksha beads, serene face, seated in lotus posture.",
+  "Savitṛ": "Savitr, the golden Sun god: radiant golden-armed deity crowned with a sun-disc halo, riding a golden chariot drawn by seven white horses.",
+  "Gāyatrī Devī": "Goddess Gayatri: five serene faces and ten arms, seated on a red lotus, holding conch, discus, lotus and rosary, a white swan beside her, soft golden-white radiance."
+ },
+ "scenes": [
+  {
+   "id": "G01",
+   "title": "The three worlds at dawn",
+   "units": [
+    1
+   ],
+   "characters": [
+    "Viśvāmitra"
+   ],
+   "description": "Pre-dawn beside a sacred river. The three worlds as one tall vista: dark earth and river below, misty sky in the middle, a starry heaven above fading into the first light. In the lower third the sage sits in meditation on a stone ghat, seen in three-quarter view from behind.",
+   "motion": "Mist drifts slowly across the river while the stars fade into the first light.",
+   "reference": [
+    "G03"
+   ],
+   "camera": "Camera slowly tilts up from the river to the sky."
+  },
+  {
+   "id": "G02",
+   "title": "Savitṛ rises",
+   "units": [
+    2
+   ],
+   "characters": [
+    "Savitṛ"
+   ],
+   "description": "Sunrise over the river horizon. Within the great rising golden sun disc, the Sun god rides his golden chariot, seated calmly holding two lotuses, while Aruna, the red-skinned charioteer of dawn, holds the reins in front of him. The chariot is drawn by exactly seven white horses fanned out in a wide staggered team, all seven heads clearly visible. Golden rays spreading across the sky and reflecting on calm water.",
+   "motion": "The sun's rays slowly widen and brighten, and light shimmers on the water. The god and the horses stay still.",
+   "camera": "Fixed camera."
+  },
+  {
+   "id": "G03",
+   "title": "We meditate on the radiance",
+   "units": [
+    3
+   ],
+   "characters": [
+    "Viśvāmitra",
+    "Gāyatrī Devī"
+   ],
+   "description": "Close three-quarter view of the sage in deep meditation, eyes closed, hands in dhyana mudra, a soft column of golden radiance descending on him; the faint form of the Goddess glows within the light above.",
+   "motion": "A column of golden light slowly descends onto the sage, with dust motes floating in it.",
+   "camera": "Camera slowly pushes in."
+  },
+  {
+   "id": "G04",
+   "title": "Light awakens the mind",
+   "units": [
+    4
+   ],
+   "characters": [
+    "Viśvāmitra"
+   ],
+   "description": "Full sunrise. A luminous golden lotus opens at the sage's heart, its light spreading out over the river; on the distant ghats devotees offer water to the sun and small diyas float on the river.",
+   "motion": "The golden lotus slowly opens its petals while small diya flames flicker on the river.",
+   "reference": [
+    "G03"
+   ],
+   "camera": "Camera slowly pulls back."
+  }
+ ],
+ "tune": false,
+ "out": "renders/gayatri.mp4"
+}

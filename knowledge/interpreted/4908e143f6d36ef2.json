@@ -1,0 +1,111 @@
+{
+ "identification": {
+  "name": "Śrī Lalitā Sahasranāma Stotram (one verse)",
+  "source": "Brahmāṇḍa Purāṇa, Uttara-khaṇḍa, Lalitopākhyāna (Hayagrīva–Agastya dialogue); Lalitā Sahasranāma stotra, approx. verse 49",
+  "tradition": "Śākta / Śrīvidyā",
+  "confidence": "high",
+  "notes": "The text of the verse is the standard reading of the Lalitā Sahasranāma. The exact verse number varies between editions, depending on whether the pūrva-bhāga verses are counted; verse 49 is the common numbering of the stotra proper. The ten names (Nirlepā … Nirupaplavā) belong to the series of 'nir-' names describing the nirguṇa aspect of the Devī."
+ },
+ "genre": "stotra",
+ "deity": "devi",
+ "deity_name": "Śrī Lalitā Tripurasundarī",
+ "dhyana": "",
+ "viniyoga": "",
+ "meaning_summary": "This verse of the Lalitā Sahasranāma praises the Devī in her transcendent, attribute-less aspect. She is untouched by anything, stainless, eternal, formless and untroubled. She is beyond the guṇas and without parts. She is peace itself, free of desire, and free from every calamity or disturbance.",
+ "story": {
+  "has_story": true,
+  "speaker": "Hayagrīva",
+  "listener": "Agastya",
+  "frame": "The Lalitā Sahasranāma is taught by Hayagrīva (a form of Viṣṇu) to the sage Agastya in the Lalitopākhyāna of the Brahmāṇḍa Purāṇa.",
+  "legend": "According to the frame of the text, the thousand names were composed by the Vāgdevīs (the speech-goddesses Vaśinī and the others) at the command of Lalitā herself. They recited the names before her assembled court, and she declared this hymn especially dear to her. Hayagrīva later reveals it to Agastya, who had asked for this secret hymn.",
+  "characters": [
+   "Hayagrīva",
+   "Agastya",
+   "Lalitā Tripurasundarī",
+   "Vāgdevīs (Vaśinī and others)"
+  ],
+  "setting": "Dialogue between Hayagrīva and Agastya; the original recitation takes place in Lalitā's court",
+  "source": "Brahmāṇḍa Purāṇa, Uttara-khaṇḍa, Lalitopākhyāna (Lalitā Sahasranāma pūrva-bhāga and uttara-bhāga)",
+  "confidence": "medium"
+ },
+ "lines": [
+  {
+   "devanagari": "निर्लेपा निर्मला नित्या",
+   "english": "She who is untainted, stainless and eternal,",
+   "words": [
+    {
+     "dev": "निर्लेपा",
+     "split": "nir + lepā",
+     "meaning": "untainted, untouched by anything (e.g. by karma or attachment)"
+    },
+    {
+     "dev": "निर्मला",
+     "split": "nir + malā",
+     "meaning": "without impurity, stainless"
+    },
+    {
+     "dev": "नित्या",
+     "split": "nityā",
+     "meaning": "eternal"
+    }
+   ]
+  },
+  {
+   "devanagari": "निराकारा निराकुला",
+   "english": "formless and free from agitation,",
+   "words": [
+    {
+     "dev": "निराकारा",
+     "split": "nir + ākārā",
+     "meaning": "formless"
+    },
+    {
+     "dev": "निराकुला",
+     "split": "nir + ākulā",
+     "meaning": "unperturbed, free from agitation or confusion"
+    }
+   ]
+  },
+  {
+   "devanagari": "निर्गुणा निष्कला शान्ता",
+   "english": "beyond the guṇas, without parts, peaceful,",
+   "words": [
+    {
+     "dev": "निर्गुणा",
+     "split": "nir + guṇā",
+     "meaning": "beyond the three guṇas, attribute-less"
+    },
+    {
+     "dev": "निष्कला",
+     "split": "niṣ + kalā",
+     "meaning": "without parts, indivisible"
+    },
+    {
+     "dev": "शान्ता",
+     "split": "śāntā",
+     "meaning": "peaceful, tranquil"
+    }
+   ]
+  },
+  {
+   "devanagari": "निष्कामा निरुपप्लवा",
+   "english": "desireless and free from all calamity or disturbance.",
+   "words": [
+    {
+     "dev": "निष्कामा",
+     "split": "niṣ + kāmā",
+     "meaning": "desireless"
+    },
+    {
+     "dev": "निरुपप्लवा",
+     "split": "nir + upaplavā",
+     "meaning": "free from affliction, calamity or destruction; imperishable"
+    }
+   ]
+  }
+ ],
+ "translation_confidence": "high",
+ "caution": "Verse numbering differs between editions, so check it against the book your group uses. Commentators such as Bhāskararāya give layered interpretations of these names; for example, 'nirupaplavā' is variously explained as 'free from calamity', 'imperishable', or 'free from the disturbance of the senses'. The glosses given here are the plain meanings. The story attribution follows the Purāṇic frame of the Sahasranāma as a whole and is not specific to this verse.",
+ "_model": "claude-opus-5-5",
+ "_at": "2026-11-15 13:06"
+}

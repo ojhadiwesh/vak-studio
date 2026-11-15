@@ -1,0 +1,265 @@
+{
+ "title": "Vishvamitra and the Gayatri",
+ "style": {
+  "id": "silhouette",
+  "name": "Silhouette paper-cut + sacred-geometry finale",
+  "kind": "animation",
+  "block": "",
+  "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, 3d render, photo",
+  "motion": "Faces stay stable and natural, with no morphing. "
+ },
+ "timeline": {
+  "card": 7.225,
+  "scene_start": 6.025,
+  "narration_start": 6.625,
+  "chant_start": 102.485,
+  "voice_offset": 87.985,
+  "total": 137.321
+ },
+ "units": [
+  {
+   "id": "u001",
+   "kind": "invocation",
+   "verse": null,
+   "devanagari": "ॐ भूर्भुवः स्वः",
+   "iast": "oṃ bhūrbhuvaḥ svaḥ",
+   "words": [
+    {
+     "dev": "ॐ",
+     "iast": "oṃ",
+     "syl": 2,
+     "start": 18.5,
+     "end": 24.0
+    },
+    {
+     "dev": "भूर्भुवः",
+     "iast": "bhūrbhuvaḥ",
+     "syl": 3,
+     "start": 24.0,
+     "end": 26.625
+    },
+    {
+     "dev": "स्वः",
+     "iast": "svaḥ",
+     "syl": 1,
+     "start": 26.625,
+     "end": 27.5
+    }
+   ],
+   "speaker": null,
+   "english": "Om. Earth, sky and heaven —",
+   "label": "Invocation",
+   "start": 18.5,
+   "end": 27.5
+  },
+  {
+   "id": "u002",
+   "kind": "verse",
+   "verse": 1,
+   "devanagari": "तत्सवितुर्वरेण्यं",
+   "iast": "tatsaviturvareṇyaṃ",
+   "words": [
+    {
+     "dev": "तत्सवितुर्वरेण्यं",
+     "iast": "tatsaviturvareṇyaṃ",
+     "syl": 7,
+     "start": 27.5,
+     "end": 31.75
+    }
+   ],
+   "speaker": null,
+   "english": "that most excellent light of Savitṛ, the Sun,",
+   "label": "",
+   "start": 27.5,
+   "end": 31.75
+  },
+  {
+   "id": "u003",
+   "kind": "verse",
+   "verse": 1,
+   "devanagari": "भर्गो देवस्य धीमहि",
+   "iast": "bhargo devasya dhīmahi",
+   "words": [
+    {
+     "dev": "भर्गो",
+     "iast": "bhargo",
+     "syl": 2,
+     "start": 31.75,
+     "end": 33.062
+    },
+    {
+     "dev": "देवस्य",
+     "iast": "devasya",
+     "syl": 3,
+     "start": 33.062,
+     "end": 35.031
+    },
+    {
+     "dev": "धीमहि",
+     "iast": "dhīmahi",
+     "syl": 3,
+     "start": 35.031,
+     "end": 37.0
+    }
+   ],
+   "speaker": null,
+   "english": "the radiance of the divine, we meditate upon.",
+   "label": "",
+   "start": 31.75,
+   "end": 37.0
+  },
+  {
+   "id": "u004",
+   "kind": "verse",
+   "verse": 1,
+   "devanagari": "धियो यो नः प्रचोदयात्",
+   "iast": "dhiyo yo naḥ pracodayāt",
+   "words": [
+    {
+     "dev": "धियो",
+     "iast": "dhiyo",
+     "syl": 2,
+     "start": 37.0,
+     "end": 38.9
+    },
+    {
+     "dev": "यो",
+     "iast": "yo",
+     "syl": 1,
+     "start": 38.9,
+     "end": 39.85
+    },
+    {
+     "dev": "नः",
+     "iast": "naḥ",
+     "syl": 1,
+     "start": 39.85,
+     "end": 40.8
+    },
+    {
+     "dev": "प्रचोदयात्",
+     "iast": "pracodayāt",
+     "syl": 4,
+     "start": 40.8,
+     "end": 44.6
+    }
+   ],
+   "speaker": null,
+   "english": "May it awaken and guide our minds.",
+   "label": "",
+   "start": 37.0,
+   "end": 44.6
+  }
+ ],
+ "audio": {
+  "path": "C:\\Users\\sshai\\Downloads\\Sanskrit AI Video Engine\\Devi Kavacham Film\\vak_engine\\chants\\gayatri\\vishvamitra\\../audio/pixabay_399098.wav",
+  "voice": "C:\\Users\\sshai\\Downloads\\Sanskrit AI Video Engine\\Devi Kavacham Film\\vak_engine\\chants\\gayatri\\vishvamitra\\.vak_cache\\audio48\\37ad41dcef33d2b7.wav",
+  "duration": 49.136,
+  "tonic_hz": 311.13,
+  "segments": [
+   [
+    18.5,
+    27.5
+   ],
+   [
+    27.5,
+    31.75
+   ],
+   [
+    31.75,
+    37.0
+   ],
+   [
+    37.0,
+    44.6
+   ]
+  ],
+  "mode": "track"
+ },
+ "scenes": [
+  {
+   "id": "M1",
+   "title": "The Gāyatrī",
+   "units": [
+    "u001",
+    "u002",
+    "u003",
+    "u004"
+   ],
+   "technique": "story",
+   "visual": {
+    "prompt": "",
+    "negative": "text, letters, watermark, logo, signature, extra limbs, extra fingers, deformed hands, distorted face, modern clothing, low quality, blurry, cartoon, 3d render, photo",
+    "motion_prompt": "Fixed camera. Faces stay stable and natural, with no morphing."
+   },
+   "characters": [],
+   "reference": [],
+   "start": null
+  }
+ ],
+ "renders": {
+  "film": "C:\\Users\\sshai\\Downloads\\Sanskrit AI Video Engine\\Devi Kavacham Film\\vak_engine\\chants\\gayatri\\vishvamitra\\renders/vishvamitra_silhouette.mp4"
+ },
+ "narration": [
+  {
+   "text": "Long ago, there lived a mighty king named Kauśika.",
+   "start": 6.625,
+   "end": 11.593
+  },
+  {
+   "text": "One day, hunting with his army, he came to the forest hermitage of the sage Vasiṣṭha.",
+   "start": 12.343,
+   "end": 19.711
+  },
+  {
+   "text": "The sage welcomed them all, and through his sacred cow Nandinī, he fed the entire army.",
+   "start": 20.461,
+   "end": 29.221
+  },
+  {
+   "text": "The king wanted the wondrous cow for himself. When Vasiṣṭha refused, he tried to take her by force.",
+   "start": 29.971,
+   "end": 38.539
+  },
+  {
+   "text": "But every arrow, every weapon, fell silent before the sage's staff.",
+   "start": 39.289,
+   "end": 45.361
+  },
+  {
+   "text": "Kauśika understood. The power of a sage was greater than the power of any king.",
+   "start": 46.361,
+   "end": 53.681
+  },
+  {
+   "text": "So he laid down his crown, and went into the forest to become a sage himself.",
+   "start": 54.431,
+   "end": 61.247
+  },
+  {
+   "text": "For years he meditated. Pride, desire and anger tested him. Again and again, he fell.",
+   "start": 62.247,
+   "end": 72.135
+  },
+  {
+   "text": "And each time, he began again.",
+   "start": 72.885,
+   "end": 76.197
+  },
+  {
+   "text": "At last his mind became as still and clear as the dawn. Even Vasiṣṭha bowed to him, and called him Brahmarṣi, a great seer.",
+   "start": 77.197,
+   "end": 89.413
+  },
+  {
+   "text": "In that stillness, Viśvāmitra saw a prayer of light. Not for power, but for an awakened mind.",
+   "start": 90.163,
+   "end": 98.563
+  },
+  {
+   "text": "The Gāyatrī.",
+   "start": 99.313,
+   "end": 101.185
+  }
+ ]
+}

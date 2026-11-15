@@ -1,0 +1,329 @@
+{
+ "title": "Mahamrityunjaya Mantra",
+ "chant": "chant.txt",
+ "translations": "translations.json",
+ "style": "photoreal",
+ "audio": "TBD: mantra recording (see STORYBOARD.md)",
+ "audio_mode": "track",
+ "tune": false,
+ "out": "renders/mahamrityunjaya.mp4",
+ "card": {
+  "kicker": "महामृत्युञ्जय मन्त्रः",
+  "chapter": "Ṛgveda 7.59.12",
+  "title": "The Mahāmṛtyuñjaya Mantra",
+  "sub": "The legend of Mārkaṇḍeya · the great victory over death"
+ },
+ "characters": {
+  "Mārkaṇḍeya": "Markandeya, a slim sixteen-year-old Indian boy with a shaven head and a short tuft of hair (shikha) at the back, three horizontal lines of white sacred ash (tripundra) on his forehead, a rudraksha bead necklace, a white sacred thread across his chest, a plain white cotton dhoti and a white cloth over one shoulder, bare feet, a calm devoted face."
+ },
+ "narration": {
+  "language": "en",
+  "voice": "TBD (recorded or TTS)",
+  "lines": [
+   "Long ago, in a forest hermitage, the sage Mṛkaṇḍu and his wife Marudvatī prayed to Lord Śiva for a child.",
+   "Śiva gave them a choice: a son who would live long but without wisdom, or a son of great wisdom and devotion, who would live only sixteen years.",
+   "They chose wisdom. They named him Mārkaṇḍeya.",
+   "The boy grew in devotion. Every dawn he worshipped Śiva: with water, with bilva leaves, with a prayer on his lips.",
+   "But on the morning he turned sixteen, the sky grew dark.",
+   "Yama, the Lord of Death, had come for him.",
+   "Mārkaṇḍeya did not run. He wrapped his arms around the liṅga, and Yama cast his noose around the boy, and around Śiva himself.",
+   "And the boy chanted the prayer that conquers death."
+  ]
+ },
+ "scenes": [
+  {
+   "id": "N01",
+   "title": "The hermitage at dusk",
+   "units": [],
+   "description": "A forest hermitage in ancient South India at dusk: a small granite shrine under huge banyan trees beside a wide river, thatched huts, oil lamps glowing in stone niches, smoke rising from a fire altar. No people.",
+   "motion": "Smoke rises from the fire altar and lamp flames flicker as birds fly home across the darkening sky. No people or hands appear; nothing enters the frame.",
+   "camera": "The camera slowly pushes in toward the shrine.",
+   "visual": {
+    "slow": 1.0
+   },
+   "narration": 0
+  },
+  {
+   "id": "N02",
+   "title": "The parents pray",
+   "units": [],
+   "description": "Night, seen from behind: an elderly sage with long grey hair in an ochre cloth and his wife in a plain cotton sari sit side by side before a blazing fire altar, palms joined in prayer. Their faces are not visible.",
+   "motion": "The fire leaps and crackles, sparks rise into the night, and the couple slowly bow their heads.",
+   "camera": "The camera slowly pushes in from behind them.",
+   "visual": {
+    "slow": 1.0
+   },
+   "narration": 0
+  },
+  {
+   "id": "N03",
+   "title": "Shiva answers as light",
+   "units": [],
+   "description": "Inside the dark hermitage shrine, the black stone Shiva linga begins to glow from within with a soft white-gold light that lights the granite walls; garlands of jasmine around it. No people.",
+   "motion": "The inner light swells and pulses, moving light and shadow across the walls; dust glitters in the air. No people or hands appear; nothing enters the frame.",
+   "camera": "Fixed camera.",
+   "visual": {
+    "slow": 1.0
+   },
+   "narration": 1
+  },
+  {
+   "id": "N04",
+   "title": "The choice",
+   "units": [],
+   "description": "Close-up in firelight: an old man's weathered hand and a woman's hand with a thin bangle, clasped together firmly over a small brass lamp. Only the hands are visible.",
+   "motion": "The two hands tighten their grip on each other; the lamp flame trembles and steadies.",
+   "camera": "Fixed close-up camera.",
+   "visual": {
+    "slow": 1.0
+   },
+   "narration": 1
+  },
+  {
+   "id": "N05",
+   "title": "A son is born",
+   "units": [],
+   "description": "Warm oil-lamp light inside a thatched hut: a newborn baby wrapped in white cotton, asleep in his mother's arms; only her arms, shoulder and the end of her sari are visible.",
+   "motion": "The baby stirs and yawns in his sleep while the mother gently rocks him; the lamp flame flickers.",
+   "camera": "The camera slowly pushes in.",
+   "visual": {
+    "slow": 1.0
+   },
+   "narration": 2
+  },
+  {
+   "id": "N06",
+   "title": "Every dawn",
+   "units": [],
+   "description": "Dawn mist over the river. Seen from behind, Mārkaṇḍeya walks along a forest path toward the granite shrine, carrying a brass water pot on his hip and a small basket of bilva leaves.",
+   "motion": "He walks steadily along the path toward the shrine; mist drifts and birds cross the sky.",
+   "camera": "The camera follows him from behind at a walking pace.",
+   "visual": {
+    "slow": 1.0
+   },
+   "narration": 3,
+   "characters": [
+    "Mārkaṇḍeya"
+   ],
+   "reference": [
+    "N07"
+   ]
+  },
+  {
+   "id": "N07",
+   "title": "Worship (character anchor)",
+   "units": [],
+   "description": "Inside a dim granite shrine lit by oil lamps, Mārkaṇḍeya sits cross-legged before a black stone Shiva linga garlanded with jasmine, pouring water from a brass pot over it, seen in three-quarter profile.",
+   "motion": "He pours a steady stream of water over the linga; the water runs down the stone and the lamp flames flicker. His face stays steady and natural.",
+   "camera": "The camera slowly circles a little around him.",
+   "visual": {
+    "slow": 1.0
+   },
+   "narration": 3,
+   "characters": [
+    "Mārkaṇḍeya"
+   ]
+  },
+  {
+   "id": "N08",
+   "title": "Bilva leaves",
+   "units": [],
+   "description": "Extreme close-up: a young man's hands placing a fresh three-leaf bilva sprig on top of a wet black stone linga, water glistening, a brass lamp glowing behind. Only the hands are visible.",
+   "motion": "The hands lay the leaves down gently and withdraw; drops of water run down the stone.",
+   "camera": "Fixed close-up camera.",
+   "visual": {
+    "slow": 1.0
+   },
+   "narration": 3
+  },
+  {
+   "id": "N09",
+   "title": "The sixteenth morning",
+   "units": [],
+   "description": "Dawn, seen from behind: the elderly sage and his wife stand at the doorway of their hut, watching their son walk away toward the shrine in the distance. The mother rests her hand on the father's arm. Their faces are not visible.",
+   "motion": "The son walks away into the distance; the mother's hand tightens on the father's arm; a cold wind stirs the trees.",
+   "camera": "Fixed camera.",
+   "visual": {
+    "slow": 1.0
+   },
+   "narration": 4
+  },
+  {
+   "id": "N10",
+   "title": "The sky darkens",
+   "units": [],
+   "description": "The forest hermitage under an unnaturally darkening sky: black storm clouds boil over the banyan trees and the granite shrine, oil lamps in the courtyard. No people.",
+   "motion": "Storm clouds roll in fast, wind whips the trees, and the courtyard lamps gutter and go out one by one. No people or hands appear; nothing enters the frame.",
+   "camera": "Fixed low-angle camera.",
+   "visual": {
+    "slow": 1.0
+   },
+   "narration": 4
+  },
+  {
+   "id": "N11",
+   "title": "Yama arrives",
+   "units": [],
+   "description": "Low close-up in the dust of the courtyard in stormy half-light: the heavy black hooves of a huge water buffalo stepping slowly forward, dust swirling in a dark wind. Only the hooves and lower legs are visible.",
+   "motion": "The hooves step heavily forward, raising dust that swirls in the wind.",
+   "camera": "Fixed low camera at ground level.",
+   "visual": {
+    "slow": 1.0
+   },
+   "narration": 5
+  },
+  {
+   "id": "N12",
+   "title": "The shadow of Death",
+   "units": [],
+   "description": "The lamp-lit granite wall inside the shrine: the huge shadow of a crowned, horned rider on a buffalo falls across the wall, holding a looped rope. Only the shadow is visible, no figure.",
+   "motion": "The horned shadow slowly grows larger across the wall as the lamp flames bend away from it. No people or hands appear; nothing enters the frame.",
+   "camera": "The camera slowly pushes in.",
+   "visual": {
+    "slow": 1.0
+   },
+   "narration": 5
+  },
+  {
+   "id": "N13",
+   "title": "He holds on",
+   "units": [],
+   "description": "In the dark shrine lit by a single lamp, Mārkaṇḍeya wraps both arms around the black stone linga, cheek pressed to the stone, eyes shut, in profile.",
+   "motion": "He tightens his embrace around the linga as a cold wind bends the lamp flame; jasmine petals blow across the floor. His face stays steady and natural.",
+   "camera": "The camera slowly pushes in.",
+   "visual": {
+    "slow": 1.0
+   },
+   "narration": 6,
+   "characters": [
+    "Mārkaṇḍeya"
+   ],
+   "reference": [
+    "N07"
+   ]
+  },
+  {
+   "id": "N14",
+   "title": "The noose falls",
+   "units": [],
+   "description": "Wide view of the dark shrine: a black rope noose drops from the darkness above and loops around both Mārkaṇḍeya and the linga he embraces; one oil lamp burns.",
+   "motion": "The noose falls over the boy and the linga together and pulls tight; he holds on.",
+   "camera": "Fixed camera.",
+   "visual": {
+    "slow": 1.0
+   },
+   "narration": 6,
+   "characters": [
+    "Mārkaṇḍeya"
+   ],
+   "reference": [
+    "N07"
+   ]
+  },
+  {
+   "id": "N15",
+   "title": "He prays",
+   "units": [],
+   "description": "Close-up in profile: Mārkaṇḍeya's face against the black stone, eyes closed, lips parted in prayer, lit by a single trembling lamp.",
+   "motion": "The lamp light trembles across his face and a single tear runs down his cheek as he keeps praying. His face stays steady and natural.",
+   "camera": "Fixed close-up camera.",
+   "visual": {
+    "slow": 1.0
+   },
+   "narration": 7,
+   "characters": [
+    "Mārkaṇḍeya"
+   ],
+   "reference": [
+    "N07"
+   ]
+  },
+  {
+   "id": "C01",
+   "title": "Om, we worship the three-eyed one",
+   "units": [
+    1,
+    2
+   ],
+   "description": "Close-up of the black stone Shiva linga with a black rope noose around it: thin cracks of white-gold light begin to glow from inside the stone.",
+   "motion": "The glowing cracks spread across the stone and the light inside it brightens. No people or hands appear; nothing enters the frame.",
+   "camera": "The camera slowly pushes in.",
+   "visual": {
+    "slow": 1.0
+   }
+  },
+  {
+   "id": "C02",
+   "title": "Fragrant, giver of life",
+   "units": [
+    3
+   ],
+   "description": "Inside the shrine, warm golden light and fragrant smoke from camphor and incense swirl around the stone linga and Mārkaṇḍeya embracing it; jasmine and marigold petals in the air.",
+   "motion": "Fragrant smoke and petals swirl upward in a rising spiral of golden light. His face stays steady and natural.",
+   "camera": "The camera slowly cranes up.",
+   "visual": {
+    "slow": 1.0
+   },
+   "characters": [
+    "Mārkaṇḍeya"
+   ],
+   "reference": [
+    "N07"
+   ]
+  },
+  {
+   "id": "C03",
+   "title": "As the ripe cucumber from its vine",
+   "units": [
+    4
+   ],
+   "description": "Close-up in soft morning light: a ripe golden cucumber hangs from its green vine on a bamboo trellis, dew on its skin, a garden blurred behind. No people.",
+   "motion": "The stem gently parts and the ripe cucumber drops free, falling softly onto the grass below; the vine sways. No people or hands appear; nothing enters the frame.",
+   "camera": "Fixed close-up camera.",
+   "visual": {
+    "slow": 1.0
+   }
+  },
+  {
+   "id": "C04",
+   "title": "Free us from death",
+   "units": [
+    5
+   ],
+   "description": "A column of blinding white-gold light erupts from the linga and fills the shrine; the black noose around Mārkaṇḍeya burns away into glowing embers; he still embraces the linga, lit gold.",
+   "motion": "The light blazes outward, the noose dissolves into sparks and drifting embers, and the horned shadow on the wall breaks apart. His face stays steady and natural.",
+   "camera": "The camera slowly pulls back.",
+   "visual": {
+    "slow": 1.0
+   },
+   "characters": [
+    "Mārkaṇḍeya"
+   ],
+   "reference": [
+    "N07"
+   ]
+  },
+  {
+   "id": "C05",
+   "title": "Not from immortality",
+   "units": [],
+   "description": "Outside: the storm clouds tear apart and the first sunlight of dawn pours over the forest hermitage, the granite shrine and the river. No people.",
+   "motion": "Clouds part, sunbeams sweep across the courtyard and the river, and birds take flight. No people or hands appear; nothing enters the frame.",
+   "camera": "The camera slowly cranes up.",
+   "visual": {
+    "slow": 1.0
+   }
+  },
+  {
+   "id": "C06",
+   "title": "Forever sixteen",
+   "units": [],
+   "description": "Wide shot at sunrise: Mārkaṇḍeya steps out of the granite shrine into the sunlight, and his mother runs across the courtyard to embrace him while his father hurries behind; small figures in a wide frame.",
+   "motion": "The mother reaches the boy and holds him tightly; the father joins them; sunlight floods the courtyard.",
+   "camera": "The camera slowly cranes up and pulls back.",
+   "visual": {
+    "slow": 1.0
+   }
+  }
+ ]
+}

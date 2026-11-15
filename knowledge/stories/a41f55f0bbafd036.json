@@ -1,0 +1,239 @@
+{
+ "mode": "story",
+ "title": "The Secret Armour of the Devī",
+ "kicker": "Devī Kavacam · Opening Verses",
+ "subtitle": "Mārkaṇḍeya asks Brahmā for a secret of protection",
+ "narration": [
+  {
+   "text": "The Devī Kavacam, recited before the Durgā Saptaśatī, opens with a quiet conversation between a sage and the Creator.",
+   "tts": "The Devi Kavacham, recited before the Durga Saptashati, opens with a quiet conversation, between a sage and the Creator.",
+   "pause": 0.6
+  },
+  {
+   "text": "The sage Mārkaṇḍeya turns to Brahmā, the Grandsire of all the worlds, with a question.",
+   "tts": "The sage Markandeya turns to Brahma, the Grandsire of all the worlds, with a question.",
+   "pause": 0.6
+  },
+  {
+   "text": "He asks: what is the supreme secret in the world, the one that gives complete protection to human beings?",
+   "tts": "He asks, what is the supreme secret in the world, the one that gives complete protection to human beings?",
+   "pause": 0.5
+  },
+  {
+   "text": "It is a secret that has never been told to anyone. \"Tell that to me, O Grandsire,\" he asks.",
+   "tts": "It is a secret that has never been told to anyone. Tell that to me, O Grandsire, he asks.",
+   "pause": 0.8
+  },
+  {
+   "text": "Brahmā answers, calling him Vipra, a learned Brahmin. There is, he says, a teaching most secret of all.",
+   "tts": "Brahma answers, calling him Vipra, a learned Brahmin. There is, he says, a teaching most secret of all.",
+   "pause": 0.6
+  },
+  {
+   "text": "This teaching is beneficial to all beings, to every living creature.",
+   "tts": "This teaching is beneficial to all beings, to every living creature.",
+   "pause": 0.5
+  },
+  {
+   "text": "It is the holy kavaca of the Devī. Kavaca means armour, a sacred protection worn like a shield.",
+   "tts": "It is the holy kavacha of the Devi. Kavacha means armour, a sacred protection, worn like a shield.",
+   "pause": 0.7
+  },
+  {
+   "text": "\"Listen to it, O great sage,\" Brahmā tells Mārkaṇḍeya, calling him Mahāmuni.",
+   "tts": "Listen to it, O great sage, Brahma tells Markandeya, calling him Maha-muni.",
+   "pause": 0.8
+  },
+  {
+   "text": "Listen now to these opening words of the Devī Kavacam: the sage's question, and Brahmā's answer.",
+   "tts": "Listen now to these opening words of the Devi Kavacham, the sage's question, and Brahma's answer.",
+   "pause": 1.0
+  }
+ ],
+ "characters": [
+  {
+   "name": "Mārkaṇḍeya",
+   "look": "An elderly rishi of slender, upright build with a calm, gentle face, deep-set kind eyes and fine wrinkles. Long white hair tied in a matted topknot, flowing white beard to the chest. Three horizontal lines of sacred ash across his forehead. Bare-chested with a white sacred thread, wearing a saffron-ochre dhoti and a light ochre cloth over one shoulder. A rudrākṣa mala around his neck and wrists. He carries a tall wooden staff and a small brass water pot (kamaṇḍalu)."
+  }
+ ],
+ "scenes": [
+  {
+   "title": "A Quiet Conversation",
+   "first_line": 0,
+   "last_line": 1,
+   "mood": "dusk",
+   "mood_to": "dusk",
+   "landscape": [
+    "mountains",
+    "river",
+    "tree"
+   ],
+   "celestial": "sun",
+   "figures": [
+    {
+     "character": "Mārkaṇḍeya",
+     "role": "sage",
+     "x": 0.3,
+     "facing": "right",
+     "pose": "stand",
+     "pose_to": "stand",
+     "change_at": 0.5,
+     "walk_to": 0.45,
+     "props": [
+      "staff"
+     ]
+    }
+   ],
+   "extras": [
+    "birds",
+    "divine_light"
+   ],
+   "light_x": 0.75,
+   "camera": "push_in",
+   "picture": "Wide view of a quiet riverbank beneath distant mountains at dusk. Mārkaṇḍeya, staff in hand, walks slowly along the bank toward a soft golden radiance glowing near a large tree on the right. Birds drift home across a violet and amber sky. The water mirrors the last light. The mood is hushed and expectant, as if a sacred meeting is about to begin."
+  },
+  {
+   "title": "The Sage's Question",
+   "first_line": 2,
+   "last_line": 3,
+   "mood": "night",
+   "mood_to": "night",
+   "landscape": [
+    "mountains",
+    "tree"
+   ],
+   "celestial": "stars",
+   "figures": [
+    {
+     "character": "Mārkaṇḍeya",
+     "role": "sage",
+     "x": 0.4,
+     "facing": "right",
+     "pose": "kneel",
+     "pose_to": "point",
+     "change_at": 0.6,
+     "walk_to": 0.4,
+     "props": [
+      "staff"
+     ]
+    }
+   ],
+   "extras": [
+    "divine_light",
+    "stars"
+   ],
+   "light_x": 0.72,
+   "camera": "still",
+   "picture": "Medium view at night under a sky full of stars. Mārkaṇḍeya kneels on the earth beside his staff, one hand raised in respectful questioning toward a gentle column of white-gold light to the right. The light softly illuminates his white beard and ochre cloth. Mountains are dark silhouettes behind. The mood is earnest, humble and full of longing to know."
+  },
+  {
+   "title": "The Grandsire Answers",
+   "first_line": 4,
+   "last_line": 5,
+   "mood": "night",
+   "mood_to": "dawn",
+   "landscape": [
+    "mountains",
+    "river"
+   ],
+   "celestial": "none",
+   "figures": [
+    {
+     "character": "Mārkaṇḍeya",
+     "role": "sage",
+     "x": 0.38,
+     "facing": "right",
+     "pose": "kneel",
+     "pose_to": "bow",
+     "change_at": 0.4,
+     "walk_to": 0.38,
+     "props": [
+      "staff"
+     ]
+    }
+   ],
+   "extras": [
+    "divine_light",
+    "rays"
+   ],
+   "light_x": 0.7,
+   "camera": "push_in",
+   "picture": "Medium-wide view as night gives way to the first blue of dawn. Rays of warm light stream from a radiant glow on the right side of the frame, spreading across the river and the mountain slopes. Mārkaṇḍeya bows low before the light, palms joined, his staff resting beside him. The mood is reverent and tender, as the answer arrives like sunrise."
+  },
+  {
+   "title": "The Holy Armour",
+   "first_line": 6,
+   "last_line": 6,
+   "mood": "dawn",
+   "mood_to": "gold",
+   "landscape": [
+    "mountains",
+    "river",
+    "tree"
+   ],
+   "celestial": "sun",
+   "figures": [
+    {
+     "character": "Mārkaṇḍeya",
+     "role": "sage",
+     "x": 0.35,
+     "facing": "right",
+     "pose": "bow",
+     "pose_to": "meditate_up",
+     "change_at": 0.5,
+     "walk_to": 0.35,
+     "props": [
+      "staff"
+     ]
+    }
+   ],
+   "extras": [
+    "divine_light",
+    "yantra",
+    "rays"
+   ],
+   "light_x": 0.68,
+   "camera": "pull_back",
+   "picture": "Wide view at sunrise. A luminous golden yantra glows in the air above the river, its rays forming a protective circle of light that reaches over the land. Mārkaṇḍeya sits on the left, gazing upward with joined palms, bathed in the warm glow. Birds and trees seem sheltered by the light. The mood is safe, peaceful and quietly wondrous."
+  },
+  {
+   "title": "Listen, O Great Sage",
+   "first_line": 7,
+   "last_line": 8,
+   "mood": "gold",
+   "mood_to": "gold",
+   "landscape": [
+    "mountains",
+    "river",
+    "tree"
+   ],
+   "celestial": "sun",
+   "figures": [
+    {
+     "character": "Mārkaṇḍeya",
+     "role": "sage",
+     "x": 0.42,
+     "facing": "right",
+     "pose": "meditate",
+     "pose_to": "meditate",
+     "change_at": 0.5,
+     "walk_to": 0.42,
+     "props": [
+      "staff"
+     ]
+    }
+   ],
+   "extras": [
+    "divine_light",
+    "mandala",
+    "leaves"
+   ],
+   "light_x": 0.7,
+   "camera": "still",
+   "picture": "Close-medium view in rich golden morning light. Mārkaṇḍeya sits cross-legged beneath a tree, eyes gently closed, listening with a serene smile. Behind him on the right a softly glowing lotus mandala radiates warmth. A few leaves drift down. The river sparkles in the background. The mood is still, receptive and full of grace, ready for the sacred words."
+  }
+ ],
+ "chant_picture": "A calm, luminous image at golden dawn: a radiant lotus of soft light glowing above a still river, its gentle rays forming a protective circle over the mountains and trees. A rudrākṣa mala and a brass water pot rest on a flat stone in the foreground. The sky is warm gold fading to pale blue, peaceful and sheltering.",
+ "_model": "claude-opus-5-5",
+ "_at": "2026-11-15 13:24"
+}

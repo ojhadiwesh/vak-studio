@@ -1,0 +1,118 @@
+id,input,expected_id,kind,note,predicted_id,correct
+c001,om namah shivaya,panchakshari,hand,most common spelling,panchakshari,True
+c002,Om Namah Shivay,panchakshari,hand,Hindi-style dropped final a,panchakshari,True
+c003,om namaha shivaaya,panchakshari,hand,long vowel doubled,panchakshari,True
+c004,aum namah sivaya,panchakshari,hand,s for sh,panchakshari,True
+c005,OM NAMAH SHIVAYA!!,panchakshari,hand,caps + punctuation,panchakshari,True
+c006,om nmah shivaya,panchakshari,hand,typo: missing vowel,panchakshari,True
+c007,om namha shivaya,panchakshari,hand,typo: transposed,panchakshari,True
+c008,om namo narayanaya,ashtakshari,hand,,ashtakshari,True
+c009,om namo narayana,ashtakshari,hand,dropped final syllable,ashtakshari,True
+c010,Om Namo Naaraayanaaya,ashtakshari,hand,doubled vowels,ashtakshari,True
+c011,om namo narayanay,ashtakshari,hand,typo,ashtakshari,True
+c012,om gam ganapataye namaha,ganapati,hand,,ganapati,True
+c013,om gan ganapataye namah,ganapati,hand,anusvara as n,ganapati,True
+c014,Om Gam Ganpataye Namah,ganapati,hand,Hindi spelling Ganpati,ganapati,True
+c015,om gam ganapatye namah,ganapati,hand,typo,ganapati,True
+c016,hare krishna hare krishna krishna krishna hare hare hare rama hare rama rama rama hare hare,mahamantra,hand,full,mahamantra,True
+c017,Hare Krsna Hare Krsna Krsna Krsna Hare Hare Hare Rama Hare Rama Rama Rama Hare Hare,mahamantra,hand,ISKCON spelling krsna,mahamantra,True
+c018,"hare krishna hare krishna krishna krishna hare hare
+hare ram hare ram ram ram hare hare",mahamantra,hand,"two lines, Hindi ram",mahamantra,True
+c019,lokah samastah sukhino bhavantu,lokah,hand,,lokah,True
+c020,loka samasta sukhino bhavanthu,lokah,hand,South Indian th,lokah,True
+c021,Lokaa Samastaa Sukhino Bhavantu,lokah,hand,doubled vowels,lokah,True
+c022,lokah samasta sukino bhavantu,lokah,hand,typo: sukino,lokah,True
+c023,om shanti shanti shanti,shanti,hand,,shanti,True
+c024,Om Shanti Shanti Shantihi,shanti,hand,spoken visarga,shanti,True
+c025,om shaanti shaanti shaantih,shanti,hand,doubled vowels,shanti,True
+c026,om santi santi santi,shanti,hand,s for sh,shanti,True
+c027,om bhur bhuvah svah tat savitur varenyam bhargo devasya dhimahi dhiyo yo nah prachodayat,,hand,Gayatri: not in chants.json,,True
+c028,om tryambakam yajamahe sugandhim pushtivardhanam,,hand,Mahamrityunjaya: not in chants.json,,True
+c029,om namo bhagavate vasudevaya,,hand,close to ashtakshari but different,,True
+c030,om namah,,hand,too short to identify,,True
+c031,om shri ganeshaya namah,,hand,different Ganesha mantra,,True
+c032,hare rama hare rama,,hand,fragment shared by many bhajans,,True
+c033,om mani padme hum,,hand,Buddhist mantra,,True
+c034,sarve bhavantu sukhinah sarve santu niramayah,,hand,close to lokah but different prayer,,True
+c035,om sahana vavatu sahanau bhunaktu,,hand,"shanti mantra, different one",,True
+c036,I love chanting every morning,,hand,ordinary sentence,,True
+c037,ॐ नमः शिवाय ॥,panchakshari,variant,canonical Devanagari,panchakshari,True
+c038,ॐ नमः शिवाय,panchakshari,variant,"Devanagari, no danda",panchakshari,True
+c039,oṃ namaḥ śivāya ||,panchakshari,variant,IAST,panchakshari,True
+c040,OṂ NAMAḤ ŚIVĀYA ||,panchakshari,variant,IAST upper case,panchakshari,True
+c041,Om Namah Shivaya,panchakshari,variant,title case,panchakshari,True
+c042,om  namah  shivaya,panchakshari,variant,double spaces,panchakshari,True
+c043,om namah shivaya.,panchakshari,variant,trailing period,panchakshari,True
+c044,"  om namah shivaya
+",panchakshari,variant,padding,panchakshari,True
+c045,om-namah-shivaya,panchakshari,variant,hyphens,panchakshari,True
+c046,omnamahshivaya,panchakshari,variant,no spaces,panchakshari,True
+c047,ॐ नमो नारायणाय ॥,ashtakshari,variant,canonical Devanagari,ashtakshari,True
+c048,ॐ नमो नारायणाय,ashtakshari,variant,"Devanagari, no danda",ashtakshari,True
+c049,oṃ namo nārāyaṇāya ||,ashtakshari,variant,IAST,ashtakshari,True
+c050,OṂ NAMO NĀRĀYAṆĀYA ||,ashtakshari,variant,IAST upper case,ashtakshari,True
+c051,Om Namo Narayanaya,ashtakshari,variant,title case,ashtakshari,True
+c052,om  namo  narayanaya,ashtakshari,variant,double spaces,ashtakshari,True
+c053,om namo narayanaya.,ashtakshari,variant,trailing period,ashtakshari,True
+c054,"  om namo narayanaya
+",ashtakshari,variant,padding,ashtakshari,True
+c055,om-namo-narayanaya,ashtakshari,variant,hyphens,ashtakshari,True
+c056,omnamonarayanaya,ashtakshari,variant,no spaces,ashtakshari,True
+c057,ॐ गं गणपतये नमः ॥,ganapati,variant,canonical Devanagari,ganapati,True
+c058,ॐ गं गणपतये नमः,ganapati,variant,"Devanagari, no danda",ganapati,True
+c059,oṃ gaṃ gaṇapataye namaḥ ||,ganapati,variant,IAST,ganapati,True
+c060,OṂ GAṂ GAṆAPATAYE NAMAḤ ||,ganapati,variant,IAST upper case,ganapati,True
+c061,Om Gam Ganapataye Namah,ganapati,variant,title case,ganapati,True
+c062,om  gam  ganapataye  namah,ganapati,variant,double spaces,ganapati,True
+c063,om gam ganapataye namah.,ganapati,variant,trailing period,ganapati,True
+c064,"  om gam ganapataye namah
+",ganapati,variant,padding,ganapati,True
+c065,om-gam-ganapataye-namah,ganapati,variant,hyphens,ganapati,True
+c066,omgamganapatayenamah,ganapati,variant,no spaces,ganapati,True
+c067,"हरे कृष्ण हरे कृष्ण कृष्ण कृष्ण हरे हरे ।
+हरे राम हरे राम राम राम हरे हरे ॥",mahamantra,variant,canonical Devanagari,mahamantra,True
+c068,"हरे कृष्ण हरे कृष्ण कृष्ण कृष्ण हरे हरे 
+हरे राम हरे राम राम राम हरे हरे",mahamantra,variant,"Devanagari, no danda",mahamantra,True
+c069,"hare kṛṣṇa hare kṛṣṇa kṛṣṇa kṛṣṇa hare hare |
+hare rāma hare rāma rāma rāma hare hare ||",mahamantra,variant,IAST,mahamantra,True
+c070,"HARE KṚṢṆA HARE KṚṢṆA KṚṢṆA KṚṢṆA HARE HARE |
+HARE RĀMA HARE RĀMA RĀMA RĀMA HARE HARE ||",mahamantra,variant,IAST upper case,mahamantra,True
+c071,Hare Krishna Hare Krishna Krishna Krishna Hare Hare Hare Rama Hare Rama Rama Rama Hare Hare,mahamantra,variant,title case,mahamantra,True
+c072,hare  krishna  hare  krishna  krishna  krishna  hare  hare  hare  rama  hare  rama  rama  rama  hare  hare,mahamantra,variant,double spaces,mahamantra,True
+c073,hare krishna hare krishna krishna krishna hare hare hare rama hare rama rama rama hare hare.,mahamantra,variant,trailing period,mahamantra,True
+c074,"  hare krishna hare krishna krishna krishna hare hare hare rama hare rama rama rama hare hare
+",mahamantra,variant,padding,mahamantra,True
+c075,hare-krishna-hare-krishna-krishna-krishna-hare-hare-hare-rama-hare-rama-rama-rama-hare-hare,mahamantra,variant,hyphens,mahamantra,True
+c076,harekrishnaharekrishnakrishnakrishnahareharehareramahareramaramaramaharehare,mahamantra,variant,no spaces,mahamantra,True
+c077,लोकाः समस्ताः सुखिनो भवन्तु ॥,lokah,variant,canonical Devanagari,lokah,True
+c078,लोकाः समस्ताः सुखिनो भवन्तु,lokah,variant,"Devanagari, no danda",lokah,True
+c079,lokāḥ samastāḥ sukhino bhavantu ||,lokah,variant,IAST,lokah,True
+c080,LOKĀḤ SAMASTĀḤ SUKHINO BHAVANTU ||,lokah,variant,IAST upper case,lokah,True
+c081,Lokah Samastah Sukhino Bhavantu,lokah,variant,title case,lokah,True
+c082,lokah  samastah  sukhino  bhavantu,lokah,variant,double spaces,lokah,True
+c083,lokah samastah sukhino bhavantu.,lokah,variant,trailing period,lokah,True
+c084,"  lokah samastah sukhino bhavantu
+",lokah,variant,padding,lokah,True
+c085,lokah-samastah-sukhino-bhavantu,lokah,variant,hyphens,lokah,True
+c086,lokahsamastahsukhinobhavantu,lokah,variant,no spaces,lokah,True
+c087,ॐ शान्तिः शान्तिः शान्तिः ॥,shanti,variant,canonical Devanagari,shanti,True
+c088,ॐ शान्तिः शान्तिः शान्तिः,shanti,variant,"Devanagari, no danda",shanti,True
+c089,oṃ śāntiḥ śāntiḥ śāntiḥ ||,shanti,variant,IAST,shanti,True
+c090,OṂ ŚĀNTIḤ ŚĀNTIḤ ŚĀNTIḤ ||,shanti,variant,IAST upper case,shanti,True
+c091,Om Shanti Shanti Shanti,shanti,variant,title case,shanti,True
+c092,om  shanti  shanti  shanti,shanti,variant,double spaces,shanti,True
+c093,om shanti shanti shanti.,shanti,variant,trailing period,shanti,True
+c094,"  om shanti shanti shanti
+",shanti,variant,padding,shanti,True
+c095,om-shanti-shanti-shanti,shanti,variant,hyphens,shanti,True
+c096,omshantishantishanti,shanti,variant,no spaces,shanti,True
+c097,ॐ भूर्भुवः स्वः,,variant,"Gayatri vyahrti, Devanagari",,True
+c098,ॐ त्र्यम्बकं यजामहे,,variant,"Mahamrityunjaya, Devanagari",,True
+c099,नमस्ते,,variant,greeting,,True
+c100,asdf qwer zxcv,,variant,keyboard noise,,True
+c101,1234 5678,,variant,numbers,,True
+c102,hello how are you,,variant,chat,,True
+c103,shiva,,variant,single deity name,,True
+c104,krishna,,variant,single deity name,,True
+c105,ram ram,,variant,fragment,,True
+c106,om om om,,variant,only Om,,True
