@@ -310,6 +310,21 @@ h1.title em{font-style:normal;background:var(--v-grad);-webkit-background-clip:t
 .toast{display:flex;gap:12px;align-items:flex-start;width:340px;background:var(--v-pop);backdrop-filter:blur(16px);border:1px solid var(--hair2);border-radius:var(--r4);padding:12px 14px;box-shadow:0 20px 50px -12px rgba(0,0,0,.85);animation:tin .3s var(--e)}
 @keyframes tin{from{opacity:0;transform:translateY(10px)}}
 .toast .ti{width:28px;height:28px;border-radius:9px;background:var(--v-grad);color:#fff;display:grid;place-items:center;flex:none} .toast b{font-weight:600;font-size:13px;display:block} .toast span{color:var(--t2);font-size:12.5px}
+/* workspace polish */
+.blk h4 #wsProv{min-width:0;display:flex;justify-content:flex-end} .blk h4 #wsProv .badge{max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block;line-height:20px}
+.qstart{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:620px;margin:6px auto 0}
+.qstart button{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 14px;border-radius:99px;border:1px solid var(--hair2);background:var(--s1);color:var(--t2);font-size:12.5px;transition:.15s} .qstart button:hover{color:var(--t1);border-color:var(--hair3);background:var(--s2)}
+.qstart .d{font:15px var(--dev);color:var(--acc2)}
+.stgrid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:16px;align-items:start}
+.yfilm{border:1px solid var(--hair);border-radius:var(--r4);background:var(--s1);padding:16px 18px}
+.yfilm h4,.splan h4{margin:0 0 10px;font:600 10.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--t3)}
+.yfilm .yt{font:700 18px/1.2 var(--v-font-display);letter-spacing:-.02em;margin-bottom:8px} .yfilm .badge{margin-bottom:12px}
+.ylines{margin-top:14px;border-top:1px solid var(--hair);max-height:260px;overflow:auto} .ylines div{padding:8px 0;border-bottom:1px solid var(--hair)} .ylines div:last-child{border-bottom:0}
+.ylines b{display:block;font:15px/1.45 var(--dev);font-weight:400} .ylines small{display:block;font-size:12px;color:var(--t3);margin-top:1px}
+.splan{border:1px solid var(--hair);border-radius:var(--r4);background:var(--s1);padding:16px 18px}
+.splan ol{margin:0;padding:0;list-style:none;counter-reset:st} .splan li{counter-increment:st;display:grid;grid-template-columns:28px 1fr;column-gap:10px;padding:9px 0;border-bottom:1px solid var(--hair)} .splan li:last-of-type{border-bottom:0}
+.splan li:before{content:counter(st);grid-row:span 2;width:24px;height:24px;border-radius:50%;background:var(--accbg);color:var(--acc2);display:grid;place-items:center;font:600 12px var(--sans)}
+.splan li b{font-size:13px;font-weight:600} .splan li span{font-size:12px;color:var(--t3)}
 /* home polish */
 .nav a.soon:after{content:"Soon";margin-left:auto;font-size:10px;font-weight:600;letter-spacing:.04em;color:var(--t4);border:1px solid var(--hair2);border-radius:99px;padding:1px 6px}
 .foot{margin:56px 0 8px;padding:22px 0 6px;border-top:1px solid var(--hair);display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:start}
@@ -351,7 +366,10 @@ h1.title em{font-style:normal;background:var(--v-grad);-webkit-background-clip:t
   .gal{grid-template-columns:1fr;gap:20px} .card .mt .d{font-size:14px}
   .tiles{grid-template-columns:1fr} .tile .im{height:110px}
   .filters{overflow-x:auto;scrollbar-width:none;max-width:100%} .filters button{flex:none}
-  .foot{grid-template-columns:1fr;gap:12px;margin-top:40px}}
+  .foot{grid-template-columns:1fr;gap:12px;margin-top:40px}
+  .ws{grid-template-columns:1fr;height:auto} .ws .pane{border-right:0;overflow:visible} .ws .pane.r{display:none}
+  .canvas{border-top:1px solid var(--hair)} .ctop{position:sticky;top:56px;z-index:5;background:var(--v-glass);backdrop-filter:blur(14px)} .ctop .est2,#wsState{display:none} .ctop .t{min-width:0;overflow:hidden;text-overflow:ellipsis} .ctop #wsGen{flex:none}
+  .stage2{padding:16px 14px 24px} .stgrid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -490,7 +508,10 @@ h1.title em{font-style:normal;background:var(--v-grad);-webkit-background-clip:t
           <div class="seg" id="wsVoice" style="grid-template-columns:repeat(5,1fr)"><button data-v="preset">Library</button><button data-v="upload">Upload</button><button data-v="sung">Sung</button><button data-v="eleven">Spoken</button><button data-v="recite">Recite</button></div>
           <div class="vnote" id="wsVoiceNote"></div>
           <input type="file" id="fileIn" accept="audio/*" hidden></div>
-        <div class="blk"><h4>Style<span class="n">Puppets and silhouettes are for story films</span></h4><div class="styles" id="wsStyles"></div></div>
+        <div class="blk"><h4>Narration<span class="n" id="wsNarrN"></span></h4>
+          <div class="seg" id="wsNarr"><button data-n="none">None</button><button data-n="meaning">Meaning</button><button data-n="story">Cited story</button></div>
+          <div class="vnote" id="wsNarrNote"></div></div>
+        <div class="blk"><h4>Style<span class="n" id="wsStyleN"></span></h4><div class="styles" id="wsStyles"></div></div>
       </div>
       <div class="canvas">
         <div class="ctop"><span class="t" id="wsName">New film</span><span class="badge mut" id="wsState">Draft</span><div class="sp"></div>
@@ -660,7 +681,7 @@ function pickStoryStyle(s) {
   return true;
 }
 const FORMS_WORD = ['kana', 'agni', 'dhupa', 'akasha'];          // these styles shape the sung word themselves
-const etaText = n => isLive(S.style) ? 'ready in seconds' : `about ${Math.max(3, Math.round(2.5 + (n || 4) * 0.25))} min`;
+const etaText = n => storyMode() ? 'about 10–15 min' : isLive(S.style) ? 'ready in seconds' : `about ${Math.max(3, Math.round(2.5 + (n || 4) * 0.25))} min`;
 function setEst(n) { $('#est').innerHTML = `<b>Free</b> · ${etaText(n)}`; }
 function fitVoice() {                    // a voice that can't be used for this chant falls back to recitation, never to a file picker
   if (S.voice === 'preset' && !(S.preset && S.preset.recording)) S.voice = S.upload ? 'upload' : 'recite';
@@ -677,13 +698,15 @@ function pop(id, anchor) {
 document.addEventListener('click', e => { if (!e.target.closest('.popover') && !e.target.closest('.chip')) $$('.popover').forEach(x => x.classList.remove('on')); });
 $('#styleChip').onclick = e => pop('stylePop', e.currentTarget);
 $('#voiceChip').onclick = e => { renderMenu('voicePop', [...(S.preset && S.preset.recording ? [['preset', 'Library recording', S.preset.recording.split('(')[0].trim(), 'mic']] : []), ['upload', 'Upload a recording', 'Your own chanting, aligned word by word', 'upload'], ['sung', 'Sung chant', CAP.eleven ? 'Sung with a melody, tanpura and flute (ElevenLabs Music)' : 'Connect ElevenLabs first (API key on this computer)', 'spark'], ['eleven', 'ElevenLabs chant', CAP.eleven ? 'Spoken by Pranit, a devotional Indian voice' : 'Connect ElevenLabs first (API key on this computer)', 'mic'], ['recite', 'Neural recitation', 'A free draft voice that a teacher reviews', 'spark']], S.voice, v => { if ((v === 'eleven' || v === 'sung') && !CAP.eleven) { toast('ElevenLabs not connected', 'Set ELEVENLABS_API_KEY on this computer and restart the Studio.', 'mic'); return; } S.voice = v; S.voicePicked = true; setVoiceLabel(); if (v === 'upload' && !S.upload) pickFile(); }); pop('voicePop', e.currentTarget); };
-$('#narrChip').onclick = e => { renderMenu('narrPop', [['none', 'No narration', 'The chant on its own', 'story'], ['meaning', 'Meaning narration', 'A narrator explains each line first', 'text'], ['story', 'Cited story', 'Told from its source; otherwise the meaning', 'book']], S.narr, v => {
-    if (v !== 'none' && !CAP.interpret) { toast('Claude not connected', 'Narrated films need Claude: add ANTHROPIC_API_KEY on this computer and restart the Studio.', 'story'); return; }
-    S.narr = v; $('#narrName').textContent = { none: 'No narration', meaning: 'Meaning narration', story: 'Cited story' }[v];
-    if (v !== 'none' && S.style !== 'silhouette' && !SB_STYLES.includes(S.style)) { S.style = 'silhouette'; const s = STYLES.find(x => x.id === 'silhouette'); if (s) { $('#styleName').textContent = shortName(s); $('#styleSw').style.backgroundImage = `url('${IMG(STYLE_IMG.silhouette)}')`; } }
-    if (v === 'none' && !STYLES.find(x => x.id === S.style && x.tier === 'free' && !x.story)) { S.style = 'gold'; $('#styleName').textContent = 'Liquid gold'; $('#styleSw').style.backgroundImage = `url('${IMG('gold')}')`; }
-    renderStyles(); if (typeof renderWsLeft === 'function' && S.units) renderWsLeft();
-    if (v !== 'none') toast(v === 'story' ? 'Cited story' : 'Meaning narration', 'Claude writes the narration and storyboard from the chant; the film is drawn in paper-cut silhouette, then the chant is sung. About 10–15 minutes.', 'story'); }); pop('narrPop', e.currentTarget); };
+$('#narrChip').onclick = e => { renderMenu('narrPop', [['none', 'No narration', 'The chant on its own', 'story'], ['meaning', 'Meaning narration', 'A narrator explains each line first', 'text'], ['story', 'Cited story', 'Told from its source; otherwise the meaning', 'book']], S.narr, v => setNarr(v, true)); pop('narrPop', e.currentTarget); };
+function setNarr(v, announce) {
+  if (v !== 'none' && !CAP.interpret) { toast('Claude not connected', 'Narrated films need Claude: add ANTHROPIC_API_KEY on this computer and restart the Studio.', 'story'); return; }
+  S.narr = v; $('#narrName').textContent = { none: 'No narration', meaning: 'Meaning narration', story: 'Cited story' }[v];
+  if (v !== 'none' && S.style !== 'silhouette' && !SB_STYLES.includes(S.style)) { S.style = 'silhouette'; const s = STYLES.find(x => x.id === 'silhouette'); if (s) { $('#styleName').textContent = shortName(s); $('#styleSw').style.backgroundImage = `url('${IMG(STYLE_IMG.silhouette)}')`; } }
+  if (v === 'none' && !STYLES.find(x => x.id === S.style && x.tier === 'free' && !x.story && x.id !== 'yantra')) { S.style = 'gold'; $('#styleName').textContent = 'Liquid gold'; $('#styleSw').style.backgroundImage = `url('${IMG('gold')}')`; }
+  renderStyles(); if ($('#p-ws').classList.contains('on') || S.units) { renderWsLeft(); if (!S.job) renderStage(); }
+  if (announce && v !== 'none') toast(v === 'story' ? 'Cited story' : 'Meaning narration', 'Claude writes the narration and storyboard from the chant; the film is drawn in paper-cut silhouette, then the chant is sung. About 10–15 minutes.', 'story');
+}
 $('#ratioChip').onclick = () => toast('16:9 for now', 'Vertical 9:16 cuts come with the Reel maker.', 'phone');
 function renderMenu(id, items, cur, onPick) {
   $('#' + id).innerHTML = items.map(([v, t, d, ic]) => `<div class="mi" data-v="${v}"><svg class="i"><use href="#${ic}"/></svg><div>${t}<small>${esc(d)}</small></div>${v === cur ? '<svg class="i s ck"><use href="#check"/></svg>' : ''}</div>`).join('');
@@ -877,6 +900,9 @@ function renderWsLeft() {
     : S.voice === 'eleven' ? `<b>ElevenLabs chant</b><br>Each line is voiced from the Devanagari by Pranit, a devotional Indian ElevenLabs voice; the text is sent to ElevenLabs. A teacher should review the pronunciation.${CAP.eleven ? '' : '<br><span style="color:var(--rose)">Not connected: set ELEVENLABS_API_KEY on this computer.</span>'}`
     : '<b>Neural recitation (draft)</b><br>A Hindi neural voice recites each line; the text is sent to Microsoft. A teacher must review the pronunciation.';
   $('#reup') && ($('#reup').onclick = pickFile);
+  $$('#wsNarr button').forEach(b => b.classList.toggle('on', b.dataset.n === (S.narr || 'none')));
+  $('#wsNarrNote').innerHTML = storyMode() ? (S.narr === 'story' ? '<b>Cited story</b><br>Claude tells the story behind the chant when a source tells one, otherwise its meaning; then the chant is sung.' : '<b>Meaning narration</b><br>A narrator explains what the chant means, then it is sung.') + ' About 10–15 minutes.' : 'The chant on its own.';
+  $('#wsStyleN').textContent = storyMode() ? 'Story styles' : 'Live styles are ready in seconds';
   interpretChant();
   const free = STYLES.filter(s => s.tier === 'free' && !s.story && s.id !== 'yantra'), pro = STYLES.filter(s => s.tier !== 'free' && STYLE_IMG[s.id]).slice(0, 3);
   $('#wsStyles').innerHTML = (storyMode() ? storyStyles() : [...free, ...pro]).map(s => `<div class="st ${s.id === S.style ? 'on' : ''} ${s.tier === 'free' ? '' : 'lock'}" data-s="${s.id}">${s.tier === 'free' ? '' : '<span class="badge pro lk">Pro</span>'}<div class="im" style="background-image:url('${IMG(STYLE_IMG[s.id])}')"></div><div class="nm">${esc(shortName(s))}${s.tier === 'free' ? '<span class="badge ok">Free</span>' : ''}</div></div>`).join('');
@@ -890,6 +916,7 @@ $$('#wsVoice button').forEach(b => b.onclick = () => { if (b.dataset.v === 'pres
 $('#wsText').oninput = () => { S.draft = $('#wsText').value; };
 $('#wsTitle').oninput = () => { S.title = $('#wsTitle').value; $('#wsName').textContent = S.title || 'New film'; };
 $('#wsRead').onclick = async () => { const t = $('#wsText').value.trim(); if (!t) return; try { await readChant(t); ta.value = S.text; S.job = null; renderWsLeft(); renderStage(); } catch (e) { toast('Could not read the chant', 'Paste it in Devanagari, ending lines with । or ॥.', 'text'); } };
+$$('#wsNarr button').forEach(b => b.onclick = () => setNarr(b.dataset.n, true));
 $('#wsGen').onclick = async () => { const t = $('#wsText').value.trim(); if (t && t !== S.text) { try { await readChant(t); } catch (e) { toast('Could not read the chant', 'Type it in Devanagari, IAST or English spelling.', 'text'); return; } } S.job = null; startJob(); };
 
 let JOBS = [], jobTimer = 0;
@@ -900,12 +927,35 @@ function renderStage(j) {
   $('#wsState').className = 'badge ' + state[0]; $('#wsState').textContent = state[1];
   $('#wsGen').hidden = !!(j && (j.status === 'running' || j.status === 'queued'));
   if (!j) {
-    if (!S.units) { st.innerHTML = `<div class="empty2 v-kolam"><h3>Start with a chant</h3><p>Paste one on the left, or pick a template on Home.</p><button class="btn acc" data-go="home">Go to Home</button></div>`; return; }
+    if (!S.units) {
+      st.innerHTML = `<div class="empty2 v-kolam"><h3>Start with a chant</h3><p>Paste one on the left, in Devanagari, IAST or plain English spelling, or start from the library.</p>
+        <div class="qstart">${PRESETS.slice(0, 6).map(p => `<button data-p="${esc(p.id)}"><span class="d">${esc((p.text || '').split(/[\s।॥]+/).filter(Boolean)[1] || '')}</span>${esc(p.name)}</button>`).join('')}</div></div>`;
+      $$('#wsStage .qstart button').forEach(b => b.onclick = async () => { const p = PRESETS.find(x => x.id === b.dataset.p); if (!p) return; $('#wsText').value = p.text; S.title = p.title || p.name; try { await readChant(p.text); renderWsLeft(); renderStage(); } catch (e) {} });
+      return;
+    }
+    const I = S.interp && S.interp.text === S.text ? S.interp : null, idf = I && I.interpretation && I.interpretation.identification;
+    const chantName = S.preset ? S.preset.name : idf && idf.name ? idf.name : 'Not identified yet';
+    const prov = S.preset ? ['id', 'Identified'] : I && I.provenance ? [I.provenance === 'Identified' ? 'id' : 'int', I.provenance] : ['int', 'Interpreted'];
+    const voiceName = { preset: 'Library recording', upload: S.upload ? S.upload.name : 'Your recording', recite: 'Neural recitation (free)', eleven: 'ElevenLabs · spoken', sung: 'ElevenLabs · sung' }[S.voice] || S.voice;
+    const yourFilm = `<div class="yfilm"><h4>Your film</h4><div class="yt">${esc(S.title || titleFor())}</div>
+      <span class="badge ${prov[0]}">${prov[1]}</span>
+      <dl class="facts"><dt>Chant</dt><dd>${esc(chantName)}</dd><dt>Voice</dt><dd>${esc(voiceName)}</dd><dt>Look</dt><dd>${esc(SHORT[S.style] || S.style)}</dd>
+        <dt>Narration</dt><dd>${{ none: 'None', meaning: 'Meaning', story: 'Cited story' }[S.narr || 'none']}</dd><dt>Ready</dt><dd>${storyMode() ? 'about 10–15 min' : etaText(S.units.length)}</dd></dl>
+      <div class="ylines">${S.units.map(u => `<div><b>${esc(u.devanagari)}</b><small>${esc(u.english || u.iast)}</small></div>`).join('')}</div></div>`;
+    if (storyMode()) {
+      const painted = SB_STYLES.includes(S.style);
+      st.innerHTML = `<div class="stgrid"><div class="splan"><h4>How this story film is made</h4><ol>
+        <li><b>Claude reads the chant</b><span>its source, meaning and every word, with a confidence</span></li>
+        <li><b>Claude writes the ${S.narr === 'story' ? 'story' : 'narration'}</b><span>${S.narr === 'story' ? 'only from a cited source; with none, it explains the meaning instead' : 'what the chant asks or praises, line by line'}</span></li>
+        <li><b>${painted ? 'Each scene is painted on the GPU' : 'Scenes are drawn as paper-cut silhouettes'}</b><span>${painted ? 'the same characters in every painting; deities only as light' : 'figures from the story; deities only as light'}</span></li>
+        <li><b>The narrator tells it, then the chant is sung</b><span>subtitles, then word-synced Devanagari, IAST and English</span></li></ol>
+        <div class="scard" style="margin-top:14px"><div class="im" style="background-image:url('${IMG(STYLE_IMG[S.style] || 'si_62')}')"><span class="badge">${esc(SHORT[S.style] || S.style)}</span></div></div></div>${yourFilm}</div>`;
+      return;
+    }
     if (isLive(S.style)) {
       st.innerHTML = `<p class="stnote">${{ nada: 'Nāda: sand on a bronze plate takes its shape from the voice itself (pitch, brightness, loudness).', gold: 'Liquid gold: pigment flowing in dark water, stirred by the voice, with a bloom of colour on every word.', kana: 'Kaṇa: thousands of grains of light gather into ॐ, then into each word as it is sung, and at the end into the symbol of the deity; the voice makes them shimmer.', agni: 'Agni: a havan fire burns in the dark; the voice feeds the flames and embers rise to form each sung word, then the symbol of the deity.', dhupa: 'Dhūpa: incense smoke curls up in a quiet shrine; the voice stirs it and each word forms in the smoke before drifting away.', akasha: 'Ākāśa: the night sky; each sung word appears in stardust and is joined into a constellation, and the sun rises at the end.' }[S.style]}
         Drawn live in the player from your recording and the word timings, in the colours of ${esc(VakFX.deityOf(S.units).replace('peace', 'peace (no deity named)'))}. Ready a few seconds after you generate.</p>
-        <div class="scgrid" style="grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)"><div class="scard"><div class="im" style="background-image:url('${IMG(S.style)}')"><span class="badge">Sample</span></div><div class="tx"><b>${esc(SHORT[S.style])}</b><small>Live · drawn from the sound</small></div></div>
-        <div class="scard"><div class="tx">${S.units.map((u, i) => `<div style="padding:6px 0;border-top:${i ? '1px solid var(--hair)' : '0'}"><b style="font:16px var(--dev)">${esc(u.devanagari)}</b><small style="font:12px var(--sans);display:block;color:var(--t3)">${esc(u.english || u.iast)}</small></div>`).join('')}</div></div></div>`;
+        <div class="stgrid"><div class="scard"><div class="im" style="background-image:url('${IMG(STYLE_IMG[S.style] || S.style)}')"><span class="badge">Sample</span></div><div class="tx"><b>${esc(SHORT[S.style])}</b><small>Live · drawn from the sound</small></div></div>${yourFilm}</div>`;
       return;
     }
     const plan = S.plans[famOf(S.style)] || [];
