@@ -43,8 +43,9 @@ def _split_padas(words):
 
 def parse(text):
     """Return units from Devanagari chant text. Lines ending in उवाच are speaker lines;
-    a verse is two half-lines, the second ending ॥ n ॥."""
-    units, speaker, verse_lines = [], None, []
+    a verse is two half-lines, the second ending ॥ n ॥. Pasted verses are often unnumbered: a half-line ending
+    in a plain ॥ closes the verse too, and so does the end of the text (a verse pasted without its final ॥)."""
+    units, speaker, verse_lines, last = [], None, [], 0
     lines = [l.strip() for l in text.splitlines() if l.strip()]
 
     def add(kind, words, verse=None):
@@ -52,6 +53,17 @@ def parse(text):
         units.append({"id": f"u{len(units) + 1:03d}", "kind": kind, "verse": verse, "devanagari": dev, "iast": iast(dev),
                       "words": [{"dev": w, "iast": iast(w), "syl": syllables(w)} for w in words],
                       "speaker": speaker if kind == "verse" else None, "english": ""})
+
+    def close_verse(num):
+        nonlocal verse_lines
+        for half in verse_lines:
+            words = _words(half)
+            if words and words[0] == "ॐ" and len(words) > 1:   # a leading ॐ is chanted on its own
+                add("verse", ["ॐ"], num); words = words[1:]
+            for pada in _split_padas(words):
+                if pada:
+                    add("verse", pada, num)
+        verse_lines = []
 
     for line in lines:
         m = re.search(r"॥\s*([०-९0-9]+)\s*॥\s*$", line)
@@ -61,18 +73,19 @@ def parse(text):
             speaker = iast(words[0]).capitalize()
         elif m:                                               # last half-line of a numbered verse
             verse_lines.append(line)
-            num = int("".join(str(DIGITS.index(c)) if c in DIGITS else c for c in m.group(1)))
-            for half in verse_lines:
-                words = _words(half)
-                if words and words[0] == "ॐ" and len(words) > 1:   # a leading ॐ is chanted on its own
-                    add("verse", ["ॐ"], num); words = words[1:]
-                for pada in _split_padas(words):
-                    add("verse", pada, num)
-            verse_lines = []
+            last = int("".join(str(DIGITS.index(c)) if c in DIGITS else c for c in m.group(1)))
+            close_verse(last)
         elif line.rstrip().endswith("॥") and not verse_lines:  # invocation, e.g. ॐ नमश्चण्डिकायै ॥
             add("invocation", _words(line))
+        elif line.rstrip().endswith("॥"):                     # last half-line of an unnumbered verse
+            verse_lines.append(line)
+            last += 1
+            close_verse(last)
         else:
             verse_lines.append(line)
+    if verse_lines:                                           # the text stops before the verse's closing ॥
+        last += 1
+        close_verse(last)
     log(f"text: {len(units)} units from {sum(1 for l in lines if '॥' in l)} lines")
     return units
 

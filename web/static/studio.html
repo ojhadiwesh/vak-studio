@@ -650,7 +650,7 @@ function analyse() {
       if (ta.value.trim() !== txt) return;                                   // the user kept typing: a newer read is coming
       if (pv.safety) { $('#linesPrev').innerHTML = ''; S.units = null; S.text = ''; $('#detect').innerHTML = `<span class="badge int">${pv.safety.action === 'crisis' ? 'Support' : 'Not a chant'}</span><span>${esc(pv.safety.action === 'crisis' ? 'Help is available. You are not alone.' : pv.safety.message)}</span>`; showSafety(pv.safety); return; }
       const p = pv.match ? PRESETS.find(x => x.id === pv.match.id) || null : null, dev = pv.converted.devanagari;
-      if (S.text !== dev) { S.translations = {}; S.title = ''; } S.preset = p; S.text = dev; S.conv = pv.converted;
+      if (S.text !== dev) { S.translations = {}; S.title = ''; S.titleTyped = false; } S.preset = p; S.text = dev; S.conv = pv.converted;
       if (p) S.translations = Object.assign({}, p.translations, S.translations); pv.units.forEach(u => { if (!u.english && S.translations[u.devanagari]) u.english = S.translations[u.devanagari]; }); S.units = pv.units; S.plans = pv.plans;
       const words = pv.units.reduce((n, u) => n + u.words.length, 0), gl = pv.units.reduce((n, u) => n + u.words.filter(w => w.meaning).length, 0);
       $('#detect').innerHTML = (p ? `<span class="badge id"><svg class="i s"><use href="#shield"/></svg>Identified</span><span>${esc(p.name)}</span><span class="sep">·</span><span>${esc(p.source)}</span>`
@@ -833,15 +833,25 @@ async function interpretRun(text, tries) {
   } catch (e) { if (await safetyFrom(e)) { S.interp = { text, error: 'This text was not sent to Claude.', tries: 2 }; renderWsLeft(); return; } let m = 'Claude could not read this chant.'; try { m = (await e.json()).detail; } catch (x) {} if (S.text !== text) return; S.interp = { text, error: m, tries }; }
   renderWsLeft();
 }
+let readSeq = 0;
+// a different chant, not an edit of this one: fewer than half of the new lines were in the old reading
+const isNewChant = (oldLines, units) => oldLines.length > 0 && units.filter(u => oldLines.includes(u.devanagari)).length < units.length / 2;
 async function readChant(text) {
-  S.draft = null;
+  const my = ++readSeq;
   const pv = await api('/api/preview', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ text, translations: S.translations }) });
+  if (my !== readSeq) return null;                                          // a newer read started while this one was out
+  S.draft = null;
   if (pv.safety) { showSafety(pv.safety); throw new Error('safety'); }
+  const oldLines = (S.units || []).map(u => u.devanagari);
   S.text = pv.converted.devanagari; S.conv = pv.converted;
   S.preset = pv.match ? PRESETS.find(x => x.id === pv.match.id) || null : null;
   if (S.preset) S.translations = Object.assign({}, S.preset.translations, S.translations);
   pv.units.forEach(u => { if (!u.english && S.translations[u.devanagari]) u.english = S.translations[u.devanagari]; });
   S.units = pv.units; S.plans = pv.plans;
+  if (isNewChant(oldLines, pv.units)) {                                     // the old title and recording belong to the old chant
+    if (!S.titleTyped) S.title = '';
+    if (S.upload) { S.upload = null; toast('Recording set aside', 'It was a recording of the previous chant. Choose one of this chant, or pick another voice.', 'mic'); }
+  }
   fitVoice();
   return pv;
 }
@@ -872,6 +882,7 @@ async function startJob() {
 function renderWsLeft() {
   $('#wsTitle').value = S.title || (S.units ? titleFor() : '');
   if (document.activeElement !== $('#wsText')) $('#wsText').value = S.draft ?? S.text;      // unsaved edits survive re-renders
+  $('#wsLines').style.opacity = S.reading ? .45 : '';
   const I = S.interp && S.interp.text === S.text ? S.interp : null, it = I && I.interpretation, idf = it && it.identification;
   $('#wsProv').innerHTML = !S.units ? '' : S.preset ? `<span class="badge id"><svg class="i s"><use href="#shield"/></svg>${esc(S.preset.source)}</span>`
     : it ? `<span class="badge ${I.provenance === 'Identified' ? 'id' : 'int'}">${I.provenance === 'Identified' ? '<svg class="i s"><use href="#shield"/></svg>' : ''}${esc(I.provenance)}</span>` : '<span class="badge int">Interpreted</span>';
@@ -913,11 +924,29 @@ function renderWsLeft() {
 }
 $$('#wsVoice button').forEach(b => b.onclick = () => { if (b.dataset.v === 'preset' && !(S.preset && S.preset.recording)) { toast('No library recording', 'Upload a recording or use neural recitation.', 'mic'); return; }
   if (b.dataset.v === 'eleven' && !CAP.eleven) { toast('ElevenLabs not connected', 'Set ELEVENLABS_API_KEY on this computer and restart the Studio.', 'mic'); return; } S.voice = b.dataset.v; S.voicePicked = true; setVoiceLabel(); renderWsLeft(); if (S.voice === 'upload' && !S.upload) pickFile(); });
-$('#wsText').oninput = () => { S.draft = $('#wsText').value; };
-$('#wsTitle').oninput = () => { S.title = $('#wsTitle').value; $('#wsName').textContent = S.title || 'New film'; };
-$('#wsRead').onclick = async () => { const t = $('#wsText').value.trim(); if (!t) return; try { await readChant(t); ta.value = S.text; S.job = null; renderWsLeft(); renderStage(); } catch (e) { toast('Could not read the chant', 'Paste it in Devanagari, ending lines with । or ॥.', 'text'); } };
+// the workspace re-reads the chant as it is edited: lines, glosses, context and storyboard follow the text
+let wsT = 0;
+$('#wsText').oninput = () => {
+  S.draft = $('#wsText').value; clearTimeout(wsT);
+  const t = S.draft.trim();
+  if (!t) { ++readSeq; S.reading = false; S.units = null; S.plans = null; S.text = ''; S.preset = null; S.job = null; ta.value = ''; renderWsLeft(); renderStage(); return; }
+  S.reading = true; $('#wsLines').style.opacity = .45; $('#wsReadNote').textContent = 'Reading the chant…';
+  $('#wsState').className = 'badge mut'; $('#wsState').textContent = 'Reading…';
+  wsT = setTimeout(async () => {
+    let pv = null, ok = true;
+    try { pv = await readChant(t); } catch (e) { ok = false; }
+    if ($('#wsText').value.trim() !== t) return;                            // still typing: the next read updates the screen
+    S.reading = false;
+    if (!ok) { S.units = null; S.plans = null; }
+    if (pv) { ta.value = S.text; S.job = null; }
+    renderWsLeft(); renderStage();
+    if (!ok) $('#wsReadNote').textContent = "Can't read this yet. Type it in Devanagari, IAST or English spelling.";
+  }, 700);
+};
+$('#wsTitle').oninput = () => { S.title = $('#wsTitle').value; S.titleTyped = !!S.title.trim(); $('#wsName').textContent = S.title || 'New film'; };
+$('#wsRead').onclick = async () => { clearTimeout(wsT); S.reading = false; const t = $('#wsText').value.trim(); if (!t) return; try { await readChant(t); ta.value = S.text; S.job = null; renderWsLeft(); renderStage(); } catch (e) { toast('Could not read the chant', 'Paste it in Devanagari, ending lines with । or ॥.', 'text'); } };
 $$('#wsNarr button').forEach(b => b.onclick = () => setNarr(b.dataset.n, true));
-$('#wsGen').onclick = async () => { const t = $('#wsText').value.trim(); if (t && t !== S.text) { try { await readChant(t); } catch (e) { toast('Could not read the chant', 'Type it in Devanagari, IAST or English spelling.', 'text'); return; } } S.job = null; startJob(); };
+$('#wsGen').onclick = async () => { clearTimeout(wsT); S.reading = false; const t = $('#wsText').value.trim(); if (t && t !== S.text) { try { await readChant(t); } catch (e) { toast('Could not read the chant', 'Type it in Devanagari, IAST or English spelling.', 'text'); return; } } S.job = null; startJob(); };
 
 let JOBS = [], jobTimer = 0;
 function renderStage(j) {
