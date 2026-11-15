@@ -310,10 +310,36 @@ h1.title em{font-style:normal;background:var(--v-grad);-webkit-background-clip:t
 .toast{display:flex;gap:12px;align-items:flex-start;width:340px;background:var(--v-pop);backdrop-filter:blur(16px);border:1px solid var(--hair2);border-radius:var(--r4);padding:12px 14px;box-shadow:0 20px 50px -12px rgba(0,0,0,.85);animation:tin .3s var(--e)}
 @keyframes tin{from{opacity:0;transform:translateY(10px)}}
 .toast .ti{width:28px;height:28px;border-radius:9px;background:var(--v-grad);color:#fff;display:grid;place-items:center;flex:none} .toast b{font-weight:600;font-size:13px;display:block} .toast span{color:var(--t2);font-size:12.5px}
+/* film page: about, more films, look bar */
+.lookbar{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px} .lookbar::-webkit-scrollbar{display:none}
+.lookbar .seg2{flex:none} .lookbar .lv{flex:none}
+.seg2 .sep{width:1px;background:var(--hair2);margin:6px 5px} .seg2 .gl{display:flex;align-items:center;padding:0 5px 0 3px;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--t4)}
+#p-film .prov{display:none}                                       /* its source and status now live in About this film */
+.fabout{margin-top:22px;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:14px}
+.fcard{border:1px solid var(--hair);border-radius:var(--r4);background:var(--s1);padding:16px 18px}
+.fcard h4,.fmore h4{margin:0 0 12px;font:600 10.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--t3)}
+.fcard .mean{font:450 15.5px/1.6 var(--serif);color:var(--t1)} .fcard .mean p{margin:0 0 6px} .fcard .mean p:last-child{margin:0}
+.fcard .mean .dv{display:block;font:15px/1.5 var(--dev);color:var(--acc2);margin-bottom:1px}
+.facts{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 16px;margin:0;font-size:12.5px;line-height:1.45} .facts dt{color:var(--t3)} .facts dd{margin:0;color:var(--t1)}
+.fchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px} .fchips span{height:24px;display:inline-flex;align-items:center;padding:0 9px;border-radius:999px;background:var(--s2);border:1px solid var(--hair);font-size:11.5px;color:var(--t2)}
+.fmore{margin-top:22px} .frow{display:grid;grid-auto-flow:column;grid-auto-columns:210px;gap:12px;overflow-x:auto;padding-bottom:8px;scrollbar-width:thin}
+.fmini{cursor:pointer;border-radius:var(--r3);overflow:hidden;border:1px solid var(--hair);background:var(--s1);transition:transform .15s,border-color .15s} .fmini:hover{transform:translateY(-2px);border-color:var(--hair3)}
+.fmini .im{aspect-ratio:16/9;background:var(--s3) center/cover} .fmini .t{padding:9px 11px;font-size:12.5px} .fmini .t b{display:block;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .fmini small{display:block;color:var(--t3);font-size:11.5px;margin-top:2px}
 @media (max-width:1440px){.ws{grid-template-columns:316px minmax(0,1fr)}.pane.r{display:none}.film{grid-template-columns:minmax(0,1fr) 360px}}
 @media (max-width:1240px){.presets{grid-template-columns:repeat(2,minmax(0,1fr))}.tiles,.gal{grid-template-columns:repeat(2,minmax(0,1fr))}.trust{grid-template-columns:1fr}
   .app{grid-template-columns:60px minmax(0,1fr)}.logo b,.ws-switch,.nav .h,.railfoot .tier,.me span,.nav a .k{display:none}.nav a{justify-content:center;font-size:0;gap:0}.nav a .live{position:absolute;right:8px;top:8px}
   .gen .est{display:none}.film{grid-template-columns:1fr;height:auto}.learn{border-left:0;border-top:1px solid var(--hair)}h1.title{font-size:36px}h1.title em{font-size:42px}.jobpill span{display:none}}
+@media (max-width:760px){                                            /* phone: bottom navigation, compact top bar */
+  .app{grid-template-columns:1fr}
+  .rail{position:fixed;left:0;right:0;bottom:0;z-index:40;height:60px;padding:5px 8px calc(5px + env(safe-area-inset-bottom));flex-direction:row;border-right:0;border-top:1px solid var(--hair);background:var(--v-glass);backdrop-filter:saturate(1.4) blur(16px)}
+  .rail .logo,.rail .railfoot,.nav .h,.nav a[data-soon]{display:none}
+  .nav{flex-direction:row;justify-content:space-around;width:100%} .nav a{width:52px;height:48px;border-radius:12px}
+  .main{padding-bottom:70px}
+  .top{padding:0 12px;gap:8px} .search{flex:0 0 34px;max-width:34px;padding:0;justify-content:center;font-size:0} .search kbd{display:none}
+  .top [data-soon="Upload"],.thm{display:none}
+  .theatre{padding:14px 14px 30px} .fhead h1{font-size:25px} .fhead .actions{width:100%}
+  .prov{grid-template-columns:auto minmax(0,1fr)} .prov .btn{display:none}
+  .fabout{grid-template-columns:1fr} .frow{grid-auto-columns:170px}}
 </style>
 </head>
 <body>
@@ -476,11 +502,13 @@ h1.title em{font-style:normal;background:var(--v-grad);-webkit-background-clip:t
             </div>
           </div>
         </div>
-        <div class="lookbar"><span class="lb">Look</span><div class="seg2" id="looks"><button data-l="film" class="on">Rendered film</button><button data-l="nada">Nāda · cymatics</button><button data-l="gold">Liquid gold</button><button data-l="kana">Kaṇa · particles</button><button data-l="agni">Agni · fire</button><button data-l="dhupa">Dhūpa · smoke</button><button data-l="akasha">Ākāśa · sky</button></div>
+        <div class="lookbar"><span class="lb">Look</span><div class="seg2" id="looks"><button data-l="film" class="on">Rendered film</button><span class="sep" id="lookSep"></span><span class="gl">Live</span><button data-l="nada">Nāda · cymatics</button><button data-l="gold">Liquid gold</button><button data-l="kana">Kaṇa · particles</button><button data-l="agni">Agni · fire</button><button data-l="dhupa">Dhūpa · smoke</button><button data-l="akasha">Ākāśa · sky</button></div>
           <span class="lv" id="lookNote" hidden><i></i>Live: drawn in your browser from this chant's sound and word timings</span></div>
         <div class="fhead"><div><h1 id="fTitle">&nbsp;</h1><div class="d" id="fDev"></div><div class="meta" id="fMeta"></div></div>
           <div class="actions"><button class="btn sm" id="remixBtn"><svg class="i s"><use href="#remix"/></svg>Remix style</button><button class="btn sm" data-soon="Reel maker"><svg class="i s"><use href="#phone"/></svg>Make reel</button><a class="btn sm" id="dlBtn" download><svg class="i s"><use href="#dl"/></svg>Download</a><button class="btn pri sm" id="shareBtn"><svg class="i s"><use href="#share"/></svg>Share</button></div></div>
         <div class="prov"><div class="ic"><svg class="i"><use href="#shield"/></svg></div><p id="fProv"></p><button class="btn ghost sm" data-soon="Sources">Sources</button></div>
+        <div class="fabout" id="fAbout"></div>
+        <div class="fmore" id="fMore"></div>
       </div>
       <aside class="learn">
         <div class="ltabs" id="ltabs"><button class="on" data-t="follow">Follow along</button><button data-t="words">Words</button><button data-t="story">Story</button></div>
@@ -932,7 +960,8 @@ async function openFilm(id) {
   $('#fProv').innerHTML = `<b>${esc(note.slice(0, i + 1))}</b> ${esc(note.slice(i + 2))}`;
   const exp = F.live && F.has_export ? '/media/' + F.id.split('~').join('/').replace(/\.live\.json$/, '.export.mp4') : null;
   $('#dlBtn').href = exp || F.video; $('#dlBtn').lastChild.textContent = F.live && !exp ? 'Download audio' : 'Download';
-  $('#looks [data-l=film]').hidden = !!F.live;
+  $('#looks [data-l=film]').hidden = $('#lookSep').hidden = !!F.live;
+  renderAbout();
   const cs = F.tl.chant_start;
   $('#scrubTr').innerHTML = (cs ? `<div class="chap" style="left:${cs / F.duration * 100}%;right:0"></div>` : '') + '<div class="fill" id="fill"></div>';
   $$('#scrub .mk2').forEach(m => m.remove());
@@ -940,6 +969,25 @@ async function openFilm(id) {
   setTab('follow'); let raf = 0; const lp = () => { syncFilm(); raf = requestAnimationFrame(lp); }; lp();
   setLook(F.live ? F.style : (LOOK === 'film' || !F.live ? LOOK : 'film'));
   leave = () => { cancelAnimationFrame(raf); vid.pause(); hideW(); stopLook(); };
+}
+// "About this film": the meaning, the facts, and other films of the same chant
+function renderAbout() {
+  const c = F.context || {}, eng = F.units.filter(u => u.english);
+  const words = F.units.reduce((n, u) => n + u.words.length, 0), gl = F.units.reduce((n, u) => n + u.words.filter(w => w.meaning).length, 0);
+  const mean = c.meaning_summary ? `<p>${esc(c.meaning_summary)}</p>`
+    : eng.length ? eng.slice(0, 6).map(u => `<p><span class="dv">${esc(u.devanagari)}</span>${esc(u.english)}</p>`).join('') + (eng.length > 6 ? `<p style="color:var(--t3);font-size:13px">+ ${eng.length - 6} more lines in Follow along</p>` : '')
+    : '<p style="color:var(--t3)">No translation yet. A teacher can add one.</p>';
+  const note = F.provenance.note || '', k = note.indexOf('. ');
+  const src = (c.identification && c.identification.source) || (k > 0 ? note.slice(0, k).replace(/^Source:\s*/, '') : '');
+  const facts = [src && ['Source', src], ['Status', F.provenance.level === 'Interpreted' ? 'Interpreted · awaiting a teacher' : 'Identified · awaiting a teacher'],
+    c.deity_name && ['Deity', c.deity_name], c.genre && ['Kind', c.genre[0].toUpperCase() + c.genre.slice(1)],
+    ['Voice', F.voice || 'Recording'], ['Look', F.kind === 'reel' ? 'Vertical reel · 9:16' : SHORT[F.style] || (F.style_name || '').replace(/ \(.*\)/, '')]].filter(Boolean);
+  $('#fAbout').innerHTML = `<div class="fcard"><h4>What it means</h4><div class="mean">${mean}</div></div>
+    <div class="fcard"><h4>About this film</h4><dl class="facts">${facts.map(([a, b]) => `<dt>${a}</dt><dd>${esc(b)}</dd>`).join('')}</dl>
+    <div class="fchips"><span>${F.units.length} lines</span><span>${words} words</span><span>${gl === words ? 'every word glossed' : `${gl} of ${words} glossed`}</span><span>${fmt(F.duration)}</span></div></div>`;
+  const more = (FILMS || []).filter(f => f.id !== F.id && F.dev && f.dev === F.dev).slice(0, 10);
+  $('#fMore').innerHTML = more.length ? `<h4>More films of this chant</h4><div class="frow">${more.map(f => `<div class="fmini" data-id="${esc(f.id)}"><div class="im" style="background-image:url('${f.poster || '/api/thumb/' + f.id}')"></div><div class="t"><b>${esc(f.title)}</b><small>${esc(f.kind === 'reel' ? 'Vertical reel' : SHORT[f.style] || (f.style_name || '').replace(/ \(.*\)/, ''))} · ${fmt(f.duration)}</small></div></div>`).join('')}</div>` : '';
+  $$('#fMore .fmini').forEach(m => m.onclick = () => go('film', m.dataset.id));
 }
 function unitAt(r) { let k = -1; F.units.forEach((u, i) => { if (u.start != null && r >= u.start - .35) k = i; }); if (k < 0) return -1; const u = F.units[k], nx = F.units[k + 1]; return r <= Math.min(nx ? nx.start - .3 : Infinity, u.end + 1.6) ? k : -1; }
 function syncFilm() {
