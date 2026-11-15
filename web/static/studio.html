@@ -432,7 +432,7 @@ h1.title em{font-style:normal;background:var(--v-grad);-webkit-background-clip:t
       <div class="trust">
         <div><b><span class="ico"><svg class="i"><use href="#shield"/></svg></span>Grounded in a source</b><p>Every chant carries a provenance badge. Identified texts cite their source; unidentified ones are labelled Interpreted and go to review.</p></div>
         <div><b><span class="ico"><svg class="i"><use href="#text"/></svg></span>No invented stories</b><p>Scenes come from what the words mean. A story is told only when a cited text tells it.</p></div>
-        <div><b><span class="ico"><svg class="i"><use href="#users"/></svg></span>Reviewed by teachers</b><p>Pronunciation, translation and word meanings are checked by a teacher before a film is published.</p></div>
+        <div><b><span class="ico"><svg class="i"><use href="#users"/></svg></span>Open to a teacher's review</b><p>Translations and word meanings are drafts until a teacher checks them; AI-read chants are marked Interpreted and queued for review.</p></div>
       </div>
     </div></section>
 
@@ -639,7 +639,7 @@ function renderMenu(id, items, cur, onPick) {
 const SHORT = { gold: 'Liquid gold', nada: 'Nāda', kana: 'Kaṇa', agni: 'Agni', dhupa: 'Dhūpa', akasha: 'Ākāśa', anime_painted: 'Hand-painted anime', animated_3d: '3D animated', indian_comic: 'Indian comic', storybook: 'Storybook watercolour', claymation: 'Claymation', yantra: 'Yantra', shadow_puppet: 'Shadow puppets', silhouette: 'Silhouette', ravi_varma: 'Ravi Varma', pattachitra: 'Pattachitra', art_nouveau: 'Art Nouveau', watercolour: 'Watercolour' };
 const shortName = s => SHORT[s.id] || s.name.replace(/ \(.*\)/, '');
 function renderStyles() {
-  const list = storyMode() ? storyStyles() : [...STYLES.filter(s => s.tier === 'free' && !s.story), ...STYLES.filter(s => s.tier !== 'free' && STYLE_IMG[s.id])];
+  const list = storyMode() ? storyStyles() : [...STYLES.filter(s => s.tier === 'free' && !s.story && s.id !== 'yantra'), ...STYLES.filter(s => s.tier !== 'free' && STYLE_IMG[s.id])];
   $('#styleGrid').innerHTML = list.map(s => `<button class="sopt ${s.id === S.style ? 'on' : ''} ${s.tier === 'free' ? '' : 'lock'}" data-s="${s.id}">
     <div class="im" style="background-image:url('${IMG(STYLE_IMG[s.id] || 'ai_d')}')">${s.tier === 'free' ? '<span class="badge ok">Free</span>' : storyMode() && SB_STYLES.includes(s.id) ? '<span class="badge pro">GPU</span>' : '<span class="badge pro">Pro</span>'}</div>
     <div class="nm">${esc(shortName(s))}</div><div class="ds">${s.live ? 'Live · ready in seconds' : storyMode() && s.id === 'silhouette' ? 'Story · 10–15 min · no GPU' : storyMode() && SB_STYLES.includes(s.id) ? 'Painted story · GPU' : s.tier === 'free' ? '1–4 min · no GPU' : 'GPU · coming soon'}</div></button>`).join('');
@@ -657,9 +657,9 @@ $('#genBtn').onclick = async () => {
 };
 
 // templates shelf
-const TPL = [['Mantra of Śiva', 'Yantra · Oṃ Namaḥ Śivāya', 'ya_shiva', '/media/studio/om_namah_sivaya_1114-172328-df6f/renders/om_namah_sivaya_yantra.mp4', 'yantra', 'k:panchakshari', 'Free'],
-  ['Gāyatrī in light', 'Yantra · Ṛgveda 3.62.10', 'ya_surya', '/media/studio/the_gayatri_mantra_1114-172328-e776/renders/the_gayatri_mantra_yantra.mp4#t=30', 'yantra', 'gayatri', 'Free'],
-  ['Peace for all beings', 'Yantra · Lokāḥ Samastāḥ', 'ya_peace', '/media/studio/lokah_samastah_sukhino_bhavantu_1114-172328-3ad6/renders/lokah_samastah_sukhino_bhavantu_yantra.mp4', 'yantra', 'k:lokah', 'Free'],
+const TPL = [['Mantra of Śiva', 'Kaṇa · Oṃ Namaḥ Śivāya', 'kana', '', 'kana', 'k:panchakshari', 'Free'],
+  ['Gāyatrī in light', 'Agni · Ṛgveda 3.62.10', 'agni', '', 'agni', 'gayatri', 'Free'],
+  ['Peace for all beings', 'Dhūpa · Lokāḥ Samastāḥ', 'dhupa', '', 'dhupa', 'k:lokah', 'Free'],
   ['Story of the seer', 'Silhouette · narrated story', 'si_8', '/media/gayatri/vishvamitra/renders/vishvamitra_silhouette.mp4#t=22', 'silhouette', 'gayatri', 'Narrated']];
 function renderPresets() {
   $('#presets').innerHTML = TPL.map(([n, d, im, v, , , tag], i) => `<div class="preset" data-i="${i}" style="background-image:url('${IMG(im)}')"><video muted loop playsinline preload="none" data-src="${v}"></video>
@@ -667,7 +667,7 @@ function renderPresets() {
     <button class="btn sm use">Use template</button><div class="pl"><b>${n}</b><span>${d}</span></div></div>`).join('');
   $$('.preset').forEach(c => {
     const v = $('video', c), t = TPL[+c.dataset.i];
-    c.onmouseenter = () => { if (!v.src) v.src = v.dataset.src; v.play().then(() => c.classList.add('playing')).catch(() => {}); };
+    c.onmouseenter = () => { if (!v.dataset.src) return; if (!v.src) v.src = v.dataset.src; v.play().then(() => c.classList.add('playing')).catch(() => {}); };
     c.onmouseleave = () => { v.pause(); c.classList.remove('playing'); };
     c.onclick = () => {
       if (t[6] === 'Pro') { toast(t[0], 'AI-video templates render on a rented GPU. Available with Pro soon.', 'spark'); return; }
@@ -701,7 +701,7 @@ function renderGal() {
     return `<div class="card" data-id="${f.id}"><div class="th" style="background-image:url('${posterOf(f)}')">
       <video muted loop playsinline preload="none" data-src="${f.video}"></video><div class="tl">${tags.map(t => `<span>${t}</span>`).join('')}</div>
       <span class="dur">${fmt(f.duration)}</span><div class="prog"></div></div>
-      <div class="mt"><div><b>${esc(f.title)}</b><small>${esc(f.kind === 'reel' ? 'Vertical reel · 9:16' : SHORT[f.style] || (f.style_name || '').replace(/ \(.*\)/, ''))}</small></div><span class="d">${DEV[f.chant] || ''}</span></div></div>`;
+      <div class="mt"><div><b>${esc(f.title)}</b><small>${esc(f.kind === 'reel' ? 'Vertical reel · 9:16' : SHORT[f.style] || (f.style_name || '').replace(/ \(.*\)/, ''))}</small></div><span class="d">${esc(f.dev || DEV[f.chant] || '')}</span></div></div>`;
   }).join('') || '<div class="empty-note">Nothing here yet.</div>';
   $$('.card').forEach(c => {
     const v = $('video', c), pr = $('.prog', c), f = FILMS.find(x => x.id === c.dataset.id); let t;
@@ -807,7 +807,7 @@ function renderWsLeft() {
     : '<b>Neural recitation (draft)</b><br>A Hindi neural voice recites each line; the text is sent to Microsoft. A teacher must review the pronunciation.';
   $('#reup') && ($('#reup').onclick = pickFile);
   interpretChant();
-  const free = STYLES.filter(s => s.tier === 'free' && !s.story), pro = STYLES.filter(s => s.tier !== 'free' && STYLE_IMG[s.id]).slice(0, 3);
+  const free = STYLES.filter(s => s.tier === 'free' && !s.story && s.id !== 'yantra'), pro = STYLES.filter(s => s.tier !== 'free' && STYLE_IMG[s.id]).slice(0, 3);
   $('#wsStyles').innerHTML = (storyMode() ? storyStyles() : [...free, ...pro]).map(s => `<div class="st ${s.id === S.style ? 'on' : ''} ${s.tier === 'free' ? '' : 'lock'}" data-s="${s.id}">${s.tier === 'free' ? '' : '<span class="badge pro lk">Pro</span>'}<div class="im" style="background-image:url('${IMG(STYLE_IMG[s.id])}')"></div><div class="nm">${esc(shortName(s))}${s.tier === 'free' ? '<span class="badge ok">Free</span>' : ''}</div></div>`).join('');
   $$('#wsStyles .st').forEach(c => c.onclick = () => { const s = STYLES.find(x => x.id === c.dataset.s);
     if (storyMode() ? !pickStoryStyle(s) : s.tier !== 'free') { if (!storyMode()) toast(shortName(s), 'AI-video styles render on a rented GPU. Available with Pro soon.', 'spark'); return; }

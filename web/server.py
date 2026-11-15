@@ -135,12 +135,22 @@ def live_info(p):
     return {"id": film_id(p), "title": (cfg.get("card") or {}).get("title") or sb.get("title") or os.path.basename(base_of(p)),
             "file": os.path.basename(base_of(p)), "kind": "studio", "live": True, "style": style,
             "style_name": vstyles.PRESETS.get(style, {}).get("name", style), "narrated": False,
-            "duration": round((sb.get("audio") or {}).get("duration", 0), 1), "chant": rel_chants(pd).split("/")[0],
+            "duration": round((sb.get("audio") or {}).get("duration", 0), 1), "chant": rel_chants(pd).split("/")[0], "dev": first_words(sb),
             "video": f"/media/{rel_chants(audio)}", "has_poster": os.path.exists(poster),
             "poster": f"/media/{rel_chants(poster)}" if os.path.exists(poster) else f"/static/proto/{style}.jpg",
             "mtime": os.path.getmtime(p), "provenance": provenance(pd, cfg), "synced": True,
             "has_export": os.path.exists(base_of(p) + ".export.mp4"), "share_url": SHARES().get(film_id(p)),
             "voice": cfg.get("recited_by") or "Recording", "deity": cfg.get("deity"), "context": context_of(pd, cfg)}
+
+
+REEL_TITLES = {"reel1_the_kings_army": "The King's Army", "reel2_the_crown_laid_down": "The Crown Laid Down",
+               "reel3_the_gayatri_in_light": "The Gāyatrī in Light"}
+
+
+def first_words(sb):
+    """The chant's opening words in Devanagari, for the film card."""
+    u = (sb or {}).get("units") or []
+    return " ".join(re.sub(r"[।॥०-९]", "", u[0].get("devanagari", "")).split()[:2]) if u else ""
 
 
 def film_info(mp4):
@@ -155,10 +165,10 @@ def film_info(mp4):
     if kind == "film" and not cfg.get("source"):
         preset = next((p for p in PRESETS.values() if rel_chants(pd).split("/")[0] == p["dir"]), None)
         cfg = dict(cfg, source=preset["source"] if preset else "")
-    title = re.sub(r"^reel\d+_", "", name).replace("_", " ").capitalize() if kind == "reel" else (cfg.get("card", {}).get("title") or sb.get("title") or name)
+    title = (REEL_TITLES.get(name) or re.sub(r"^reel\d+_", "", name).replace("_", " ").capitalize()) if kind == "reel" else (cfg.get("card", {}).get("title") or sb.get("title") or name)
     return {"id": film_id(mp4), "title": title, "file": name, "kind": kind, "style": style,
             "style_name": vstyles.PRESETS.get(style, {}).get("name", style or ""), "narrated": bool(cfg.get("narration")) and kind != "reel",
-            "duration": round(duration(mp4), 1), "chant": rel_chants(pd).split("/")[0], "video": f"/media/{rel_chants(mp4)}",
+            "duration": round(duration(mp4), 1), "chant": rel_chants(pd).split("/")[0], "dev": first_words(sb), "video": f"/media/{rel_chants(mp4)}",
             "poster": f"/api/thumb/{film_id(mp4)}", "mtime": os.path.getmtime(mp4), "provenance": provenance(pd, cfg),
             "synced": kind != "reel", "share_url": SHARES().get(film_id(mp4)), "voice": cfg.get("recited_by") or "Recording", "deity": cfg.get("deity"), "context": context_of(pd, cfg)}
 
@@ -671,6 +681,22 @@ def queue_job(jid, dest, spec, style, audio_kind, extra=None):
     save_jobs()
     Q.put(jid)
     return public(job)
+
+
+@app.delete("/api/films/{fid}")
+def api_delete_film(fid: str, request: Request):
+    """Admin only (header X-Admin-Token = VAK_ADMIN_TOKEN): remove a film made in the Studio, with its project folder.
+    Library films (chants/<preset>/...) can't be deleted here."""
+    tok = os.environ.get("VAK_ADMIN_TOKEN", "")
+    if not tok or request.headers.get("x-admin-token", "") != tok:
+        raise HTTPException(403, "admin only")
+    p = film_path(fid)
+    rel = rel_chants(p)
+    if not rel.startswith("studio/") or not os.path.exists(p):
+        raise HTTPException(400, "only films made in the Studio can be deleted")
+    proj = os.path.join(STUDIO, rel.split("/")[1])
+    shutil.rmtree(proj, ignore_errors=True)
+    return {"deleted": fid, "project": rel.split("/")[1]}
 
 
 class RemixIn(BaseModel):
