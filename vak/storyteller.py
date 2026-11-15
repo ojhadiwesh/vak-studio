@@ -182,7 +182,9 @@ def clampf(x, a, b):
     return max(a, min(b, x))
 
 
-def plan(story):
+def plan(story, cast=None):
+    cast = cast or {}
+    byname = {c["name"]: cid for cid, c in cast.items()}
     scenes, nsc = [], len(story["scenes"])
     for i, sc in enumerate(story["scenes"]):
         a, b = sc["first_line"], sc["last_line"]
@@ -216,11 +218,15 @@ def plan(story):
         if "horse" in sc["extras"]: L.append({"el": "horse", "x": .2, "y": .9, "s": .8, "dir": 1, "rider": "king"})
         for f in sc["figures"][:3]:
             x = clampf(f["x"], .1, .9)
-            g = {"el": "figure", "role": ROLE[f["role"]], "x": x, "y": .9, "s": .92, "dir": 1 if f["facing"] == "right" else -1, "pose": f["pose"], "anim": []}
-            for pr in f["props"]:
-                g[pr] = 1
-            if f["role"] in ("sage", "robed_sage", "ascetic"): g["beard"] = 1
-            if f["role"] == "king" and "crown" not in f["props"]: g["crown"] = 0
+            cid = byname.get(f["character"]) or (f["character"].lower() if f["character"].lower() in cast else None)
+            if cid:                                   # this chant's own character, designed by vak/cast.py
+                g = {"el": "cast", "id": cid, "x": x, "y": .9, "s": .92, "dir": 1 if f["facing"] == "right" else -1, "pose": f["pose"], "anim": []}
+            else:
+                g = {"el": "figure", "role": ROLE[f["role"]], "x": x, "y": .9, "s": .92, "dir": 1 if f["facing"] == "right" else -1, "pose": f["pose"], "anim": []}
+                for pr in f["props"]:
+                    g[pr] = 1
+                if f["role"] in ("sage", "robed_sage", "ascetic"): g["beard"] = 1
+                if f["role"] == "king" and "crown" not in f["props"]: g["crown"] = 0
             if f["pose_to"] != f["pose"]:
                 g["anim"].append({"prop": "pose", "from": f["pose"], "to": f["pose_to"], "at": _anchor(a, b, f["change_at"]), "until": _anchor(a, b, min(.99, f["change_at"] + .12))})
             if abs(f["walk_to"] - x) > .03:
@@ -236,10 +242,13 @@ def plan(story):
                        "fade_in": 0 if i == 0 else .4, "fade_out": .4,
                        "camera": {"from": {"zoom": c0[0], "x": c0[1], "y": c0[2]}, "to": {"zoom": c1[0], "x": c1[1], "y": c1[2]}},
                        "layers": L})
-    return {"about": f"Story plan written by Claude ({story.get('_model', '')}) from the chant's interpretation; mode {story['mode']}.", "scenes": scenes}
+    out = {"about": f"Story plan written by Claude ({story.get('_model', '')}) from the chant's interpretation; mode {story['mode']}.", "scenes": scenes}
+    if cast:
+        out["cast"] = cast
+    return out
 
 
-def mantra_plan(duration, hero="ascetic"):
+def mantra_plan(duration, hero="ascetic", cast=None):
     """The chant part (recording time): night sky turning to dawn, a mandala drawing itself, each sung word in light,
     a seer in meditation below. No deity as a figure."""
     d = round(duration + 1.0, 2)
@@ -249,7 +258,9 @@ def mantra_plan(duration, hero="ascetic"):
                                    {"el": "stars", "n": 220, "a": .8},
                                    {"el": "mandala", "x": .5, "y": .42, "r": 430, "a": .85, "draw": 0, "anim": [{"prop": "draw", "from": 0, "to": 1, "at": 0, "until": round(d * .6, 2)}]},
                                    {"el": "word", "x": .5, "y": .4, "size": 140},
-                                   {"el": "figure", "role": hero, "x": .5, "y": .97, "s": .75, "dir": 1, "pose": "meditate_up", "beard": 1, "headGlow": .8}]}]}
+                                   ({"el": "cast", "id": hero, "x": .5, "y": .97, "s": .75, "dir": 1, "pose": "meditate_up", "headGlow": .8} if cast
+                                    else {"el": "figure", "role": hero, "x": .5, "y": .97, "s": .75, "dir": 1, "pose": "meditate_up", "beard": 1, "headGlow": .8})]}],
+            **({"cast": cast} if cast else {})}
 
 
 def narration_cfg(story):
@@ -261,13 +272,18 @@ def narration_cfg(story):
     return {"engine": "edge", "voice": "en-IN-PrabhatNeural", "rate": "-4%", "pitch": "-2Hz", "lines": lines, "gap": .6}
 
 
-def apply(project_json, story, duration, style="silhouette"):
+def apply(project_json, story, duration, style="silhouette", cast=None):
     """Turn a chant project into a narrated story film: silhouette (code-drawn) or a storybook painting style."""
     d = os.path.dirname(project_json); cfg = json.load(open(project_json, encoding="utf-8"))
     json.dump(story, open(os.path.join(d, "story.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    json.dump(plan(story), open(os.path.join(d, "story_plan.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    hero = next((ROLE[f["role"]] for sc in story["scenes"] for f in sc["figures"] if f["role"] in ("sage", "robed_sage", "ascetic")), "ascetic")
-    json.dump(mantra_plan(duration, hero), open(os.path.join(d, "mantra_plan.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump(plan(story, cast), open(os.path.join(d, "story_plan.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    if cast:                                          # the seer of the closing scene: the character seen most often
+        seen = [f["character"] for sc in story["scenes"] for f in sc["figures"]]
+        byname = {c["name"]: cid for cid, c in cast.items()}
+        hero = max(cast, key=lambda cid: sum(1 for n in seen if byname.get(n) == cid))
+    else:
+        hero = next((ROLE[f["role"]] for sc in story["scenes"] for f in sc["figures"] if f["role"] in ("sage", "robed_sage", "ascetic")), "ascetic")
+    json.dump(mantra_plan(duration, hero, cast), open(os.path.join(d, "mantra_plan.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     cfg.update(style=style, narration=narration_cfg(story), animation="story_plan.json", mantra_animation="mantra_plan.json",
                track_from=0.0, story="story.json")
     if style != "silhouette":

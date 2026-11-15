@@ -47,6 +47,8 @@ def run(cache, sb, cfg, rel, out_path):
     for sc in story["scenes"]:
         if isinstance(sc.get("to"), (int, float)) and sc["to"] > M0: sc["to"] = M0
     plan = {"scenes": story["scenes"] + mantra["scenes"]}
+    if story.get("cast") or mantra.get("cast"):           # characters designed for this chant (vak/cast.py)
+        plan["cast"] = {**(mantra.get("cast") or {}), **(story.get("cast") or {})}
     units = copy.deepcopy(sb["units"])
     for u in units:
         u["start"] += V; u["end"] += V

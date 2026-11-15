@@ -1,0 +1,120 @@
+{
+ "cast": {
+  "agastya": {
+   "id": "agastya",
+   "name": "Agastya",
+   "design_notes": "Elderly sage, short and sturdy: a broad torso with a rounded belly, low shoulders and thick limbs. The head is one shape: a broad-based white topknot rises from the crown, the face has a clear right-facing profile (brow, nose, lips), and a long tapered, jagged-tipped beard hangs from the jaw. The beard pushes forward past the chest line. A sacred thread is cut diagonally across the bare chest. A saffron shoulder cloth drapes over the far shoulder and trails down the back. He wears a knee-length saffron dhoti with a slight flare and a front pleat notch, so his bare shins show. A tall wooden staff passes upright through his palm. A small brass kamandalu with a spout hangs on a cord from his fingers, separate from the staff. A rudraksha armlet band is cut into the upper arm.",
+   "back": {
+    "d": "M -10 -164 L -36 -158 L -56 -136 L -66 -80 L -62 -20 L -46 -30 L -46 -90 L -40 -140 Z",
+    "cut": ""
+   },
+   "torso": {
+    "d": "M -40 10 L 40 10 Q 52 -20 47 -52 Q 42 -80 40 -100 L 42 -138 L 30 -156 L 14 -164 L -8 -166 L -30 -158 L -46 -142 L -54 -124 L -48 -98 Q -50 -50 -42 -10 Z",
+    "cut": "M -30 -152 L -24 -156 L 36 -14 L 30 -10 Z"
+   },
+   "head": {
+    "d": "M -16 14 L -22 -10 L -26 -34 L -24 -56 L -18 -68 L -22 -84 Q -28 -112 -14 -136 L -4 -150 L 6 -146 Q 16 -120 12 -88 L 10 -72 L 22 -64 L 28 -50 L 30 -42 L 34 -36 L 38 -30 L 32 -26 L 33 -20 L 29 -16 L 33 -12 L 36 -2 L 41 18 L 44 46 L 38 72 L 28 92 L 20 104 L 15 92 L 9 102 L 4 88 L -1 96 L -2 70 L -4 40 L -6 20 Z",
+    "cut": "M -16 -78 L 10 -78 L 10 -74 L -16 -74 Z"
+   },
+   "upper_arm": {
+    "d": "M -13 0 Q -15 40 -12 76 L 12 76 Q 15 40 13 0 Q 0 -8 -13 0 Z",
+    "cut": "M -11 26 L 11 26 L 11 31 L -11 31 Z"
+   },
+   "forearm": {
+    "d": "M -11 0 L 11 0 L 10 72 L 15 78 L 16 90 L 8 96 L -4 96 L -12 86 L -11 72 Z",
+    "cut": ""
+   },
+   "held": {
+    "d": "M -4 -212 Q -7 -222 0 -226 Q 7 -222 4 -212 L 4 120 L -4 120 Z M 11 8 L 14 8 L 15 22 L 12 22 Z M 10 22 L 20 22 L 19 27 Q 34 30 34 40 Q 34 52 20 52 Q 6 52 6 40 Q 6 30 11 27 Z M 33 38 L 42 30 L 45 33 L 34 44 Z",
+    "cut": ""
+   },
+   "thigh": {
+    "d": "M -17 0 L 17 0 L 15 104 L -15 104 Z",
+    "cut": ""
+   },
+   "shin": {
+    "d": "M -14 0 L 14 0 L 12 94 L 30 100 L 37 111 L -12 111 L -12 94 Z",
+    "cut": ""
+   },
+   "lower": {
+    "d": "M -42 0 L 42 0 L 46 50 L 50 106 L 30 110 L 22 96 L 16 112 L -20 110 L -46 108 L -44 50 Z",
+    "cut": ""
+   },
+   "lap": {
+    "d": "M -44 -10 L 36 -10 Q 86 0 116 30 Q 126 50 110 62 L 60 66 L 0 64 L -52 60 Q -64 44 -56 20 Z",
+    "cut": ""
+   }
+  }
+ },
+ "brief": {
+  "film": "The Untouched One",
+  "characters": [
+   {
+    "name": "Agastya",
+    "look": "An elderly sage, short and sturdy in build, with a broad kind face, deep-set calm eyes and sun-browned skin. Long white beard reaching his chest, white matted hair tied in a high topknot. Three horizontal lines of sacred ash on his forehead. Wears a plain saffron dhoti and a thin saffron cloth over one shoulder, a sacred thread across his chest, a rudrākṣa bead necklace. Carries a tall wooden staff and a small brass water pot."
+   }
+  ],
+  "scenes": [
+   {
+    "title": "The sage asks",
+    "picture": "Wide view of a quiet forest hermitage at dusk, a small thatched hut beneath a great tree, mountains beyond. Agastya kneels on the left, staff resting beside him, hands joined, gazing toward a soft radiant glow of light hovering among the trees on the right. Leaves drift in the warm amber air. The mood is hushed, expectant and reverent.",
+    "figures": [
+     {
+      "character": "Agastya",
+      "pose": "stand",
+      "pose_to": "kneel"
+     }
+    ]
+   },
+   {
+    "title": "The court of the Devī",
+    "picture": "Wide view of a vast shining palace hall open to a starry sky, its pillars glowing gold. At the centre a great radiant lotus of light blooms above a throne, with rays streaming outward. Around it, many small glowing points of light gather in a circle like a listening assembly. No people are shown; the whole scene glows with warm golden majesty and joy.",
+    "figures": []
+   },
+   {
+    "title": "One verse",
+    "picture": "Medium view under a full moon. Agastya sits cross-legged in meditation beneath a tree, eyes closed, staff laid across his lap, silver moonlight on his white beard. Above the dark mountains on the right, a softly glowing geometric yantra of interlocking triangles floats among the stars. The scene is still, cool and deeply peaceful.",
+    "figures": [
+     {
+      "character": "Agastya",
+      "pose": "kneel",
+      "pose_to": "meditate"
+     }
+    ]
+   },
+   {
+    "title": "Formless and whole",
+    "picture": "Wide view of a calm river at first dawn, mist over the water and pale pink mountains behind. Agastya sits on the riverbank, face lifted upward, palms open in quiet wonder. Over the river a gentle circular mandala of light rises and spreads, reflected in the still water. Birds cross the brightening sky. The mood is serene, open and fresh.",
+    "figures": [
+     {
+      "character": "Agastya",
+      "pose": "meditate",
+      "pose_to": "meditate_up"
+     }
+    ]
+   },
+   {
+    "title": "Peace itself",
+    "picture": "Medium-wide view at sunrise, golden light flooding the valley and river. Agastya bows low in reverence on the left, his saffron cloth glowing warm, staff at his side. On the right a radiant column of light pours long golden rays across the land. The air is clear and luminous; the mood is grateful, tranquil and full of quiet joy.",
+    "figures": [
+     {
+      "character": "Agastya",
+      "pose": "kneel",
+      "pose_to": "bow"
+     }
+    ]
+   }
+  ]
+ },
+ "notes": {
+  "review_v1": {
+   "agastya": {
+    "id": "agastya",
+    "ok": false,
+    "problems": "1) HEAD reads wrong. The topknot is a separate pointed cone that touches the skull only at a narrow point, so it looks detached or floating. The face has no profile: no nose bump at about (+34,-30), no brow and no chin, so the head does not read as facing right. Fix: redraw the head as one closed shape. Give it a clear right-facing profile (brow, nose at about x=+34,y=-30, lips/chin). Put a broad-based white topknot on the crown, joined across at least x -20..+10 at y≈-70 and rising to about y=-150. 2) BEARD is missing as a readable shape. The mass under the head just merges into a thick neck and torso. Fix: hang a long beard from the jaw (x≈+5..+30 at y≈0) down to y≈+100. Make it tapered and jagged-tipped, projecting slightly forward (+x) of the chest line so it shows against the torso outline. 3) BUILD contradicts the bible: he is meant to be short and sturdy, but the figure reads tall and slender. Fix: widen the torso to about x -46..+46 with a rounded belly, shorten the shoulder height slightly (about y=-160), and thicken the thigh and shin to about 32 wide. 4) LOWER GARMENT reads as a long robe or coat to mid-shin, not a dhoti. Fix: end the dhoti at about y=+110 (knee). Give it a slight flare and a front pleat notch so the bare shins show. 5) STAFF is wrong: it only runs downward from the hand, short and diagonal, like a cane or rifle. In the bow pose it juts forward like a weapon, and in the meditate pose it lies horizontally like a gun. Fix: in held, make the tall staff run from about y=-220 to y=+120 through the palm. Hang the small water pot from the fingers at y 0..+50 as a separate rounded shape with a spout, not fused onto the staff. 6) The rudrākṣa necklace and shoulder cloth are fine as one cut line. Keep the sacred-thread or shoulder-cloth diagonal, but add a draped shoulder-cloth edge on the far shoulder in the outline."
+   }
+  }
+ },
+ "_model": "claude-opus-5-5",
+ "_at": "2026-11-15 15:45"
+}

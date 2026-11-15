@@ -12,7 +12,7 @@ from pydantic import BaseModel
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))          # vak_engine/
 sys.path.insert(0, ROOT)
-from vak import create, styles as vstyles, text as vtext, planner, romanize, eleven, interpret, storyteller, storybook   # noqa: E402
+from vak import create, styles as vstyles, text as vtext, planner, romanize, eleven, interpret, storyteller, storybook, cast as vcast   # noqa: E402
 from vak.util import duration as audio_duration   # noqa: E402
 from vak import safety   # noqa: E402
 from web import cloud, auth                                                          # noqa: E402
@@ -275,7 +275,16 @@ def run_job(job):
                 update(job, stage="Writing the story with Claude", progress=6)
                 st = storyteller.write(spec["interpretation"], prefer=want_story)
                 pcfg = json.load(open(proj, encoding="utf-8"))
-                storyteller.apply(proj, st, audio_duration(os.path.join(job["dir"], pcfg["audio"])), style=story_style)
+                cast = None
+                if story_style == "silhouette" and st.get("characters"):            # characters designed for this chant
+                    update(job, stage="Designing the characters with Claude", progress=8)
+                    try:
+                        with contextlib.redirect_stdout(buf):
+                            cast = vcast.design(st)
+                        note(f"cast: {', '.join(c['name'] for c in cast.values())}")
+                    except Exception as e:
+                        note(f"cast: skipped, using the stock figures ({str(e)[:160]})")
+                storyteller.apply(proj, st, audio_duration(os.path.join(job["dir"], pcfg["audio"])), style=story_style, cast=cast)
                 note(f"story: '{st['title']}' ({st['mode']}), {len(st['narration'])} narration lines, {len(st['scenes'])} scenes")
                 if story_style != "silhouette":                              # 3. paint the scenes on the GPU
                     n = len(storybook.missing(job["dir"], st, story_style))

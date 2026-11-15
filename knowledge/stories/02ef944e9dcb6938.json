@@ -1,0 +1,227 @@
+{
+ "mode": "story",
+ "title": "The Untouched One",
+ "kicker": "Śrī Lalitā Sahasranāma · one verse",
+ "subtitle": "How the thousand names came to Agastya, and the Devī beyond every form",
+ "narration": [
+  {
+   "text": "The Brahmāṇḍa Purāṇa tells how the sage Agastya once asked for a secret hymn.",
+   "tts": "The Brahmanda Purana tells, how the sage Agastya, once asked for a secret hymn.",
+   "pause": 0.6
+  },
+  {
+   "text": "Hayagrīva, a form of Viṣṇu, answered him, and revealed the thousand names of the Devī Lalitā.",
+   "tts": "Hayagreeva, a form of Vishnu, answered him, and revealed the thousand names, of the Devi Lalita.",
+   "pause": 0.8
+  },
+  {
+   "text": "Long before, Lalitā herself had commanded the Vāgdevīs, the goddesses of speech, Vaśinī and the others, to compose these names.",
+   "tts": "Long before, Lalita herself had commanded the Vaagdevis, the goddesses of speech, Vashini and the others, to compose these names.",
+   "pause": 0.6
+  },
+  {
+   "text": "They recited the names before her assembled court, and she declared this hymn especially dear to her.",
+   "tts": "They recited the names, before her assembled court, and she declared this hymn, especially dear to her.",
+   "pause": 0.9
+  },
+  {
+   "text": "Today we hear one verse from it, praising the Devī beyond every form and every quality.",
+   "tts": "Today we hear one verse from it, praising the Devi, beyond every form, and every quality.",
+   "pause": 0.7
+  },
+  {
+   "text": "Nirlepā, Nirmalā, Nityā: she is untouched by anything, stainless, and eternal.",
+   "tts": "Nirlepaa, Nirmalaa, Nityaa. She is untouched by anything, stainless, and eternal.",
+   "pause": 0.7
+  },
+  {
+   "text": "Nirākārā, Nirākulā: she has no fixed form, and nothing can disturb her.",
+   "tts": "Niraakaaraa, Niraakulaa. She has no fixed form, and nothing can disturb her.",
+   "pause": 0.7
+  },
+  {
+   "text": "Nirguṇā, Niṣkalā, Śāntā: she is beyond the three guṇas, whole without parts, and peace itself.",
+   "tts": "Nirgunaa, Nishkalaa, Shaantaa. She is beyond the three gunas, whole without parts, and peace itself.",
+   "pause": 0.7
+  },
+  {
+   "text": "Niṣkāmā, Nirupaplavā: she wants for nothing, and no calamity can ever touch her.",
+   "tts": "Nishkaamaa, Nirupaplavaa. She wants for nothing, and no calamity, can ever touch her.",
+   "pause": 0.8
+  },
+  {
+   "text": "Listen now to the words of this verse, as Hayagrīva taught them to Agastya.",
+   "tts": "Listen now, to the words of this verse, as Hayagreeva taught them, to Agastya.",
+   "pause": 1.2
+  }
+ ],
+ "characters": [
+  {
+   "name": "Agastya",
+   "look": "An elderly sage, short and sturdy in build, with a broad kind face, deep-set calm eyes and sun-browned skin. Long white beard reaching his chest, white matted hair tied in a high topknot. Three horizontal lines of sacred ash on his forehead. Wears a plain saffron dhoti and a thin saffron cloth over one shoulder, a sacred thread across his chest, a rudrākṣa bead necklace. Carries a tall wooden staff and a small brass water pot."
+  }
+ ],
+ "scenes": [
+  {
+   "title": "The sage asks",
+   "first_line": 0,
+   "last_line": 1,
+   "mood": "forest",
+   "mood_to": "dusk",
+   "landscape": [
+    "mountains",
+    "tree",
+    "hut"
+   ],
+   "celestial": "none",
+   "figures": [
+    {
+     "character": "Agastya",
+     "role": "sage",
+     "x": 0.3,
+     "facing": "right",
+     "pose": "stand",
+     "pose_to": "kneel",
+     "change_at": 0.5,
+     "walk_to": 0.4,
+     "props": [
+      "staff"
+     ]
+    }
+   ],
+   "extras": [
+    "divine_light",
+    "leaves"
+   ],
+   "light_x": 0.72,
+   "camera": "push_in",
+   "picture": "Wide view of a quiet forest hermitage at dusk, a small thatched hut beneath a great tree, mountains beyond. Agastya kneels on the left, staff resting beside him, hands joined, gazing toward a soft radiant glow of light hovering among the trees on the right. Leaves drift in the warm amber air. The mood is hushed, expectant and reverent."
+  },
+  {
+   "title": "The court of the Devī",
+   "first_line": 2,
+   "last_line": 3,
+   "mood": "cosmos",
+   "mood_to": "gold",
+   "landscape": [
+    "palace"
+   ],
+   "celestial": "stars",
+   "figures": [],
+   "extras": [
+    "mandala",
+    "rays",
+    "divine_light"
+   ],
+   "light_x": 0.5,
+   "camera": "pull_back",
+   "picture": "Wide view of a vast shining palace hall open to a starry sky, its pillars glowing gold. At the centre a great radiant lotus of light blooms above a throne, with rays streaming outward. Around it, many small glowing points of light gather in a circle like a listening assembly. No people are shown; the whole scene glows with warm golden majesty and joy."
+  },
+  {
+   "title": "One verse",
+   "first_line": 4,
+   "last_line": 5,
+   "mood": "night",
+   "mood_to": "night",
+   "landscape": [
+    "mountains",
+    "tree"
+   ],
+   "celestial": "moon",
+   "figures": [
+    {
+     "character": "Agastya",
+     "role": "sage",
+     "x": 0.4,
+     "facing": "right",
+     "pose": "kneel",
+     "pose_to": "meditate",
+     "change_at": 0.4,
+     "walk_to": 0.4,
+     "props": [
+      "staff"
+     ]
+    }
+   ],
+   "extras": [
+    "yantra",
+    "stars"
+   ],
+   "light_x": 0.7,
+   "camera": "still",
+   "picture": "Medium view under a full moon. Agastya sits cross-legged in meditation beneath a tree, eyes closed, staff laid across his lap, silver moonlight on his white beard. Above the dark mountains on the right, a softly glowing geometric yantra of interlocking triangles floats among the stars. The scene is still, cool and deeply peaceful."
+  },
+  {
+   "title": "Formless and whole",
+   "first_line": 6,
+   "last_line": 7,
+   "mood": "dawn",
+   "mood_to": "dawn",
+   "landscape": [
+    "river",
+    "mountains"
+   ],
+   "celestial": "none",
+   "figures": [
+    {
+     "character": "Agastya",
+     "role": "sage",
+     "x": 0.35,
+     "facing": "right",
+     "pose": "meditate",
+     "pose_to": "meditate_up",
+     "change_at": 0.5,
+     "walk_to": 0.35,
+     "props": [
+      "staff"
+     ]
+    }
+   ],
+   "extras": [
+    "mandala",
+    "birds"
+   ],
+   "light_x": 0.65,
+   "camera": "pan_right",
+   "picture": "Wide view of a calm river at first dawn, mist over the water and pale pink mountains behind. Agastya sits on the riverbank, face lifted upward, palms open in quiet wonder. Over the river a gentle circular mandala of light rises and spreads, reflected in the still water. Birds cross the brightening sky. The mood is serene, open and fresh."
+  },
+  {
+   "title": "Peace itself",
+   "first_line": 8,
+   "last_line": 9,
+   "mood": "dawn",
+   "mood_to": "gold",
+   "landscape": [
+    "mountains",
+    "river",
+    "tree"
+   ],
+   "celestial": "sun",
+   "figures": [
+    {
+     "character": "Agastya",
+     "role": "sage",
+     "x": 0.38,
+     "facing": "right",
+     "pose": "kneel",
+     "pose_to": "bow",
+     "change_at": 0.5,
+     "walk_to": 0.38,
+     "props": [
+      "staff"
+     ]
+    }
+   ],
+   "extras": [
+    "rays",
+    "divine_light"
+   ],
+   "light_x": 0.7,
+   "camera": "push_in",
+   "picture": "Medium-wide view at sunrise, golden light flooding the valley and river. Agastya bows low in reverence on the left, his saffron cloth glowing warm, staff at his side. On the right a radiant column of light pours long golden rays across the land. The air is clear and luminous; the mood is grateful, tranquil and full of quiet joy."
+  }
+ ],
+ "chant_picture": "A calm golden morning over still water. At the centre floats a softly glowing lotus of pure light, its petals opening above a faint shining yantra, gentle rays spreading in every direction across a clear pale-gold sky. Distant mountains rest in soft haze, and the water mirrors the light without a ripple. No figures, no text: only stillness, radiance and peace.",
+ "_model": "claude-opus-5-5",
+ "_at": "2026-11-15 15:43"
+}

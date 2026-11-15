@@ -416,6 +416,56 @@
   };
   el.point = (ctx, p, t) => { const a = p.a ?? 0; glow(ctx, (p.x ?? 0.5) * W, (p.y ?? 0.5) * H, (p.r ?? 200), 'rgba(255,244,214,1)', a); };
 
+  // ---------- cast: characters designed for this chant (vak/cast.py), drawn on the shared skeleton ----------
+  // Each part is an SVG path in its own pivot frame (figure faces right, y down); poses, walk and sway come from POSES.
+  const CAST_CACHE = {};
+  function castParts(id) {
+    if (CAST_CACHE[id]) return CAST_CACHE[id];
+    const c = ((window.VAK_DATA && VAK_DATA.plan && VAK_DATA.plan.cast) || {})[id];
+    if (!c) return null;
+    const P = {};
+    for (const k of ['back', 'torso', 'head', 'upper_arm', 'forearm', 'held', 'thigh', 'shin', 'lower', 'lap']) {
+      const part = c[k] || {};
+      try { P[k] = { d: part.d ? new Path2D(part.d) : null, cut: part.cut ? new Path2D(part.cut) : null }; } catch (e) { P[k] = { d: null, cut: null }; }
+    }
+    return (CAST_CACHE[id] = P);
+  }
+  function drawCast(ctx, p, t, env, colOverride) {
+    const P = castParts(p.id); if (!P) return;
+    const q = poseAt(p, t), d = p.dir ?? 1, s = (p.s ?? 1), col = colOverride || depthCol(env, p.depth);
+    const cutCol = colOverride || (env.sky ? rgb(mixA(env.sky[2], [255, 240, 210], 0.3)) : '#f0c080');
+    const seed = (p.x || 0) * 37 + (p.id || '').length, idle = p.walk ? 0 : 1;
+    q.lean += idle * 1.6 * Math.sin(t * 0.8 + seed); q.head += idle * 2.2 * Math.sin(t * 0.55 + seed * 2);
+    const breath = 1 + 0.016 * Math.sin(t * 1.5 + seed);
+    const fill = part => { if (!part || !part.d) return false; ctx.fillStyle = col; ctx.fill(part.d); if (part.cut) { ctx.fillStyle = cutCol; ctx.fill(part.cut); } return true; };
+    ctx.translate(p.x * W, p.y * H - q.bob * s); ctx.scale(d * s, s);
+    ctx.translate(0, -200 + q.seat * 128 + q.kneel * 60);                       // hip
+    const leg = (a1, a2) => { ctx.save(); ctx.rotate(-a1 * D2R); if (!fill(P.thigh)) capsule(ctx, 104, 15, 12, col);
+      ctx.translate(0, 104); ctx.rotate(-a2 * D2R); if (!fill(P.shin)) capsule(ctx, 100, 12, 8, col); ctx.restore(); };
+    const arm = (x, a1, a2, near) => { ctx.save(); ctx.translate(x, -156); ctx.rotate(-a1 * D2R); if (!fill(P.upper_arm)) capsule(ctx, 76, 11, 9, col);
+      ctx.translate(0, 76); ctx.rotate(-a2 * D2R); if (!fill(P.forearm)) { capsule(ctx, 72, 9, 7, col); ctx.translate(0, 72); hand(ctx, col); ctx.translate(0, -72); }
+      if (near) { ctx.translate(0, 76); fill(P.held); env.hand = ctx.getTransform().transformPoint(new DOMPoint(0, 0)); }
+      ctx.restore(); };
+    ctx.save(); ctx.rotate(q.lean * D2R); fill(P.back); ctx.restore();            // long hair, a trailing shawl
+    if (q.seat > 0.5) { if (!fill(P.lap)) cut(ctx, [[-52, -8], [30, -16], [92, -2], [116, 22], [118, 46], [84, 64], [-40, 64], [-58, 30]], col); }
+    else { leg(q.tB, q.sB); leg(q.th, q.sh); if (q.kneel < 0.5) fill(P.lower); }
+    ctx.save(); ctx.rotate(q.lean * D2R);
+    arm(-10, q.uB, q.fB, false);                                                   // far arm
+    ctx.save(); ctx.scale(1, breath); fill(P.torso); ctx.restore();
+    ctx.save(); ctx.translate(6, -186); ctx.rotate(q.head * D2R); fill(P.head); ctx.restore();
+    arm(14, q.uA, q.fA, true);                                                     // near arm, holding its object
+    ctx.restore();
+    if (!colOverride && p.headGlow > 0) { const m = ctx.getTransform(); const h = m.transformPoint(new DOMPoint(20, -230)); ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); glow(ctx, h.x, h.y, 220 * s * p.headGlow + 60, 'rgba(255,225,150,0.9)', 0.55 * p.headGlow); ctx.restore(); }
+  }
+  el.cast = (ctx, p, t, env) => {
+    if ((p.depth ?? 0) < 0.35 && env.light) {                                      // the same rim light as the built-in figures
+      const m = ctx.getTransform(), o = m.transformPoint(new DOMPoint(p.x * W, p.y * H - 200 * (p.s ?? 1))), dx = env.light.x - o.x, dy = env.light.y - o.y, L = Math.hypot(dx, dy) || 1;
+      const rim = env.sky ? rgb(mixA(env.sky[2], [255, 238, 205], 0.6)) : '#ffdca8', k = 4 * (p.s ?? 1);
+      ctx.save(); ctx.setTransform(1, 0, 0, 1, k * dx / L, k * dy / L); ctx.transform(m.a, m.b, m.c, m.d, m.e, m.f); drawCast(ctx, p, t, env, rim); ctx.restore();
+    }
+    ctx.save(); drawCast(ctx, p, t, env); ctx.restore();
+  };
+
   window.STYLE = {
     name: 'silhouette', el, fadeColor: '#030208',
     post(ctx, t) {                            // paper grain + soft vignette
