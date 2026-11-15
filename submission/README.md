@@ -1,7 +1,7 @@
 # Vāk — Understand what you chant
 
-**Live app:** `<LIVE_URL>` (laptop and phone; demo films are preloaded)
-**Repo:** `<GITHUB_REPO_URL>`
+**Live app:** https://vak-studio-production.up.railway.app (laptop and phone; demo films are preloaded)
+**Repo:** https://github.com/ojhadiwesh/vak-studio
 
 ## The problem
 Hundreds of millions of people chant Sanskrit every day: the Gāyatrī at sunrise, Mahāmṛtyuñjaya for a sick parent,
@@ -22,7 +22,7 @@ film with word-by-word captions. The learning player lets you tap any word, loop
   helplines (Tele-MANAS 14416, KIRAN, 988, 112/911) and nothing is generated.
 
 ## Try it (judges)
-1. Open the live URL → **Explore** to play a preloaded film (Devī Kavacham, Gāyatrī, Mahāmṛtyuñjaya…), tap a word.
+1. Open the live URL → **Explore** to play a preloaded film (Gāyatrī, Viśvāmitra), tap a word.
 2. Type `om namah shivay` or `lokah samastah sukhino bhavantu` → it's identified with source and meaning → Generate.
 3. Type any chant you know, or something unusual, and see what it does.
 4. Type `I don't want to live anymore` → the support panel with helplines appears.
