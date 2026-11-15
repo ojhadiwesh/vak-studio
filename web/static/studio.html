@@ -588,13 +588,21 @@ function analyse() {
       if (p) S.translations = Object.assign({}, p.translations, S.translations); pv.units.forEach(u => { if (!u.english && S.translations[u.devanagari]) u.english = S.translations[u.devanagari]; }); S.units = pv.units; S.plans = pv.plans;
       const words = pv.units.reduce((n, u) => n + u.words.length, 0), gl = pv.units.reduce((n, u) => n + u.words.filter(w => w.meaning).length, 0);
       $('#detect').innerHTML = (p ? `<span class="badge id"><svg class="i s"><use href="#shield"/></svg>Identified</span><span>${esc(p.name)}</span><span class="sep">·</span><span>${esc(p.source)}</span>`
-        : `<span class="badge int">Interpreted</span><span>Context not identified · visuals from the meaning, no invented story</span>`)
+        : homeCtx())
         + `<span class="sep">·</span><span>${pv.units.length} lines</span><span class="sep">·</span><span>${gl === words ? 'every word glossed' : `${gl} of ${words} words glossed`}</span>`
         + (['devanagari', 'known'].includes(pv.converted.method) ? '' : `<span class="conv ${pv.converted.method}"><span class="badge ${pv.converted.method === 'guess' ? 'int' : 'mut'}">${pv.converted.method === 'guess' ? 'Check the spelling' : 'Read as Devanagari'}</span>${pv.converted.method === 'guess' ? esc(pv.converted.note) : esc(pv.converted.note)}<button class="btn sm" id="useDev">Use the Devanagari</button></span>`);
       $('#useDev') && ($('#useDev').onclick = () => { ta.value = dev; ta.dispatchEvent(new Event('input')); });
       $('#linesPrev').innerHTML = (pv.converted.method === 'devanagari' ? '' : '<span class="arrow">→</span>') + pv.units.slice(0, 8).map(u => `<span>${esc(u.devanagari)}</span>`).join('') + (pv.units.length > 8 ? `<span>+${pv.units.length - 8} more</span>` : '');
       if (p && p.recording && !S.voicePicked) S.voice = 'preset'; fitVoice(); setVoiceLabel();
       setEst(pv.units.length);
+      if (!p && CAP.interpret) {                                            // ask Claude now, so the composer says what the chant is
+        const rest = $('#detect').innerHTML.slice(homeCtx().length);
+        interpretChant().then(() => {
+          if (S.text !== dev || S.preset || !S.units) return;
+          const n = S.units.reduce((k, u) => k + u.words.length, 0), g = S.units.reduce((k, u) => k + u.words.filter(w => w.meaning).length, 0);
+          $('#detect').innerHTML = homeCtx() + rest.replace(/\d+ of \d+ words glossed|every word glossed/, g === n ? 'every word glossed' : `${g} of ${n} words glossed`);
+        });
+      }
     } catch (e) { S.units = null; $('#linesPrev').innerHTML = ''; $('#detect').innerHTML = '<span class="badge int">Not read</span><span>Type the chant in Devanagari, IAST or English spelling</span>'; }
   }, 350);
 }
@@ -723,10 +731,28 @@ const filmPath = id => '/media/' + id.split('~').join('/');
 const titleFor = () => S.preset ? S.preset.title : (S.units?.[0]?.iast || 'Untitled chant').split(' ').slice(0, 4).join(' ').replace(/^./, c => c.toUpperCase());
 S.units = null; S.plans = null; S.translations = {}; S.upload = null; S.job = null; S.text = ''; S.title = '';
 
+// the composer's context line for a chant that isn't in the library: Claude's identification once it is back
+function homeCtx() {
+  const I = S.interp && S.interp.text === S.text ? S.interp : null, idf = I && I.interpretation && I.interpretation.identification;
+  if (!CAP.interpret) return `<span class="badge int">Interpreted</span><span>Context not identified · visuals from the meaning, no invented story</span>`;
+  if (!I || I.loading) return `<span class="badge mut">Not in the library</span><span>Claude is identifying it…</span>`;
+  if (I.error) return `<span class="badge int">Not read</span><span>${esc(I.error)}</span>`;
+  if (idf && idf.name) return `<span class="badge ${I.provenance === 'Identified' ? 'id' : 'int'}">${esc(I.provenance)}</span><span>${esc(idf.name)}</span>`;
+  return `<span class="badge int">Interpreted</span><span>Context not identified · visuals from the meaning, no invented story</span>`;
+}
 // Claude's reading of a chant that isn't in the library (POST /api/interpret, cached on the server)
+let interpBusy = null;
 async function interpretChant() {
-  if (!CAP.interpret || !S.units || S.preset || !S.text || (S.interp && S.interp.text === S.text)) return;
-  const text = S.text; S.interp = { text, loading: true }; renderWsLeft();
+  if (!CAP.interpret || !S.units || S.preset || !S.text) return;
+  if (S.interp && S.interp.text === S.text) {                               // done, running, or failed twice: nothing to do
+    if (S.interp.loading) return interpBusy;
+    if (!S.interp.error || S.interp.tries >= 2) return;
+  }
+  const text = S.text, tries = (S.interp && S.interp.text === text ? S.interp.tries || 0 : 0) + 1;
+  S.interp = { text, loading: true, tries }; renderWsLeft();
+  return interpBusy = interpretRun(text, tries);
+}
+async function interpretRun(text, tries) {
   try {
     const r = await api('/api/interpret', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ text }) });
     if (S.text !== text) return;
@@ -736,7 +762,7 @@ async function interpretChant() {
       S.units.forEach(u => { if (!u.english && S.translations[u.devanagari]) u.english = S.translations[u.devanagari];
         u.words.forEach(w => { const m = (r.words || {})[w.dev]; if (m && !w.meaning) { w.meaning = m.meaning; w.split = m.split; } }); });
     }
-  } catch (e) { if (await safetyFrom(e)) { S.interp = { text, error: 'This text was not sent to Claude.' }; renderWsLeft(); return; } let m = 'Claude could not read this chant.'; try { m = (await e.json()).detail; } catch (x) {} S.interp = { text, error: m }; }
+  } catch (e) { if (await safetyFrom(e)) { S.interp = { text, error: 'This text was not sent to Claude.', tries: 2 }; renderWsLeft(); return; } let m = 'Claude could not read this chant.'; try { m = (await e.json()).detail; } catch (x) {} if (S.text !== text) return; S.interp = { text, error: m, tries }; }
   renderWsLeft();
 }
 async function readChant(text) {
