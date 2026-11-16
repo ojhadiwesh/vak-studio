@@ -3,8 +3,11 @@ big for `railway up` (code only) and some films are over Supabase's 50 MB per-fi
 
   python -m web.seed push [--with-studio]   (this laptop) tar of chants/ (library films, projects, recordings) + art/,
                                             split into 45 MB parts, uploaded to the private bucket "seed" with a manifest
-  python -m web.seed pull DEST              (the server, first boot via web/start.sh) streams the parts back, checks each
-                                            part's sha256 and unpacks into DEST (the volume)
+  python -m web.seed push --only DIR...     (this laptop) an EXTRA pack with just these folders (e.g. new studio films),
+                                            listed in extras.json; servers that already have the base pick it up on boot
+  python -m web.seed pull DEST              (the server, every boot via web/start.sh) streams the parts back, checks each
+                                            part's sha256 and unpacks into DEST (the volume); packs already applied are
+                                            recorded in DEST/.seeded and skipped; existing files are never overwritten
 
 Left out: work folders (_work, master_444, .vak_cache), GPU source clips/ and images/, logs, and chants/studio unless
 --with-studio. Needs SUPABASE_URL + SUPABASE_SECRET_KEY (from .env.local here, Railway variables there)."""
@@ -47,8 +50,18 @@ def _req(method, path, data=None, ctype=None, timeout=600, stream=False):
         time.sleep(2 + 3 * attempt)
 
 
-def files(with_studio):
+def files(with_studio, only=None):
     out = []
+    if only:                                               # just these folders (relative to vak_engine/)
+        for top in only:
+            base = os.path.join(ROOT, top)
+            if not os.path.isdir(base):
+                raise SystemExit(f"seed: no such folder {top}")
+            for d, dirs, fs in os.walk(base):
+                rel = os.path.relpath(d, ROOT).replace("\\", "/")
+                dirs[:] = [x for x in dirs if x not in SKIP_DIRS]
+                out += [f"{rel}/{f}" for f in fs if not f.endswith((".log", ".pyc"))]
+        return sorted(out)
     for top in ("chants", "art"):
         base = os.path.join(ROOT, top)
         for d, dirs, fs in os.walk(base):
@@ -85,16 +98,16 @@ class _Parts(io.RawIOBase):
             self.buf = bytearray()
 
 
-def push(with_studio=False):
+def push(with_studio=False, only=None):
     try:
         _req("POST", "/storage/v1/bucket", json.dumps({"id": BUCKET, "name": BUCKET, "public": False}).encode(), "application/json")
         print("seed: created private bucket 'seed'")
     except RuntimeError as e:
         if "already exists" not in str(e).lower() and "409" not in str(e):
             raise
-    fl = files(with_studio)
+    fl = files(with_studio, only)
     total = sum(os.path.getsize(os.path.join(ROOT, f)) for f in fl)
-    version = time.strftime("v%Y%m%d-%H%M%S")
+    version = time.strftime(("x" if only else "v") + "%Y%m%d-%H%M%S")
     print(f"seed: packing {len(fl)} files ({total / 1e6:.0f} MB) as {version}")
     sink = _Parts(version)
     with tarfile.open(fileobj=sink, mode="w|", format=tarfile.PAX_FORMAT) as tar:
@@ -104,8 +117,20 @@ def push(with_studio=False):
     man = {"version": version, "files": len(fl), "bytes": total, "parts": sink.parts, "created": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}
     body = json.dumps(man, indent=1).encode()
     _req("POST", f"/storage/v1/object/{BUCKET}/{version}/manifest.json", body, "application/json")
+    if only:                                               # an extra pack: added to the list, the base stays the base
+        extras = _extras() + [man]
+        _req("POST", f"/storage/v1/object/{BUCKET}/extras.json", json.dumps(extras, indent=1).encode(), "application/json")
+        print(f"seed: done, {len(sink.parts)} parts. Servers add it on their next boot (redeploy or restart).")
+        return
     _req("POST", f"/storage/v1/object/{BUCKET}/manifest.json", body, "application/json")     # "latest" pointer
     print(f"seed: done, {len(sink.parts)} parts. A new server unpacks it on first boot.")
+
+
+def _extras():
+    try:
+        return json.loads(_req("GET", f"/storage/v1/object/{BUCKET}/extras.json"))
+    except RuntimeError:
+        return []
 
 
 class _Reader(io.RawIOBase):
@@ -145,9 +170,28 @@ class _Reader(io.RawIOBase):
 
 
 def pull(dest):
-    man = json.loads(_req("GET", f"/storage/v1/object/{BUCKET}/manifest.json"))
-    print(f"seed: unpacking {man['version']} ({man['files']} files, {man['bytes'] / 1e6:.0f} MB) into {dest}", flush=True)
+    """Base pack once, then every extra pack not applied yet. DEST/.seeded lists what is applied (an empty file, from
+    before extras existed, means the base is in)."""
     dest = os.path.abspath(dest)
+    mark = os.path.join(dest, ".seeded")
+    done = set(open(mark, encoding="utf-8").read().split()) if os.path.exists(mark) else None
+    todo = []
+    if done is None:
+        todo.append(json.loads(_req("GET", f"/storage/v1/object/{BUCKET}/manifest.json")))
+        done = set()
+    elif not done:
+        done = {"base"}
+    todo += [m for m in _extras() if m["version"] not in done]
+    if not todo:
+        print("seed: up to date", flush=True)
+    for man in todo:
+        _unpack(man, dest)
+        done.add(man["version"])
+        open(mark, "w", encoding="utf-8").write("\n".join(sorted(done | {"base"})) + "\n")
+
+
+def _unpack(man, dest):
+    print(f"seed: unpacking {man['version']} ({man['files']} files, {man['bytes'] / 1e6:.0f} MB) into {dest}", flush=True)
     raw = _Reader(man["parts"])
     with tarfile.open(fileobj=io.BufferedReader(raw, 1 << 20), mode="r|") as tar:
         for m in tar:
@@ -165,7 +209,8 @@ def pull(dest):
 
 if __name__ == "__main__":
     if len(sys.argv) >= 2 and sys.argv[1] == "push":
-        push("--with-studio" in sys.argv)
+        only = sys.argv[sys.argv.index("--only") + 1:] if "--only" in sys.argv else None
+        push("--with-studio" in sys.argv, only)
     elif len(sys.argv) == 3 and sys.argv[1] == "pull":
         pull(sys.argv[2])
     else:

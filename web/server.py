@@ -185,6 +185,8 @@ def all_films():
                     out.append(film_info(os.path.join(dp, f)))
                 except Exception as e:   # one broken film must not hide the library
                     print("library: skipped", f, e)
+    if os.environ.get("VAK_SHOW_ALL") != "1":     # story first: community films without a narrated story stay hidden
+        out = [f for f in out if f["kind"] != "studio" or f.get("narrated")]
     order = {"studio": 0, "film": 1, "reel": 2}
     return sorted(out, key=lambda x: (order[x["kind"]], -x["mtime"]))
 
@@ -295,7 +297,7 @@ def run_job(job):
                         note(line)
         cmd = [sys.executable, "-u", "-m", "vak", "run", proj, "--style", job["style"], "--cache", STUDIO_CACHE]
         note("$ python -m vak run " + rel_chants(proj) + " --style " + job["style"])
-        p = subprocess.Popen(cmd, cwd=ROOT, env=ENV, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace", start_new_session=os.name != "nt")   # own process group on Linux, so cancel stops its children too
+        p = subprocess.Popen(cmd, cwd=ROOT, env=ENV, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace", start_new_session=os.name != "nt")   # own process group on Linux, so cancel stops its children too
         job["_pid"] = p.pid
         for line in p.stdout:                                                # 2. engine run, progress from its log
             if line.strip():

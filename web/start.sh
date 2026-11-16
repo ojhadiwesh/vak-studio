@@ -1,7 +1,7 @@
 #!/bin/sh
 # Container entry point (Dockerfile CMD). With a volume (Railway sets RAILWAY_VOLUME_MOUNT_PATH; else VAK_DATA), the
 # film library, art pieces, studio films and jobs live there and survive redeploys; the first boot fills it from the
-# seed archive in Supabase Storage (python -m web.seed pull).
+# seed archive in Supabase Storage, and every boot adds new extra packs (python -m web.seed pull).
 set -e
 cd /app
 DATA="${RAILWAY_VOLUME_MOUNT_PATH:-${VAK_DATA:-}}"
@@ -14,8 +14,8 @@ if [ -n "$DATA" ]; then
       rm -rf "$src"; ln -s "$dst" "$src"
     fi
   done
-  if [ ! -f "$DATA/.seeded" ] && [ "${VAK_SEED:-1}" != "0" ]; then
-    python -m web.seed pull "$DATA" && touch "$DATA/.seeded" || echo "seed: skipped (the Studio starts with an empty library)"
+  if [ "${VAK_SEED:-1}" != "0" ]; then                # the base pack on first boot, then any new extra packs
+    python -m web.seed pull "$DATA" || echo "seed: skipped (the Studio starts with what is on the volume)"
   fi
 fi
 exec python -m web --no-browser

@@ -456,11 +456,11 @@ h1.title em{font-style:normal;background:var(--v-grad);-webkit-background-clip:t
           <div class="lines-preview" id="linesPrev"></div>
           <div class="detect" id="detect"></div>
           <div class="bar">
-            <button class="chip" id="styleChip"><span class="sw" id="styleSw"></span><span id="styleName">Liquid gold</span><svg class="i s c"><use href="#down"/></svg></button>
+            <button class="chip" id="styleChip"><span class="sw" id="styleSw"></span><span id="styleName">Silhouette</span><svg class="i s c"><use href="#down"/></svg></button>
             <button class="chip" id="voiceChip"><svg class="i s"><use href="#mic"/></svg><span id="voiceName">Neural recitation</span><svg class="i s c"><use href="#down"/></svg></button>
             <button class="chip" id="ratioChip" title="Aspect ratio"><svg class="i s"><use href="#ratio"/></svg><span id="ratioName">16:9</span></button>
-            <button class="chip" id="narrChip"><svg class="i s"><use href="#story"/></svg><span id="narrName">No narration</span><svg class="i s c"><use href="#down"/></svg></button>
-            <div class="gen"><span class="est" id="est"><b>Free</b> · ready in seconds</span><button class="btn acc" id="genBtn">Generate<svg class="i s"><use href="#arrow"/></svg></button></div>
+            <button class="chip" id="narrChip"><svg class="i s"><use href="#story"/></svg><span id="narrName">Cited story</span><svg class="i s c"><use href="#down"/></svg></button>
+            <div class="gen"><span class="est" id="est"><b>Free</b> · about 10–15 min</span><button class="btn acc" id="genBtn">Generate<svg class="i s"><use href="#arrow"/></svg></button></div>
           </div>
           <div class="popover" id="stylePop"><div class="ph"><span>Visual style</span><span>Free styles render on this device</span></div><div class="sgrid" id="styleGrid"></div></div>
           <div class="popover menu" id="voicePop"></div>
@@ -509,7 +509,7 @@ h1.title em{font-style:normal;background:var(--v-grad);-webkit-background-clip:t
           <div class="vnote" id="wsVoiceNote"></div>
           <input type="file" id="fileIn" accept="audio/*" hidden></div>
         <div class="blk"><h4>Narration<span class="n" id="wsNarrN"></span></h4>
-          <div class="seg" id="wsNarr"><button data-n="none">None</button><button data-n="meaning">Meaning</button><button data-n="story">Cited story</button></div>
+          <div class="seg" id="wsNarr"><button data-n="meaning">Meaning</button><button data-n="story">Cited story</button></div>
           <div class="vnote" id="wsNarrNote"></div></div>
         <div class="blk"><h4>Style<span class="n" id="wsStyleN"></span></h4><div class="styles" id="wsStyles"></div></div>
       </div>
@@ -540,10 +540,10 @@ h1.title em{font-style:normal;background:var(--v-grad);-webkit-background-clip:t
             </div>
           </div>
         </div>
-        <div class="lookbar"><span class="lb">Look</span><div class="seg2" id="looks"><button data-l="film" class="on">Rendered film</button><span class="sep" id="lookSep"></span><span class="gl">Live</span><button data-l="nada">Nāda · cymatics</button><button data-l="gold">Liquid gold</button><button data-l="kana">Kaṇa · particles</button><button data-l="agni">Agni · fire</button><button data-l="dhupa">Dhūpa · smoke</button><button data-l="akasha">Ākāśa · sky</button></div>
-          <span class="lv" id="lookNote" hidden><i></i>Live: drawn in your browser from this chant's sound and word timings</span></div>
+        <div class="lookbar" hidden><div class="seg2" id="looks"><button data-l="film" class="on">Rendered film</button><span class="sep" id="lookSep"></span></div>
+          <span class="lv" id="lookNote" hidden></span></div>
         <div class="fhead"><div><h1 id="fTitle">&nbsp;</h1><div class="d" id="fDev"></div><div class="meta" id="fMeta"></div></div>
-          <div class="actions"><button class="btn sm" id="remixBtn"><svg class="i s"><use href="#remix"/></svg>Remix style</button><button class="btn sm" data-soon="Reel maker"><svg class="i s"><use href="#phone"/></svg>Make reel</button><a class="btn sm" id="dlBtn" download><svg class="i s"><use href="#dl"/></svg>Download</a><button class="btn pri sm" id="shareBtn"><svg class="i s"><use href="#share"/></svg>Share</button></div></div>
+          <div class="actions"><button class="btn sm" id="remixBtn" hidden><svg class="i s"><use href="#remix"/></svg>Remix style</button><button class="btn sm" data-soon="Reel maker"><svg class="i s"><use href="#phone"/></svg>Make reel</button><a class="btn sm" id="dlBtn" download><svg class="i s"><use href="#dl"/></svg>Download</a><button class="btn pri sm" id="shareBtn"><svg class="i s"><use href="#share"/></svg>Share</button></div></div>
         <div class="prov"><div class="ic"><svg class="i"><use href="#shield"/></svg></div><p id="fProv"></p><button class="btn ghost sm" data-soon="Sources">Sources</button></div>
         <div class="fabout" id="fAbout"></div>
         <div class="fmore" id="fMore"></div>
@@ -602,7 +602,7 @@ const posterOf = f => POSTER[f.id] ? IMG(POSTER[f.id]) : f.kind === 'studio' && 
 const STYLE_IMG = { gold: 'gold', nada: 'nada', kana: 'kana', agni: 'agni', dhupa: 'dhupa', akasha: 'akasha', yantra: 'ya_shiva', shadow_puppet: 'sp_sun', silhouette: 'si_62', ravi_varma: 'ai_b', art_nouveau: 'ai_a', pattachitra: 'ai_d', watercolour: 'ai_c' };
 const DEV = { gayatri: 'गायत्री', mahamrityunjaya: 'त्र्यम्बकं', studio: 'गायत्री' };
 let FILMS = [], PRESETS = [], STYLES = [];
-const S = { style: 'gold', voice: 'recite', narr: 'none', ratio: '16:9', preset: null };
+const S = { style: 'silhouette', voice: 'sung', narr: 'story', ratio: '16:9', preset: null };
 
 function toast(title, body, icon = 'check') {
   const t = document.createElement('div'); t.className = 'toast';
@@ -674,7 +674,7 @@ function analyse() {
 }
 const LIVE = ['gold', 'kana', 'agni', 'dhupa', 'akasha', 'nada'], isLive = st => LIVE.includes(st);
 const SB_STYLES = ['anime_painted', 'animated_3d', 'indian_comic', 'storybook', 'claymation', 'ravi_varma', 'pahari', 'pattachitra'];   // painted storybook films
-const storyMode = () => S.narr && S.narr !== 'none';
+const storyMode = () => true;                 // every film tells the chant's story (or its meaning)
 const storyStyles = () => STYLES.filter(s => s.id === 'silhouette' || SB_STYLES.includes(s.id)).sort((a, b) => (a.id === 'silhouette' ? -1 : SB_STYLES.indexOf(a.id)) - (b.id === 'silhouette' ? -1 : SB_STYLES.indexOf(b.id)));
 function pickStoryStyle(s) {
   if (SB_STYLES.includes(s.id) && !CAP.gpu) { toast(shortName(s) + ' needs the GPU', 'Painted storybook films are drawn on the RunPod GPU: start the pod and set VAK_COMFY_URL. Silhouette works now, free.', 'spark'); return false; }
@@ -686,7 +686,7 @@ function setEst(n) { $('#est').innerHTML = `<b>Free</b> · ${etaText(n)}`; }
 function fitVoice() {                    // a voice that can't be used for this chant falls back to recitation, never to a file picker
   if (S.voice === 'preset' && !(S.preset && S.preset.recording)) S.voice = S.upload ? 'upload' : 'recite';
   if (S.voice === 'upload' && !S.upload && !S.voicePicked) S.voice = 'recite';
-  if (S.voice === 'eleven' && !CAP.eleven) S.voice = 'recite';
+  if ((S.voice === 'eleven' || S.voice === 'sung') && !CAP.eleven) S.voice = 'recite';
 }
 let CAP = { eleven: false, cloud: false };
 function setVoiceLabel() { $('#voiceName').textContent = { preset: 'Library recording', upload: S.upload ? S.upload.name : 'Upload recording', recite: 'Neural recitation', eleven: 'ElevenLabs chant', sung: 'Sung chant' }[S.voice]; }
@@ -698,7 +698,7 @@ function pop(id, anchor) {
 document.addEventListener('click', e => { if (!e.target.closest('.popover') && !e.target.closest('.chip')) $$('.popover').forEach(x => x.classList.remove('on')); });
 $('#styleChip').onclick = e => pop('stylePop', e.currentTarget);
 $('#voiceChip').onclick = e => { renderMenu('voicePop', [...(S.preset && S.preset.recording ? [['preset', 'Library recording', S.preset.recording.split('(')[0].trim(), 'mic']] : []), ['upload', 'Upload a recording', 'Your own chanting, aligned word by word', 'upload'], ['sung', 'Sung chant', CAP.eleven ? 'Sung with a melody, tanpura and flute (ElevenLabs Music)' : 'Connect ElevenLabs first (API key on this computer)', 'spark'], ['eleven', 'ElevenLabs chant', CAP.eleven ? 'Spoken by Pranit, a devotional Indian voice' : 'Connect ElevenLabs first (API key on this computer)', 'mic'], ['recite', 'Neural recitation', 'A free draft voice that a teacher reviews', 'spark']], S.voice, v => { if ((v === 'eleven' || v === 'sung') && !CAP.eleven) { toast('ElevenLabs not connected', 'Set ELEVENLABS_API_KEY on this computer and restart the Studio.', 'mic'); return; } S.voice = v; S.voicePicked = true; setVoiceLabel(); if (v === 'upload' && !S.upload) pickFile(); }); pop('voicePop', e.currentTarget); };
-$('#narrChip').onclick = e => { renderMenu('narrPop', [['none', 'No narration', 'The chant on its own', 'story'], ['meaning', 'Meaning narration', 'A narrator explains each line first', 'text'], ['story', 'Cited story', 'Told from its source; otherwise the meaning', 'book']], S.narr, v => setNarr(v, true)); pop('narrPop', e.currentTarget); };
+$('#narrChip').onclick = e => { renderMenu('narrPop', [['meaning', 'Meaning narration', 'A narrator explains each line first', 'text'], ['story', 'Cited story', 'Told from its source; otherwise the meaning', 'book']], S.narr, v => setNarr(v, true)); pop('narrPop', e.currentTarget); };
 function setNarr(v, announce) {
   if (v !== 'none' && !CAP.interpret) { toast('Claude not connected', 'Narrated films need Claude: add ANTHROPIC_API_KEY on this computer and restart the Studio.', 'story'); return; }
   S.narr = v; $('#narrName').textContent = { none: 'No narration', meaning: 'Meaning narration', story: 'Cited story' }[v];
@@ -733,12 +733,14 @@ $('#genBtn').onclick = async () => {
 };
 
 // templates shelf
-const TPL = [['Mantra of Śiva', 'Kaṇa · Oṃ Namaḥ Śivāya', 'kana', '', 'kana', 'k:panchakshari', 'Free'],
-  ['Gāyatrī in light', 'Agni · Ṛgveda 3.62.10', 'agni', '', 'agni', 'gayatri', 'Free'],
-  ['Peace for all beings', 'Dhūpa · Lokāḥ Samastāḥ', 'dhupa', '', 'dhupa', 'k:lokah', 'Free'],
+const LALITA44 = 'निर्लेपा निर्मला नित्या निराकारा निराकुला ।\nनिर्गुणा निष्कला शान्ता निष्कामा निरुपप्लवा ॥ ४४॥';
+const TPL = [['The untouched one', 'Silhouette · Lalitā Sahasranāma 44', '/api/thumb/studio~lalita_sahasranama_44_agastya_1115-154720-7b5b~renders~lalita_sahasranama_44_agastya_silhouette.mp4', '/media/studio/lalita_sahasranama_44_agastya_1115-154720-7b5b/renders/lalita_sahasranama_44_agastya_silhouette.mp4#t=20', 'silhouette', 'txt:' + LALITA44, 'Story'],
+  ['Victory over death', 'Silhouette · Mahāmṛtyuñjaya', '/api/thumb/studio~the_mahamrtyunjaya_mantra_1115-222907-8c93~renders~the_mahamrtyunjaya_mantra_silhouette.mp4', '/media/studio/the_mahamrtyunjaya_mantra_1115-222907-8c93/renders/the_mahamrtyunjaya_mantra_silhouette.mp4#t=20', 'silhouette', 'mahamrityunjaya', 'Story'],
+  ['Armour of the Devī', 'Silhouette · Devī Kavacham', '/api/thumb/studio~the_armour_of_the_devi_1115-131203-cae7~renders~the_armour_of_the_devi_silhouette.mp4', '/media/studio/the_armour_of_the_devi_1115-131203-cae7/renders/the_armour_of_the_devi_silhouette.mp4#t=20', 'silhouette', 'txt:' + 'ॐ यद्गुह्यं परमं लोके सर्वरक्षाकरं नृणाम् ।\nयन्न कस्यचिदाख्यातं तन्मे ब्रूहि पितामह ॥ १ ॥\nअस्ति गुह्यतमं विप्र सर्वभूतोपकारकम् ।\nदेव्यास्तु कवचं पुण्यं तच्छृणुष्व महामुने ॥ २ ॥', 'Story'],
   ['Story of the seer', 'Silhouette · narrated story', 'si_8', '/media/gayatri/vishvamitra/renders/vishvamitra_silhouette.mp4#t=22', 'silhouette', 'gayatri', 'Narrated']];
+const tplImg = im => im.startsWith('/') ? im : IMG(im);
 function renderPresets() {
-  $('#presets').innerHTML = TPL.map(([n, d, im, v, , , tag], i) => `<div class="preset" data-i="${i}" style="background-image:url('${IMG(im)}')"><video muted loop playsinline preload="none" data-src="${v}"></video>
+  $('#presets').innerHTML = TPL.map(([n, d, im, v, , , tag], i) => `<div class="preset" data-i="${i}" style="background-image:url('${tplImg(im)}')"><video muted loop playsinline preload="none" data-src="${v}"></video>
     <span class="badge ${tag === 'Pro' ? 'pro' : 'mut'} pt" style="${tag === 'Pro' ? '' : 'background:rgba(10,10,12,.55);color:#fff;backdrop-filter:blur(8px)'}">${tag}</span>
     <button class="btn sm use">Use template</button><div class="pl"><b>${n}</b><span>${d}</span></div></div>`).join('');
   $$('.preset').forEach(c => {
@@ -748,7 +750,8 @@ function renderPresets() {
     c.onclick = () => {
       if (t[6] === 'Pro') { toast(t[0], 'AI-video templates render on a rented GPU. Available with Pro soon.', 'spark'); return; }
       if (t[6] === 'Narrated') { go('film', 'gayatri~vishvamitra~renders~vishvamitra_silhouette.mp4'); return; }
-      const p = PRESETS.find(x => x.id === t[5]); ta.value = p.text; ta.dispatchEvent(new Event('input'));
+      ta.value = t[5].startsWith('txt:') ? t[5].slice(4) : PRESETS.find(x => x.id === t[5]).text; ta.dispatchEvent(new Event('input'));
+      if (S.narr !== 'story') setNarr('story');
       const s = STYLES.find(x => x.id === t[4]);
       if (s) { S.style = s.id; $('#styleName').textContent = shortName(s); $('#styleSw').style.backgroundImage = `url('${IMG(STYLE_IMG[s.id])}')`; renderStyles(); }
       
@@ -911,7 +914,7 @@ function renderWsLeft() {
     : S.voice === 'eleven' ? `<b>ElevenLabs chant</b><br>Each line is voiced from the Devanagari by Pranit, a devotional Indian ElevenLabs voice; the text is sent to ElevenLabs. A teacher should review the pronunciation.${CAP.eleven ? '' : '<br><span style="color:var(--rose)">Not connected: set ELEVENLABS_API_KEY on this computer.</span>'}`
     : '<b>Neural recitation (draft)</b><br>A Hindi neural voice recites each line; the text is sent to Microsoft. A teacher must review the pronunciation.';
   $('#reup') && ($('#reup').onclick = pickFile);
-  $$('#wsNarr button').forEach(b => b.classList.toggle('on', b.dataset.n === (S.narr || 'none')));
+  $$('#wsNarr button').forEach(b => b.classList.toggle('on', b.dataset.n === S.narr));
   $('#wsNarrNote').innerHTML = storyMode() ? (S.narr === 'story' ? '<b>Cited story</b><br>Claude tells the story behind the chant when a source tells one, otherwise its meaning; then the chant is sung.' : '<b>Meaning narration</b><br>A narrator explains what the chant means, then it is sung.') + ' About 10–15 minutes.' : 'The chant on its own.';
   $('#wsStyleN').textContent = storyMode() ? 'Story styles' : 'Live styles are ready in seconds';
   interpretChant();
@@ -1322,7 +1325,7 @@ fetch('/api/auth/me').then(r => r.json()).then(r => { AUTH = r; ME = r.user; ren
   $('#gal').innerHTML = Array.from({ length: 6 }, () => '<div><div class="skel" style="aspect-ratio:16/9;border-radius:16px"></div><div class="skel" style="height:12px;width:60%;border-radius:6px;margin-top:12px"></div></div>').join('');
   [FILMS, PRESETS, STYLES, CAP] = await Promise.all([api('/api/films'), api('/api/presets'), api('/api/styles'), api('/api/capabilities').catch(() => CAP)]);
   $('#nFilms').textContent = FILMS.filter(f => f.kind !== 'reel').length;
-  renderStyles(); $('#styleSw').style.backgroundImage = `url('${IMG('gold')}')`; renderGal(); renderPresets();
+  renderStyles(); $('#styleSw').style.backgroundImage = `url('${IMG(STYLE_IMG.silhouette)}')`; fitVoice(); setVoiceLabel(); renderGal(); renderPresets();
   PRESETS.filter(p => ['gayatri', 'mahamrityunjaya', 'k:panchakshari', 'k:lokah'].includes(p.id)).forEach(p => { const b = document.createElement('button'); b.innerHTML = `<span class="d">${esc(p.text.split(/\s/).filter(w => w !== 'ॐ')[0])}</span>${esc(p.name.replace(' Mantra', ''))}`;
     b.onclick = () => { ta.value = p.text; ta.dispatchEvent(new Event('input')); ta.focus(); }; $('#starts').appendChild(b); });
   pollJobs();

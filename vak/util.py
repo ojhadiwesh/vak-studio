@@ -6,7 +6,10 @@ ASSETS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets")
 
 def sh(cmd, **kw):
     """Run a command list; raise with stderr on failure."""
-    r = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace", **kw)
+    try:
+        r = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace", **kw)
+    except subprocess.TimeoutExpired:
+        raise RuntimeError(f"command timed out after {kw.get('timeout')}s: {' '.join(map(str, cmd[:6]))} ...")
     if r.returncode != 0:
         raise RuntimeError(f"command failed: {' '.join(map(str, cmd[:6]))} ...\n{r.stderr[-1500:]}")
     return r.stdout
@@ -25,8 +28,12 @@ def stream(cmd, prefix="", **kw):
         raise RuntimeError(f"command failed: {' '.join(map(str, cmd[:6]))} ...\n" + "\n".join(tail))
 
 
+FFMPEG_TIMEOUT = int(os.environ.get("VAK_FFMPEG_TIMEOUT", "1200"))   # a stalled encode fails the job instead of hanging it
+
+
 def ffmpeg(*args):
-    return sh(["ffmpeg", "-v", "error", "-y", *map(str, args)])
+    # -nostdin: never wait on the keyboard (jobs run headless on the server)
+    return sh(["ffmpeg", "-nostdin", "-v", "error", "-y", *map(str, args)], stdin=subprocess.DEVNULL, timeout=FFMPEG_TIMEOUT)
 
 
 def duration(path):
